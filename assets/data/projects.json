@@ -1,83 +1,43 @@
 [
   {
-  "title": "DoctorPhi: Medical QA Prototype",
-  "subtitle": "High-Precision Medical QA with Phi-2 and BERTScore Reranking",
-  "description": "DoctorPhi v1 is a lightweight medical question-answering prototype built on Microsoft's Phi-2 language model. It features sentence-level BERTScore reranking to boost answer precision and is evaluated on MedQuAD with extensive visual diagnostics. Built entirely in Colab, it demonstrates that explainability and performance are possible on limited compute. DEMO: https://huggingface.co/spaces/sarathlella/doctorphi_v1",
-  "category": "filter-app",
-    "technologies": ["LLM", "phi-2", "HuggingFace", "Healthcare AI", "BERTScore", "QA", "Colab"],
+  "title": "Control of Multivariable Process",
+  "subtitle": "Designinh the PID COntroller for a Newell and Lee Evaporator",
+  "description": "This project focuses on modeling and controlling the Newell and Lee forced circulation evaporator using MATLAB and Simulink. The system was analyzed for its steady-state and dynamic responses, revealing instability under open-loop conditions. A 2x2 MIMO control strategy was developed from the original 3x3 system using Relative Gain Array (RGA) analysis, and SISO PID controllers were designed and tuned using both Ziegler–Nichols and relay feedback methods to optimize rise time, settling time, and overshoot.",
+  "technologies": ["MATLAB", "Simulink", "PID -Tuning"],
   "image": "assets/img/portfolio/doctorphi.jpg",
-  "githubLink": "https://github.com/sarathlella/doctorphi_v1"
+  "githubLink": "https://github.com/Sasi-vadde/Projects"
 },
   {
-    "title": "IDC Breast Cancer Detection",
-    "subtitle": "Patch-level CNN Ensemble with Explainability",
+    "title": "CFD Simulation of Airflow around the Arc de Triomphe",
+    "subtitle": "A Computational Fluid Dynamics Analysis",
     "image": "assets/img/portfolio/portfolio-1.jpg",
-    "category": "filter-app",
-    "description": "Deep learning-based classification of IDC breast cancer histopathology images using a Fusion CNN approach with explainable AI techniques. Focused on building robust, interpretable medical imaging models.",
-    "technologies": ["TensorFlow", "EfficientNet", "ResNet", "GradCAM", "TTA", "CNN"],
-    "githubLink": "https://github.com/sarathlella/idc-breast-cancer-fusion-cnn"
+    "description": "This project involved performing a CFD simulation to analyze the airflow around the Arc de Triomphe. The simulation explored the flow characteristics, including velocity, pressure, drag, and lift forces, for inflow velocities of 9 m/s and 18 m/s. The analysis revealed that while the drag coefficient remains nearly constant for a given flow direction, the drag force itself increases as the velocity increases.",
+    "technologies": ["StarCCM+", "Mesh Generation", "Turbulence Modeling", "Flow Characterstics"],
+    "githubLink": "https://github.com/Sasi-vadde/Projects"
   },
   {
-    "title": "Heart Disease Risk Prediction",
-    "subtitle": "Explainable Risk Scoring Model",
+    "title": "Single Particle Trajectory Simulation for Explosion Prevention",
+    "subtitle": "Single Particle Simulation",
     "image": "assets/img/portfolio/portfolio-2.jpg",
-    "category": "filter-app",
-    "description": "Machine learning model to predict heart disease risk with SHAP explainability. Trained using UCI dataset and deployed with insights into medical features influencing predictions.",
-    "technologies": ["Python", "Scikit-learn", "SHAP", "XGBoost", "Pandas"],
-    "githubLink": "https://github.com/sarathlella/Heart-Disease-Risk-Prediction"
+    "description": "This presentation demonstrates how numerical simulations using OpenFOAM can be applied to explosion prevention by tracking a single particle's motion within a defined box. Using a Lagrangian approach with the Discrete Particle Modelling (DPM) solver, boundary conditions such as inlet/outlet pressures, particle position, and velocity are specified. The simulation results are visualized in ParaView, providing insights into particle trajectories between parallel plates under specified flow and pressure conditions.",
+    "technologies": ["OpenFOAM", "C++", "Fusion 360"],
+    "githubLink": "https://github.com/Sasi-vadde/Projects"
   },
   {
-  "title": "PromptShell: Voice-Powered AI Framework",
-  "subtitle": "Modular, Prompt-Driven AI with Whisper + Gemini",
-  "description": "PromptShell is a local-first, voice-powered AI assistant that adapts to any role by simply swapping a prompt file. It uses Whisper for offline transcription, Gemini 1.5 for real-time LLM responses, and a spacebar-controlled Tkinter UI for zero-click interaction. Built for privacy, speed, and modular creativity.",
-  "category": "filter-app",
-  "technologies": ["Python", "Whisper", "Gemini", "Tkinter", "Prompt Engineering", "LLM", "Voice AI"],
+  "title": "Numerical Simulation of Convection Airflow Around Heating Elements",
+  "subtitle": "MA Study on Mesh Resolution and Plate Distance Using OpenFOAM",
+  "description": "Convection airflow around two rectangular heating elements. Using OpenFOAM, the simulation varied the mesh resolution and the distance between the plates. The report notes that heat loss due to radiation was considered low and was therefore neglected.",
+  "technologies": ["OpenFOAM", "ANSYS"],
   "image": "assets/img/portfolio/promptshell.jpg",
-  "githubLink": "https://github.com/sarathlella/promptshell"
+  "githubLink": "https://github.com/Sasi-vadde/Projects"
 },
   {
-    "title": "Twitter Sentiment Dashboard",
-    "subtitle": "Live Twitter Data Pipeline",
+    "title": "MLCE 2023 Project: Vapor Pressure Prediction",
+    "subtitle": "Predicting Vapor Pressures Using Machine Learning",
     "image": "assets/img/portfolio/portfolio-3.jpg",
-    "category": "filter-data",
-    "description": "End-to-end NLP dashboard for sentiment analysis using real-time Twitter data streams. Built with Jupyter notebooks, this project processes tweet text and visualizes sentiment distributions.",
-    "technologies": ["Tweepy", "NLTK", "TextBlob", "Matplotlib", "Pandas"],
-    "githubLink": "https://github.com/sarathlella/Live-twitter-data-analysis"
-  },
-  {
-    "title": "Movie Recommendation System",
-    "subtitle": "Big Data + Collaborative Filtering",
-    "image": "assets/img/portfolio/portfolio-4.jpg",
-    "category": "filter-data",
-    "description": "Built a collaborative filtering model to recommend movies based on user ratings. Applied on large movie rating dataset and visualized performance of predicted vs actual preferences.",
-    "technologies": ["Spark", "MLlib", "Python", "Pandas", "Surprise"],
-    "githubLink": "https://github.com/sarathlella/Movie-Recommendation-System"
-  },
-  {
-    "title": "Vegetable Image Classifier",
-    "subtitle": "Basic Image Recognition Model",
-    "image": "assets/img/portfolio/portfolio-5.jpg",
-    "category": "filter-cv",
-    "description": "Trained a CNN to classify vegetable images into categories using basic computer vision techniques and data augmentation.",
-    "technologies": ["Keras", "CNN", "ImageDataGenerator", "OpenCV"],
-    "githubLink": "https://github.com/sarathlella/VegetableImageClassification"
-  },
-  {
-    "title": "Tweet Analyzer (PB)",
-    "subtitle": "Jupyter NLP Demo",
-    "image": "assets/img/portfolio/portfolio-6.jpg",
-    "category": "filter-nlp",
-    "description": "An older notebook project for analyzing tweet text using Python and basic NLP methods.",
-    "technologies": ["Python", "Tweepy", "TextBlob", "NLTK"],
-    "githubLink": "https://github.com/sarathlella/Twitter_PB"
-  },
-  {
-    "title": "Diabetes Detection from Wearable Data (Coming Soon)",
-    "subtitle": "Early Risk Classifier with Simulated Features",
-    "image": "assets/img/portfolio/portfolio-8.jpg",
-    "category": "filter-app",
-    "description": "A classifier built to detect early-stage diabetes risk using wearable-style features from synthetic and real datasets. Goal is to integrate sensor-like data with ML models.",
-    "technologies": ["Scikit-learn", "XGBoost", "Python", "Pandas", "EDA"],
-    "githubLink": ""
+    "description": "The aim of this project is to predict the vapor pressure of various chemical species as a function of temperature and molecular descriptors. The data set used for this task is derived from the MLCE book and the RDKit toolkit. The data includes temperatures in Kelvin (K) and pressures in kilopascals (kPa).",
+    "technologies": ["Python"],
+    "githubLink": "https://github.com/Sasi-vadde/Projects"
   }
+  
 ]
