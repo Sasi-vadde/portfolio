@@ -193,59 +193,114 @@
     }
 
     /* ── SKILLS ──────────────────────────────────────────── */
+    /* ── SKILLS ──────────────────────────────────────────── */
     .skills { background: var(--bg-section) !important; padding: 40px 0; }
 
-    .skills .skill {
+    .skill-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--bg-card);
+    }
+
+    .skill-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 22px 12px;
+      border-bottom: 1px solid var(--border-lt);
+      border-right: 1px solid var(--border-lt);
+      background: var(--bg-card);
+      transition: background 0.2s;
+      position: relative;
+    }
+    .skill-row:hover { background: var(--bg); }
+
+    /* remove right border from right column */
+    .skill-row:nth-child(even) { border-right: none; }
+    /* remove bottom border from last two rows */
+    .skill-row:nth-last-child(-n+2) { border-bottom: none; }
+
+    .skill-name {
       font-family: var(--ff-mono) !important;
-      font-size: 0.78rem !important;
-      color: var(--text) !important;
-      letter-spacing: 0.5px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--navy);
+      letter-spacing: 1px;
+      text-transform: uppercase;
     }
-    .skills .val {
-      float: right;
+
+    .skill-badge {
       font-family: var(--ff-mono) !important;
-      font-size: 0.72rem;
-      color: var(--accent) !important;
-      font-style: normal;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 3px;
     }
-    .skills .progress-bar-wrap {
-      background: var(--border-lt) !important;
-      border: none !important;
-      height: 5px !important;
-      border-radius: 2px;
+    .badge-advanced  { color: var(--navy);   background: rgba(15,31,56,0.08); }
+    .badge-proficient{ color: var(--accent);  background: rgba(26,95,168,0.1); }
+    .badge-learning  { color: #c9972c;        background: rgba(201,151,44,0.1); }
+    .badge-familiar  { color: var(--text-muted); background: rgba(122,136,153,0.1); }
+
+    .skill-bar-track {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--border-lt);
     }
-    .skills .progress-bar {
-      background: linear-gradient(90deg, var(--navy), var(--accent-lt)) !important;
-      height: 5px !important;
-      border-radius: 2px;
-      box-shadow: none !important;
+    .skill-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--navy), var(--accent-lt));
+      width: 0;
+      transition: width 1.1s cubic-bezier(0.22,1,0.36,1);
     }
+    .skills-animate .skill-bar-fill { width: var(--bar-w); }
 
     /* ── INTERESTS ───────────────────────────────────────── */
     .interests { background: var(--bg) !important; padding-bottom: 50px; }
 
-    .interests .icon-box {
+    .interests-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 991px) { .interests-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 575px)  { .interests-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    .interests-grid .icon-box {
       background: var(--bg-card) !important;
       border: 1px solid var(--border) !important;
-      border-radius: 6px !important;
+      border-radius: 8px !important;
       transition: all 0.25s ease !important;
-      padding: 20px 15px !important;
+      padding: 28px 16px 22px !important;
       text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
-      min-height: 110px;
       justify-content: center;
+      min-height: 130px;
     }
-    .interests .icon-box:hover {
+    .interests-grid .icon-box:hover {
       border-color: var(--navy) !important;
-      box-shadow: 0 4px 16px rgba(15,31,56,0.08);
-      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(15,31,56,0.1);
+      transform: translateY(-3px);
     }
-    .interests .icon-box h3 {
+    .interests-grid .icon-box img {
+      width: 48px; height: 48px;
+      object-fit: contain;
+      margin-bottom: 12px;
+    }
+    .interests-grid .icon-box h3 {
       color: var(--text-mid) !important;
       font-size: 0.82rem !important;
       font-weight: 500;
+      margin: 0;
+      line-height: 1.3;
     }
 
     /* ── SIM DIVIDER ─────────────────────────────────────── */
@@ -664,19 +719,19 @@
       transform: none;
     }
     /* stagger children */
-    .reveal-stagger > * {
+    .reveal-stagger > *, .interests-grid.reveal-stagger > * {
       opacity: 0;
       transform: translateY(24px);
       transition: opacity 0.5s cubic-bezier(0.22,1,0.36,1), transform 0.5s cubic-bezier(0.22,1,0.36,1);
     }
-    .reveal-stagger.visible > *:nth-child(1) { opacity:1; transform:none; transition-delay: 0.05s; }
-    .reveal-stagger.visible > *:nth-child(2) { opacity:1; transform:none; transition-delay: 0.12s; }
-    .reveal-stagger.visible > *:nth-child(3) { opacity:1; transform:none; transition-delay: 0.19s; }
-    .reveal-stagger.visible > *:nth-child(4) { opacity:1; transform:none; transition-delay: 0.26s; }
-    .reveal-stagger.visible > *:nth-child(5) { opacity:1; transform:none; transition-delay: 0.33s; }
-    .reveal-stagger.visible > *:nth-child(6) { opacity:1; transform:none; transition-delay: 0.40s; }
-    .reveal-stagger.visible > *:nth-child(7) { opacity:1; transform:none; transition-delay: 0.47s; }
-    .reveal-stagger.visible > *:nth-child(8) { opacity:1; transform:none; transition-delay: 0.54s; }
+    .reveal-stagger.visible > *:nth-child(1), .interests-grid.reveal-stagger.visible > *:nth-child(1) { opacity:1; transform:none; transition-delay: 0.05s; }
+    .reveal-stagger.visible > *:nth-child(2), .interests-grid.reveal-stagger.visible > *:nth-child(2) { opacity:1; transform:none; transition-delay: 0.12s; }
+    .reveal-stagger.visible > *:nth-child(3), .interests-grid.reveal-stagger.visible > *:nth-child(3) { opacity:1; transform:none; transition-delay: 0.19s; }
+    .reveal-stagger.visible > *:nth-child(4), .interests-grid.reveal-stagger.visible > *:nth-child(4) { opacity:1; transform:none; transition-delay: 0.26s; }
+    .reveal-stagger.visible > *:nth-child(5), .interests-grid.reveal-stagger.visible > *:nth-child(5) { opacity:1; transform:none; transition-delay: 0.33s; }
+    .reveal-stagger.visible > *:nth-child(6), .interests-grid.reveal-stagger.visible > *:nth-child(6) { opacity:1; transform:none; transition-delay: 0.40s; }
+    .reveal-stagger.visible > *:nth-child(7), .interests-grid.reveal-stagger.visible > *:nth-child(7) { opacity:1; transform:none; transition-delay: 0.47s; }
+    .reveal-stagger.visible > *:nth-child(8), .interests-grid.reveal-stagger.visible > *:nth-child(8) { opacity:1; transform:none; transition-delay: 0.54s; }
 
     /* section title left-border slide-in */
     .section-title {
@@ -686,10 +741,6 @@
     .section-title.visible {
       border-left-color: var(--navy);
     }
-
-    /* progress bar animated fill */
-    .progress-bar { width: 0 !important; transition: width 1.1s cubic-bezier(0.22,1,0.36,1) !important; }
-    .skills-animate .progress-bar { width: var(--bar-w) !important; }
 
     /* sim divider subtle pan */
     .sim-panel svg {
@@ -774,42 +825,46 @@
     <div class="section-title">
       <h2 data-label="02 — Toolset">Skills</h2>
     </div>
-    <div class="row skills-content">
-      <div class="col-lg-6">
-        <div class="progress">
-          <span class="skill">Python <i class="val">Advanced</i></span>
-          <div class="progress-bar-wrap"><div class="progress-bar" style="width:90%"></div></div>
-        </div>
-        <div class="progress">
-          <span class="skill">Dymola / Modelica <i class="val">Advanced</i></span>
-          <div class="progress-bar-wrap"><div class="progress-bar" style="width:88%"></div></div>
-        </div>
-        <div class="progress">
-          <span class="skill">MATLAB / Simulink <i class="val">Proficient</i></span>
-          <div class="progress-bar-wrap"><div class="progress-bar" style="width:80%"></div></div>
-        </div>
-        <div class="progress">
-          <span class="skill">PyTorch / TensorFlow <i class="val">Proficient</i></span>
-          <div class="progress-bar-wrap"><div class="progress-bar" style="width:74%"></div></div>
-        </div>
+    <div class="skill-grid skills-content reveal">
+      <div class="skill-row">
+        <span class="skill-name">Python</span>
+        <span class="skill-badge badge-advanced">Advanced</span>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="--bar-w:90%"></div></div>
       </div>
-      <div class="col-lg-6">
-        <div class="progress">
-          <span class="skill">STAR-CCM+ <i class="val">Proficient</i></span>
-          <div class="progress-bar-wrap"><div class="progress-bar" style="width:80%"></div></div>
-        </div>
-        <div class="progress">
-          <span class="skill">OpenFOAM <i class="val">Proficient</i></span>
-          <div class="progress-bar-wrap"><div class="progress-bar" style="width:76%"></div></div>
-        </div>
-        <div class="progress">
-          <span class="skill">MFiX / DEM Simulation <i class="val">Learning</i></span>
-          <div class="progress-bar-wrap"><div class="progress-bar" style="width:48%"></div></div>
-        </div>
-        <div class="progress">
-          <span class="skill">Aspen Plus <i class="val">Familiar</i></span>
-          <div class="progress-bar-wrap"><div class="progress-bar" style="width:62%"></div></div>
-        </div>
+      <div class="skill-row">
+        <span class="skill-name">STAR-CCM+</span>
+        <span class="skill-badge badge-proficient">Proficient</span>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="--bar-w:80%"></div></div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">Dymola / Modelica</span>
+        <span class="skill-badge badge-advanced">Advanced</span>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="--bar-w:88%"></div></div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">OpenFOAM</span>
+        <span class="skill-badge badge-proficient">Proficient</span>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="--bar-w:76%"></div></div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">MATLAB / Simulink</span>
+        <span class="skill-badge badge-proficient">Proficient</span>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="--bar-w:80%"></div></div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">MFiX / DEM Simulation</span>
+        <span class="skill-badge badge-learning">Learning</span>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="--bar-w:48%"></div></div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">PyTorch / TensorFlow</span>
+        <span class="skill-badge badge-proficient">Proficient</span>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="--bar-w:74%"></div></div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">Aspen Plus</span>
+        <span class="skill-badge badge-familiar">Familiar</span>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="--bar-w:62%"></div></div>
       </div>
     </div>
   </div>
@@ -819,63 +874,38 @@
     <div class="section-title">
       <h2 data-label="03 — Beyond Work">Interests</h2>
     </div>
-    <div class="row">
-    <div class="row reveal-stagger" style="row-gap:16px;">
-      <!-- Numerical Simulations -->
-      <div class="col-lg-3 col-md-4 col-6">
-        <div class="icon-box">
-          <img src="https://img.icons8.com/color/48/simulation.png" alt="Simulations" width="42" height="42" style="margin-bottom:10px;object-fit:contain;" onerror="this.src='https://img.icons8.com/fluency/48/physics.png'">
-          <h3>Numerical Simulations</h3>
-        </div>
+    <div class="interests-grid reveal-stagger">
+      <div class="icon-box">
+        <img src="https://img.icons8.com/color/48/simulation.png" alt="Simulations" onerror="this.src='https://img.icons8.com/fluency/48/physics.png'">
+        <h3>Numerical Simulations</h3>
       </div>
-      <!-- Machine Learning / AI -->
-      <div class="col-lg-3 col-md-4 col-6">
-        <div class="icon-box">
-          <img src="https://img.icons8.com/color/48/artificial-intelligence.png" alt="ML/AI" width="42" height="42" style="margin-bottom:10px;object-fit:contain;">
-          <h3>Machine Learning / AI</h3>
-        </div>
+      <div class="icon-box">
+        <img src="https://img.icons8.com/color/48/artificial-intelligence.png" alt="ML/AI">
+        <h3>Machine Learning / AI</h3>
       </div>
-      <!-- Chess -->
-      <div class="col-lg-3 col-md-4 col-6">
-        <div class="icon-box">
-          <img src="https://img.icons8.com/color/48/chess.png" alt="Chess" width="42" height="42" style="margin-bottom:10px;object-fit:contain;">
-          <h3>Chess</h3>
-        </div>
+      <div class="icon-box">
+        <img src="https://img.icons8.com/color/48/chess.png" alt="Chess">
+        <h3>Chess</h3>
       </div>
-      <!-- Volleyball -->
-      <div class="col-lg-3 col-md-4 col-6">
-        <div class="icon-box">
-          <img src="https://img.icons8.com/color/48/volleyball.png" alt="Volleyball" width="42" height="42" style="margin-bottom:10px;object-fit:contain;">
-          <h3>Volleyball</h3>
-        </div>
+      <div class="icon-box">
+        <img src="https://img.icons8.com/color/48/volleyball.png" alt="Volleyball">
+        <h3>Volleyball</h3>
       </div>
-      <!-- Jazz Drums -->
-      <div class="col-lg-3 col-md-4 col-6">
-        <div class="icon-box">
-          <img src="https://img.icons8.com/color/48/drum-set.png" alt="Jazz Drums" width="42" height="42" style="margin-bottom:10px;object-fit:contain;">
-          <h3>Jazz Drums</h3>
-        </div>
+      <div class="icon-box">
+        <img src="https://img.icons8.com/color/48/drum-set.png" alt="Jazz Drums">
+        <h3>Jazz Drums</h3>
       </div>
-      <!-- Hiking -->
-      <div class="col-lg-3 col-md-4 col-6">
-        <div class="icon-box">
-          <img src="https://img.icons8.com/color/48/trekking.png" alt="Hiking" width="42" height="42" style="margin-bottom:10px;object-fit:contain;">
-          <h3>Hiking</h3>
-        </div>
+      <div class="icon-box">
+        <img src="https://img.icons8.com/color/48/trekking.png" alt="Hiking">
+        <h3>Hiking</h3>
       </div>
-      <!-- Cricket -->
-      <div class="col-lg-3 col-md-4 col-6">
-        <div class="icon-box">
-          <img src="https://img.icons8.com/color/48/cricket.png" alt="Cricket" width="42" height="42" style="margin-bottom:10px;object-fit:contain;">
-          <h3>Cricket</h3>
-        </div>
+      <div class="icon-box">
+        <img src="https://img.icons8.com/color/48/cricket.png" alt="Cricket">
+        <h3>Cricket</h3>
       </div>
-      <!-- Table Tennis -->
-      <div class="col-lg-3 col-md-4 col-6">
-        <div class="icon-box">
-          <img src="https://img.icons8.com/color/48/ping-pong.png" alt="Table Tennis" width="42" height="42" style="margin-bottom:10px;object-fit:contain;">
-          <h3>Table Tennis</h3>
-        </div>
+      <div class="icon-box">
+        <img src="https://img.icons8.com/color/48/ping-pong.png" alt="Table Tennis">
+        <h3>Table Tennis</h3>
       </div>
     </div>
   </div>
@@ -1418,7 +1448,7 @@
       { sel: '.about-me .col-lg-4', cls: 'reveal-left' },
       { sel: '.about-me .col-lg-8', cls: 'reveal-right' },
       // Skills block
-      { sel: '.skills .skills-content', cls: 'reveal' },
+      { sel: '.skill-grid', cls: 'reveal' },
       // Interest boxes row
       { sel: '.interests .row', cls: 'reveal-stagger' },
       // Resume items
@@ -1450,12 +1480,7 @@
       });
     });
 
-    // Skills: store bar widths, reset to 0
-    document.querySelectorAll('.progress-bar').forEach(bar => {
-      const w = bar.style.width;
-      bar.style.setProperty('--bar-w', w);
-      bar.style.width = '0';
-    });
+    // Skills bars already start at 0 via CSS, triggered by skills-animate class
 
     // IntersectionObserver
     const observer = new IntersectionObserver((entries) => {
@@ -1485,7 +1510,7 @@
         }
       });
     }, { threshold: 0.2 });
-    document.querySelectorAll('.skills-content').forEach(el => skillsObs.observe(el));
+    document.querySelectorAll('.skill-grid').forEach(el => skillsObs.observe(el));
 
     // Active nav link highlight on scroll
     const sections = document.querySelectorAll('section[id], header[id]');
