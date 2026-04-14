@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sasi Kanth Vadde — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --dark: #1e1f1a;
+    --dark2: #2a2b24;
+    --cream: #f5f0e8;
+    --cream2: #ece5d6;
+    --orange: #e07b39;
+    --orange2: #c96a28;
+    --text: #1e1f1a;
+    --muted: #6b6855;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.1rem 3rem;
+    background: var(--dark);
+  }
+  .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1rem; color: var(--cream); letter-spacing: 0.12em; text-transform: uppercase; }
+  .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+  .nav-links a { color: rgba(245,240,232,0.6); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; font-family: 'Syne', sans-serif; font-weight: 600; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--cream); }
+  .nav-cta { background: var(--orange); color: #fff; padding: 0.55rem 1.3rem; border-radius: 2px; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; }
+  .nav-cta:hover { background: var(--orange2); }
+
+  /* QUOTE BANNER */
+  .quote-banner {
+    background: var(--dark);
+    border-bottom: 1px solid rgba(224,123,57,0.2);
+    padding: 5rem 3rem 4rem;
+    margin-top: 56px;
+    position: relative; overflow: hidden;
+  }
+  .quote-banner::before {
+    content: '\201C';
+    position: absolute; top: -2rem; left: 2rem;
+    font-family: 'DM Serif Display', serif;
+    font-size: 18rem; line-height: 1;
+    color: rgba(224,123,57,0.04);
+    pointer-events: none; user-select: none;
+  }
+  .quote-inner {
+    max-width: 860px; margin: 0 auto;
+    position: relative; z-index: 1;
+  }
+  .quote-mark {
+    display: block;
+    font-family: 'DM Serif Display', serif;
+    font-size: 4rem; line-height: 0.6;
+    color: var(--orange); opacity: 0.7;
+    margin-bottom: 1rem;
+  }
+  .quote-text {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: clamp(1.15rem, 2.4vw, 1.6rem);
+    line-height: 1.65;
+    color: rgba(245,240,232,0.82);
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    border: none; margin: 0;
+  }
+  .quote-author {
+    display: block;
+    margin-top: 1.4rem;
+    font-family: 'Syne', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--orange);
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--dark);
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse 60% 50% at 50% 20%, #2e3028 0%, var(--dark) 70%);
+    pointer-events: none;
+  }
+  .hero-top {
+    display: grid; grid-template-columns: 1fr auto 1fr;
+    align-items: flex-end;
+    padding: 4rem 3rem 0;
+    position: relative; z-index: 2; flex: 1;
+  }
+  .hero-left { padding-bottom: 2rem; }
+  .hero-available { font-family: 'Syne', sans-serif; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(245,240,232,0.45); margin-bottom: 0.4rem; }
+  .hero-status { font-family: 'Syne', sans-serif; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--orange); font-weight: 700; }
+
+  .hero-center { display: flex; align-items: flex-end; justify-content: center; }
+  .hero-photo-wrap {
+    width: 240px; height: 320px; overflow: hidden;
+    border-radius: 4px 4px 0 0;
+    border: 1px solid rgba(255,255,255,0.08);
+    flex-shrink: 0;
+  }
+  .hero-photo-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center top; filter: grayscale(15%) contrast(1.05); }
+
+  .hero-right { padding-bottom: 2rem; text-align: right; }
+  .hero-title-sm { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1rem; color: rgba(245,240,232,0.5); letter-spacing: 0.04em; margin-bottom: 0.2rem; }
+  .hero-title-lg { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.15rem; line-height: 1.2; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cream); }
+  .hero-title-accent { color: var(--orange); }
+
+  .hero-name {
+    position: relative; z-index: 2;
+    padding: 1.5rem 3rem 2.5rem;
+    border-top: 1px solid rgba(255,255,255,0.04);
+  }
+  .hero-name h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3.5rem, 9vw, 8rem);
+    line-height: 0.88; color: var(--cream);
+    letter-spacing: 0.01em;
+  }
+  .hero-name h1 span { color: var(--orange); }
+  .hero-name-sub {
+    font-family: 'Syne', sans-serif; font-size: 0.7rem; letter-spacing: 0.2em;
+    color: rgba(245,240,232,0.35); text-transform: uppercase; margin-top: 0.7rem;
+  }
+
+  /* ABOUT */
+  .about {
+    padding: 5.5rem 3rem;
+    display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: start;
+    background: var(--cream);
+  }
+  .section-label { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 2.2rem; text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 1.5rem; }
+  .about-text { font-size: 1.05rem; line-height: 1.75; color: var(--muted); font-weight: 300; }
+  .about-text strong { color: var(--orange); font-weight: 500; }
+  .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 2.5rem; border: 1px solid rgba(30,31,26,0.12); border-radius: 4px; overflow: hidden; }
+  .stat-item { padding: 1.4rem 1.6rem; border-right: 1px solid rgba(30,31,26,0.12); }
+  .stat-item:last-child { border-right: none; }
+  .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.8rem; line-height: 1; color: var(--orange); }
+  .stat-label { font-family: 'Syne', sans-serif; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-top: 0.25rem; }
+
+  .skills-grid { margin-top: 0; }
+  .skills-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .skill-tag { background: var(--dark); color: var(--cream); font-family: 'Syne', sans-serif; font-size: 0.7rem; letter-spacing: 0.08em; padding: 0.4rem 0.85rem; border-radius: 2px; font-weight: 600; }
+  .skill-tag.highlight { background: var(--orange); }
+
+  /* WORK EXPERIENCE */
+  .work {
+    background: var(--dark2);
+    padding: 5.5rem 3rem;
+  }
+  .work .section-label { color: var(--cream); }
+  .work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem; }
+  .work-card {
+    background: rgba(245,240,232,0.04); border: 1px solid rgba(245,240,232,0.08);
+    border-radius: 4px; padding: 2rem;
+    transition: border-color 0.25s, background 0.25s;
+    position: relative; overflow: hidden;
+  }
+  .work-card::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%;
+    background: var(--orange); opacity: 0;
+    transition: opacity 0.25s;
+  }
+  .work-card:hover { border-color: rgba(224,123,57,0.3); background: rgba(224,123,57,0.04); }
+  .work-card:hover::before { opacity: 1; }
+  .work-card.featured { grid-column: 1 / -1; }
+  .work-org-tag { font-family: 'Syne', sans-serif; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.6rem; font-weight: 700; }
+  .work-role { font-family: 'DM Serif Display', serif; font-size: 1.5rem; color: var(--cream); margin-bottom: 0.3rem; line-height: 1.2; }
+  .work-period { font-family: 'Syne', sans-serif; font-size: 0.68rem; color: rgba(245,240,232,0.35); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1.2rem; }
+  .work-divider { border: none; border-top: 1px solid rgba(245,240,232,0.08); margin: 1rem 0; }
+  .work-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+  .work-bullets li { font-size: 0.85rem; color: rgba(245,240,232,0.55); line-height: 1.6; padding-left: 1rem; position: relative; font-weight: 300; }
+  .work-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--orange); opacity: 0.6; font-size: 0.75rem; top: 0.1em; }
+  .work-meta { display: flex; gap: 2rem; margin-top: 1.5rem; }
+  .work-meta-item { }
+  .work-meta-label { font-family: 'Syne', sans-serif; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(245,240,232,0.3); margin-bottom: 0.2rem; }
+  .work-meta-val { font-family: 'Syne', sans-serif; font-size: 0.78rem; color: rgba(245,240,232,0.65); font-weight: 600; }
+
+  /* PROJECTS */
+  .projects {
+    background: var(--cream);
+    padding: 5.5rem 3rem;
+  }
+  .projects-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; }
+  .view-more { font-family: 'Syne', sans-serif; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dark); background: var(--cream2); border: 1px solid rgba(30,31,26,0.15); padding: 0.5rem 0.9rem; border-radius: 2px; text-decoration: none; font-weight: 700; }
+  .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .proj-card { border: 1px solid rgba(30,31,26,0.1); border-radius: 4px; overflow: hidden; background: #fff; }
+  .proj-thumb {
+    height: 180px; background: var(--dark2);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .proj-thumb-text { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; color: rgba(245,240,232,0.07); letter-spacing: 0.04em; }
+  .proj-thumb-icon {
+    position: absolute; bottom: 1rem; right: 1rem;
+    width: 42px; height: 42px; background: var(--orange); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .proj-thumb-icon svg { width: 16px; height: 16px; fill: none; stroke: #fff; stroke-width: 2; }
+  .proj-body { padding: 1.4rem; }
+  .proj-type { font-family: 'Syne', sans-serif; font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--orange); font-weight: 700; margin-bottom: 0.4rem; }
+  .proj-name { font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: var(--text); margin-bottom: 0.6rem; }
+  .proj-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.6; font-weight: 300; }
+  .proj-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.9rem; }
+  .proj-tag { font-family: 'Syne', sans-serif; font-size: 0.6rem; letter-spacing: 0.06em; padding: 0.25rem 0.55rem; border: 1px solid rgba(30,31,26,0.15); border-radius: 2px; color: var(--muted); font-weight: 600; }
+
+  /* EDUCATION */
+  .education {
+    background: var(--cream2);
+    padding: 5rem 3rem;
+  }
+  .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem; }
+  .edu-card { background: var(--cream); border: 1px solid rgba(30,31,26,0.1); border-radius: 4px; padding: 1.8rem; }
+  .edu-degree { font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: var(--text); margin-bottom: 0.4rem; line-height: 1.3; }
+  .edu-school { font-family: 'Syne', sans-serif; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--orange); font-weight: 700; margin-bottom: 0.3rem; }
+  .edu-location { font-family: 'Syne', sans-serif; font-size: 0.68rem; color: var(--muted); margin-bottom: 1rem; }
+  .edu-focus { font-size: 0.82rem; color: var(--muted); line-height: 1.6; font-weight: 300; }
+
+  /* CTA FOOTER */
+  .cta-footer {
+    background: var(--dark);
+    padding: 5.5rem 3rem;
+    display: grid; grid-template-columns: 1.3fr 1fr; gap: 4rem; align-items: center;
+  }
+  .cta-headline { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 6vw, 5.5rem); line-height: 0.9; color: var(--cream); margin-bottom: 1.5rem; letter-spacing: 0.01em; }
+  .cta-headline span { color: var(--orange); }
+  .cta-sub { font-size: 0.9rem; color: rgba(245,240,232,0.4); line-height: 1.7; font-weight: 300; max-width: 400px; margin-bottom: 2rem; }
+  .cta-links { display: flex; flex-direction: column; gap: 0.9rem; }
+  .cta-link-row { display: flex; align-items: center; gap: 0.9rem; color: rgba(245,240,232,0.6); font-family: 'Syne', sans-serif; font-size: 0.85rem; font-weight: 600; text-decoration: none; transition: color 0.2s; }
+  .cta-link-row:hover { color: var(--cream); }
+  .cta-link-icon { width: 36px; height: 36px; background: rgba(245,240,232,0.06); border: 1px solid rgba(245,240,232,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .cta-link-icon svg { width: 14px; height: 14px; stroke: var(--orange); fill: none; stroke-width: 2; }
+  .cta-right { }
+  .cta-photo-wrap {
+    width: 100%; aspect-ratio: 3/4; max-width: 280px;
+    background: var(--dark2);
+    border-radius: 4px 4px 0 0;
+    overflow: hidden; border: 1px solid rgba(255,255,255,0.05);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .cta-initials { font-family: 'DM Serif Display', serif; font-size: 5rem; color: rgba(245,240,232,0.07); }
+
+  /* FOOTER BAR */
+  footer {
+    background: #131310;
+    padding: 1.4rem 3rem;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-name { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(245,240,232,0.4); }
+  .footer-links { display: flex; gap: 2rem; }
+  .footer-links a { font-family: 'Syne', sans-serif; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(245,240,232,0.3); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--orange); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo">S. Vadde</span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#work">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li>
+  </ul>
+  <a href="mailto:vaddesasikanth@gmail.com" class="nav-cta">Contact Me</a>
+</nav>
+
+<!-- QUOTE BANNER -->
+<div class="quote-banner">
+  <div class="quote-inner">
+    <span class="quote-mark">"</span>
+    <blockquote class="quote-text">
+      We should stop acting as if our goal is to author extremely elegant theories, and instead embrace complexity and make use of the best ally we have: the unreasonable effectiveness of data.
+    </blockquote>
+    <cite class="quote-author">— Peter Norvig</cite>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-top">
+    <div class="hero-left">
+      <p class="hero-available">Open to opportunities</p>
+      <p class="hero-status">● Available for New Roles</p>
+    </div>
+
+    <div class="hero-center">
+      <div class="hero-photo-wrap">
+        <img src="https://picsum.photos/seed/sasikanth/480/640" alt="Profile photo placeholder">
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <p class="hero-title-sm">M.Sc. Chemical &amp;</p>
+      <p class="hero-title-lg">Energy<br><span class="hero-title-accent">Engineer</span></p>
+    </div>
+  </div>
+
+  <div class="hero-name">
+    <h1>Hi I Am<br><span>Sasi Kanth</span> Vadde</h1>
+    <p class="hero-name-sub">Electrochemical Systems · Dynamic Simulation · Alkaline Water Electrolysis</p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div>
+    <p class="section-label">About Me</p>
+    <p class="about-text">
+      I'm a <strong>research engineer</strong> based in Stuttgart, Germany — specialising in 
+      <strong>physics-based dynamic modelling</strong> of alkaline water electrolyzers. 
+      With two years at the German Aerospace Center (DLR), I translate detailed 
+      cell-level physics into reduced-order models compatible with dynamic plant 
+      simulation, validated against real experimental data.
+    </p>
+    <div class="stats-row">
+      <div class="stat-item">
+        <div class="stat-num">2+</div>
+        <div class="stat-label">Years at DLR</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">AWE</div>
+        <div class="stat-label">Specialisation</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">M.Sc.</div>
+        <div class="stat-label">Degree Level</div>
+      </div>
+    </div>
+  </div>
+  <div class="skills-grid">
+    <p class="skills-title">Core Competencies</p>
+    <div class="skill-tags">
+      <span class="skill-tag highlight">Dymola / Modelica</span>
+      <span class="skill-tag highlight">TEMPEST Framework</span>
+      <span class="skill-tag">Python</span>
+      <span class="skill-tag">MATLAB / Simulink</span>
+      <span class="skill-tag">OpenFOAM</span>
+      <span class="skill-tag highlight">Electrochemical Modelling</span>
+      <span class="skill-tag">PID Control</span>
+      <span class="skill-tag">CFD</span>
+      <span class="skill-tag">OpenCV</span>
+      <span class="skill-tag">Git</span>
+      <span class="skill-tag">Fusion 360</span>
+      <span class="skill-tag">OriginLab</span>
+    </div>
+    <p class="skills-title" style="margin-top:2rem;">Languages</p>
+    <div class="skill-tags">
+      <span class="skill-tag">English (C1)</span>
+      <span class="skill-tag">German (A2)</span>
+      <span class="skill-tag">Telugu · Hindi (Native)</span>
+    </div>
+  </div>
+</section>
+
+<!-- WORK EXPERIENCE -->
+<section class="work" id="work">
+  <p class="section-label">Work Experience</p>
+
+  <div class="work-grid">
+
+    <!-- DLR - featured card -->
+    <div class="work-card featured">
+      <p class="work-org-tag">Deutsches Zentrum für Luft- und Raumfahrt (DLR) · Stuttgart, Germany</p>
+      <h2 class="work-role">Student Research Assistant — Internship &amp; Master's Thesis</h2>
+      <p class="work-period">September 2023 – December 2025</p>
+      <hr class="work-divider">
+      <ul class="work-bullets">
+        <li>Developed a transient 1D AWE single-cell model in Dymola/Modelica incorporating electrochemical, multiphase flow, and thermal phenomena — validated against experimental polarisation curves and gas impurity measurements.</li>
+        <li>Built a dynamic gas crossover and purity model, integrating it into DLR's TEMPEST framework for transient operating scenarios.</li>
+        <li>Designed multi-loop PID control strategies for renewable-driven operation, maintaining safe gas purity limits under fluctuating loads.</li>
+        <li>Supported AWE test-bench experiments and processed data for model calibration and validation.</li>
+        <li>Integrated power electronics conversion losses into system-level efficiency analysis.</li>
+      </ul>
+      <div class="work-meta">
+        <div class="work-meta-item">
+          <p class="work-meta-label">Duration</p>
+          <p class="work-meta-val">Sep 2023 – Dec 2025</p>
+        </div>
+        <div class="work-meta-item">
+          <p class="work-meta-label">Tools</p>
+          <p class="work-meta-val">Dymola · Modelica · TEMPEST · PID</p>
+        </div>
+        <div class="work-meta-item">
+          <p class="work-meta-label">Domain</p>
+          <p class="work-meta-val">Alkaline Water Electrolysis</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- OvGU -->
+    <div class="work-card">
+      <p class="work-org-tag">Otto von Guericke University · Magdeburg, Germany</p>
+      <h2 class="work-role">Student Research Assistant (HiWi)</h2>
+      <p class="work-period">June 2023 – August 2023</p>
+      <hr class="work-divider">
+      <ul class="work-bullets">
+        <li>Developed a Python/OpenCV algorithm to track bubbles in fluidised bed experiments with sinusoidal airflow, enhancing particle movement analysis.</li>
+        <li>Assisted in fluidised bed experiment setup with varying inlet pressures; processed datasets for drying process model calibration.</li>
+      </ul>
+      <div class="work-meta">
+        <div class="work-meta-item">
+          <p class="work-meta-label">Tools</p>
+          <p class="work-meta-val">Python · OpenCV</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Placeholder for future role -->
+    <div class="work-card" style="border-style: dashed; display:flex; flex-direction:column; align-items:flex-start; justify-content:center; min-height:180px;">
+      <p class="work-org-tag">Next Opportunity</p>
+      <h2 class="work-role" style="color:rgba(245,240,232,0.2);">Your Organisation</h2>
+      <p class="work-period">2026 → </p>
+      <p style="font-size:0.8rem; color:rgba(245,240,232,0.2); margin-top:0.8rem; font-weight:300;">Open to research, engineering, or simulation roles in green hydrogen & energy systems.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects" id="projects">
+  <div class="projects-header">
+    <p class="section-label" style="margin-bottom:0;">Research Projects</p>
+    <a href="mailto:vaddesasikanth@gmail.com" class="view-more">Get In Touch ↗</a>
+  </div>
+
+  <div class="projects-grid">
+
+    <div class="proj-card">
+      <div class="proj-thumb" style="padding:0;">
+        <img src="https://picsum.photos/seed/convection/600/360" alt="Project placeholder" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <div class="proj-thumb-icon">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+      </div>
+      <div class="proj-body">
+        <p class="proj-type">Numerical Simulation</p>
+        <h3 class="proj-name">Natural Convection — OpenFOAM</h3>
+        <p class="proj-desc">Simulated natural convection around rectangular heating elements using buoyantPimpleFoam. Included mesh sensitivity analysis and characterised thermal performance across laminar flow regimes.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">OpenFOAM</span>
+          <span class="proj-tag">buoyantPimpleFoam</span>
+          <span class="proj-tag">Heat Transfer</span>
+          <span class="proj-tag">Mesh Sensitivity</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-thumb" style="padding:0;">
+        <img src="https://picsum.photos/seed/aerodynamics/600/360" alt="Project placeholder" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <div class="proj-thumb-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/><path d="M13 13l6 6"/></svg>
+        </div>
+      </div>
+      <div class="proj-body">
+        <p class="proj-type">Aerodynamic Simulation</p>
+        <h3 class="proj-name">Arc de Triomphe — Airflow CFD</h3>
+        <p class="proj-desc">Simulated airflow around the Arc de Triomphe using computational fluid dynamics to evaluate flow behaviour and aerodynamic forces on a complex architectural structure.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">CFD</span>
+          <span class="proj-tag">Aerodynamics</span>
+          <span class="proj-tag">Flow Analysis</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-thumb" style="padding:0;">
+        <img src="https://picsum.photos/seed/controls/600/360" alt="Project placeholder" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <div class="proj-thumb-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        </div>
+      </div>
+      <div class="proj-body">
+        <p class="proj-type">Process Control</p>
+        <h3 class="proj-name">Multivariable PID Controller Design</h3>
+        <p class="proj-desc">Designed and tuned PID controllers in MATLAB/Simulink using Ziegler–Nichols, Cohen–Coon, and IMC methods. Evaluated performance via step response metrics and integral error criteria.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">MATLAB</span>
+          <span class="proj-tag">Simulink</span>
+          <span class="proj-tag">PID Tuning</span>
+          <span class="proj-tag">IMC</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-thumb" style="padding:0;">
+        <img src="https://picsum.photos/seed/hydrogen/600/360" alt="Project placeholder" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <div class="proj-thumb-icon">
+          <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+      </div>
+      <div class="proj-body">
+        <p class="proj-type">Master's Thesis</p>
+        <h3 class="proj-name">Transient AWE Electrolyzer Modelling</h3>
+        <p class="proj-desc">Developed and validated a transient 1D single-cell alkaline water electrolyzer model in Dymola/Modelica for two-phase electrolyte validation — the centrepiece of two years at DLR.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">Dymola</span>
+          <span class="proj-tag">Modelica</span>
+          <span class="proj-tag">TEMPEST</span>
+          <span class="proj-tag">AWE</span>
+          <span class="proj-tag">Electrolysis</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="education" id="education">
+  <p class="section-label">Education</p>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <p class="edu-school">Otto von Guericke University</p>
+      <h3 class="edu-degree">M.Sc. Chemical and Energy Engineering</h3>
+      <p class="edu-location">Magdeburg, Germany</p>
+      <p class="edu-focus">Focus areas: Computational Fluid Dynamics (CFD), Process Control &amp; Systems Engineering, Machine Learning in Chemical Engineering, Multiphase Flows, Advanced Heat &amp; Mass Transfer.</p>
+      <p class="edu-focus" style="margin-top:0.7rem; font-style:italic; color:#b07a40;">Thesis: Transient Modelling of an Alkaline Electrolyzer for validating a Two-Phase Electrolyte Model</p>
+    </div>
+    <div class="edu-card">
+      <p class="edu-school">GMR Institute of Technology</p>
+      <h3 class="edu-degree">B.Tech. Mechanical Engineering</h3>
+      <p class="edu-location">Rajam, India</p>
+      <p class="edu-focus">Focus areas: Thermodynamics &amp; Heat Transfer, Fluid Mechanics &amp; Hydraulic Machines, Finite Element Methods, Power Plant Engineering &amp; Energy Systems.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FOOTER -->
+<section class="cta-footer" id="contact">
+  <div>
+    <h2 class="cta-headline">Let's Start A<br><span>Project</span><br>Together?</h2>
+    <p class="cta-sub">Based in Stuttgart — open to research, engineering, and simulation roles in green hydrogen, electrochemical systems, and energy technologies.</p>
+    <div class="cta-links">
+      <a href="mailto:vaddesasikanth@gmail.com" class="cta-link-row">
+        <span class="cta-link-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+        </span>
+        vaddesasikanth@gmail.com
+      </a>
+      <a href="https://github.com/sasikanth-vadde" target="_blank" class="cta-link-row">
+        <span class="cta-link-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+        </span>
+        github.com/sasikanth-vadde
+      </a>
+      <a href="https://linkedin.com/in/sasikanth-vadde" target="_blank" class="cta-link-row">
+        <span class="cta-link-icon">
+          <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </span>
+        linkedin.com/in/sasikanth-vadde
+      </a>
+    </div>
+  </div>
+  <div class="cta-right">
+    <div class="cta-photo-wrap" style="padding:0;">
+      <img src="https://picsum.photos/seed/sasikanth2/560/800" alt="Profile photo placeholder" style="width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(15%) contrast(1.05);">
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-name">Sasi Kanth Vadde</span>
+  <div class="footer-links">
+    <a href="https://github.com/sasikanth-vadde" target="_blank">GitHub</a>
+    <a href="https://linkedin.com/in/sasikanth-vadde" target="_blank">LinkedIn</a>
+    <a href="mailto:vaddesasikanth@gmail.com">Email</a>
+  </div>
+</footer>
+
+</body>
+</html>
