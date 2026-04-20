@@ -50,6 +50,14 @@
     color: rgba(224,123,57,0.04);
     pointer-events: none; user-select: none;
   }
+  .quote-banner::after {
+    content: '\201D';
+    position: absolute; right: 2rem; bottom: 1.2rem;
+    font-family: 'DM Serif Display', serif;
+    font-size: 7rem; line-height: 1;
+    color: rgba(224,123,57,0.08);
+    pointer-events: none; user-select: none;
+  }
   .quote-inner {
     max-width: 860px; margin: 0 auto;
     position: relative; z-index: 1;
@@ -72,8 +80,8 @@
     border: none; margin: 0;
   }
   .quote-author {
-    display: block;
-    margin-top: 1.4rem;
+    display: inline-block;
+    margin: 1.4rem 0 0 auto;
     font-family: 'Syne', sans-serif;
     font-size: 0.72rem;
     letter-spacing: 0.18em;
@@ -86,7 +94,8 @@
   /* HERO */
   .hero {
     background: var(--dark);
-    min-height: 100vh;
+    min-height: auto;
+    padding-top: 2rem;
     display: flex; flex-direction: column; justify-content: flex-end;
     position: relative; overflow: hidden;
   }
@@ -96,9 +105,11 @@
     pointer-events: none;
   }
   .hero-top {
-    display: grid; grid-template-columns: 1fr auto 1fr;
+    display: grid; grid-template-columns: auto minmax(auto, 240px) auto;
+    justify-content: center;
     align-items: flex-end;
-    padding: 4rem 3rem 0;
+    gap: 1.5rem;
+    padding: 2.4rem 2rem 0;
     position: relative; z-index: 2; flex: 1;
   }
   .hero-left { padding-bottom: 2rem; }
@@ -270,7 +281,7 @@
 
 <!-- NAV -->
 <nav>
-  <span class="nav-logo">S. Vadde</span>
+  <span class="nav-logo">SASI</span>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#work">Experience</a></li>
@@ -283,9 +294,8 @@
 <!-- QUOTE BANNER -->
 <div class="quote-banner">
   <div class="quote-inner">
-    <span class="quote-mark">"</span>
     <blockquote class="quote-text">
-      We should stop acting as if our goal is to author extremely elegant theories, and instead embrace complexity and make use of the best ally we have: the unreasonable effectiveness of data.
+      We should stop acting as if our goal is to author extremely elegant theories, and instead embrace complexity and make use of the best ally we have: the unreasonable effectiveness of data."
     </blockquote>
     <cite class="quote-author">— Peter Norvig</cite>
   </div>
@@ -324,7 +334,7 @@
     <p class="about-text">
       I'm a <strong>research engineer</strong> based in Stuttgart, Germany — specialising in 
       <strong>physics-based dynamic modelling</strong> of alkaline water electrolyzers. 
-      With two years at the German Aerospace Center (DLR), I translate detailed 
+      With two years at the Deutsches Zentrum für Luft- und Raumfahrt (DLR), I translate detailed 
       cell-level physics into reduced-order models compatible with dynamic plant 
       simulation, validated against real experimental data.
     </p>
@@ -347,17 +357,16 @@
     <p class="skills-title">Core Competencies</p>
     <div class="skill-tags">
       <span class="skill-tag highlight">Dymola / Modelica</span>
-      <span class="skill-tag highlight">TEMPEST Framework</span>
+      <!--<span class="skill-tag highlight">TEMPEST Framework</span>-->
       <span class="skill-tag">Python</span>
       <span class="skill-tag">MATLAB / Simulink</span>
       <span class="skill-tag">OpenFOAM</span>
-      <span class="skill-tag highlight">Electrochemical Modelling</span>
-      <span class="skill-tag">PID Control</span>
-      <span class="skill-tag">CFD</span>
-      <span class="skill-tag">OpenCV</span>
+      <!-- <span class="skill-tag">OpenCV</span> -->
       <span class="skill-tag">Git</span>
       <span class="skill-tag">Fusion 360</span>
       <span class="skill-tag">OriginLab</span>
+      <span class="skill-tag highlight">Electrochemical Modelling</span>
+      <span class="skill-tag">PID Control</span>
     </div>
     <p class="skills-title" style="margin-top:2rem;">Languages</p>
     <div class="skill-tags">
@@ -394,7 +403,7 @@
         </div>
         <div class="work-meta-item">
           <p class="work-meta-label">Tools</p>
-          <p class="work-meta-val">Dymola · Modelica · TEMPEST · PID</p>
+          <p class="work-meta-val">Dymola · Modelica · PID</p>
         </div>
         <div class="work-meta-item">
           <p class="work-meta-label">Domain</p>
@@ -463,7 +472,7 @@
 
     <div class="proj-card">
       <div class="proj-thumb" style="padding:0;">
-        <img src="https://picsum.photos/seed/aerodynamics/600/360" alt="Project placeholder" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <img src="images/cellqARC.jpg" alt="Project placeholder" style="width:100%;height:100%;object-fit:cover;display:block;">
         <div class="proj-thumb-icon">
           <svg viewBox="0 0 24 24"><path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/><path d="M13 13l6 6"/></svg>
         </div>
@@ -482,7 +491,7 @@
 
     <div class="proj-card">
       <div class="proj-thumb" style="padding:0;">
-        <img src="https://picsum.photos/seed/controls/600/360" alt="Project placeholder" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <img src="images/my_model_image.png" alt="Project placeholder" style="width:100%;height:100%;object-fit:cover;display:block;">
         <div class="proj-thumb-icon">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
         </div>
@@ -572,7 +581,7 @@
   </div>
   <div class="cta-right">
     <div class="cta-photo-wrap" style="padding:0;">
-      <img src="https://picsum.photos/seed/sasikanth2/560/800" alt="Profile photo placeholder" style="width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(15%) contrast(1.05);">
+      <img src="images/IMG_0582.HEIC" alt="Profile photo placeholder" style="width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(15%) contrast(1.05);">
     </div>
   </div>
 </section>
