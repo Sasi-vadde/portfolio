@@ -1,3 +1,4 @@
+cat > /home/claude/index.html << 'ENDOFFILE'
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +11,6 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-0ZYSKMET75');
 </script>
 
@@ -44,6 +44,22 @@
   .nav-links a:hover { color: var(--cream); }
   .nav-cta { background: var(--orange); color: #fff; padding: 0.55rem 1.3rem; border-radius: 2px; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; }
   .nav-cta:hover { background: var(--orange2); }
+
+  /* LANGUAGE TOGGLE */
+  .lang-toggle {
+    display: flex; align-items: center; gap: 0.3rem; margin-left: 1.2rem;
+    border: 1px solid rgba(245,240,232,0.12); border-radius: 2px; padding: 0.25rem 0.4rem;
+  }
+  .lang-btn {
+    background: none; border: none; cursor: pointer;
+    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.68rem;
+    letter-spacing: 0.12em; color: rgba(245,240,232,0.35);
+    padding: 0.15rem 0.3rem; border-radius: 2px;
+    transition: color 0.2s, background 0.2s;
+  }
+  .lang-btn:hover { color: var(--cream); }
+  .lang-btn.active { color: var(--orange); background: rgba(224,123,57,0.1); }
+  .lang-sep { color: rgba(245,240,232,0.15); font-size: 0.65rem; font-family: 'Syne', sans-serif; }
 
   /* QUOTE BANNER */
   .quote-banner {
@@ -294,21 +310,26 @@
 <nav>
   <span class="nav-logo">SASI</span>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#work">Experience</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#education">Education</a></li>
+    <li><a href="#about" data-i18n="nav-about">About</a></li>
+    <li><a href="#work" data-i18n="nav-experience">Experience</a></li>
+    <li><a href="#projects" data-i18n="nav-projects">Projects</a></li>
+    <li><a href="#education" data-i18n="nav-education">Education</a></li>
   </ul>
-  <a href="mailto:vaddesasikanth@gmail.com" class="nav-cta">Contact Me</a>
+  <div style="display:flex;align-items:center;gap:1rem;">
+    <a href="mailto:vaddesasikanth@gmail.com" class="nav-cta" data-i18n="nav-cta">Contact Me</a>
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" id="btn-de" onclick="setLang('de')">DE</button>
+    </div>
+  </div>
 </nav>
 
 <!-- QUOTE BANNER -->
 <div class="quote-banner">
   <div class="quote-inner">
-    <blockquote class="quote-text">
-      We should stop acting as if our goal is to author extremely elegant theories, and instead embrace complexity and make use of the best ally we have: the unreasonable effectiveness of data."
-    </blockquote>
-    <cite class="quote-author">— Peter Norvig</cite>
+    <blockquote class="quote-text" data-i18n="quote-text">We should stop acting as if our goal is to author extremely elegant theories, and instead embrace complexity and make use of the best ally we have: the unreasonable effectiveness of data."</blockquote>
+    <cite class="quote-author" data-i18n="quote-author">— Peter Norvig</cite>
   </div>
 </div>
 
@@ -316,8 +337,8 @@
 <section class="hero">
   <div class="hero-top">
     <div class="hero-left">
-      <p class="hero-available">Open to opportunities</p>
-      <p class="hero-status">● Available for New Roles</p>
+      <p class="hero-available" data-i18n="hero-available">Open to opportunities</p>
+      <p class="hero-status" data-i18n="hero-status">● Available for New Roles</p>
     </div>
 
     <div class="hero-center">
@@ -327,115 +348,107 @@
     </div>
 
     <div class="hero-right">
-      <p class="hero-title-sm">M.Sc. Chemical &amp;</p>
-      <p class="hero-title-lg">Energy<br><span class="hero-title-accent">Engineer</span></p>
+      <p class="hero-title-sm" data-i18n="hero-title-sm">M.Sc. Chemical &amp;</p>
+      <p class="hero-title-lg" data-i18n-html="hero-title-lg">Energy<br><span class="hero-title-accent">Engineer</span></p>
     </div>
   </div>
 
   <div class="hero-name">
-    <h1>Hi I Am<br><span>Sasi Kanth</span> Vadde</h1>
-    <p class="hero-name-sub">Electrochemical Systems · Dynamic Simulation · Alkaline Water Electrolysis</p>
+    <h1 data-i18n-html="hero-h1">Hi I Am<br><span>Sasi Kanth</span> Vadde</h1>
+    <p class="hero-name-sub" data-i18n="hero-sub">Electrochemical Systems · Dynamic Simulation · Alkaline Water Electrolysis</p>
   </div>
 </section>
 
 <!-- ABOUT -->
 <section class="about" id="about">
   <div>
-    <p class="section-label">About Me</p>
-    <p class="about-text">
-      I'm a <strong>research engineer</strong> based in Stuttgart, Germany — specialising in 
-      <strong>physics-based dynamic modelling</strong> of alkaline water electrolyzers. 
-      With two years at the Deutsches Zentrum für Luft- und Raumfahrt (DLR), I translate detailed 
-      cell-level physics into reduced-order models compatible with dynamic plant 
-      simulation, validated against real experimental data.
-    </p>
+    <p class="section-label" data-i18n="about-label">About Me</p>
+    <p class="about-text" data-i18n-html="about-text">I'm a <strong>research engineer</strong> based in Stuttgart, Germany — specialising in <strong>physics-based dynamic modelling</strong> of alkaline water electrolyzers. With two years at the Deutsches Zentrum für Luft- und Raumfahrt (DLR), I translate detailed cell-level physics into reduced-order models compatible with dynamic plant simulation, validated against real experimental data.</p>
     <div class="stats-row">
       <div class="stat-item">
         <div class="stat-num">2+</div>
-        <div class="stat-label">Years at DLR</div>
+        <div class="stat-label" data-i18n="stat-label-1">Years at DLR</div>
       </div>
       <div class="stat-item">
         <div class="stat-num">AWE</div>
-        <div class="stat-label">Specialisation</div>
+        <div class="stat-label" data-i18n="stat-label-2">Specialisation</div>
       </div>
       <div class="stat-item">
         <div class="stat-num">M.Sc.</div>
-        <div class="stat-label">Degree Level</div>
+        <div class="stat-label" data-i18n="stat-label-3">Degree Level</div>
       </div>
     </div>
   </div>
   <div class="skills-grid">
-    <p class="skills-title">Core Competencies</p>
+    <p class="skills-title" data-i18n="skills-title-1">Core Competencies</p>
     <div class="skill-tags">
       <span class="skill-tag highlight">Dymola / Modelica</span>
-      <!--<span class="skill-tag highlight">TEMPEST Framework</span>-->
       <span class="skill-tag">Python</span>
       <span class="skill-tag">MATLAB / Simulink</span>
       <span class="skill-tag">OpenFOAM</span>
-      <!-- <span class="skill-tag">OpenCV</span> -->
       <span class="skill-tag">Git</span>
       <span class="skill-tag">Fusion 360</span>
       <span class="skill-tag">OriginLab</span>
-      <span class="skill-tag highlight">Electrochemical Modelling</span>
-      <span class="skill-tag">PID Control</span>
+      <span class="skill-tag highlight" data-i18n="skill-electrochemical">Electrochemical Modelling</span>
+      <span class="skill-tag" data-i18n="skill-pid">PID Control</span>
     </div>
-    <p class="skills-title" style="margin-top:2rem;">Languages</p>
+    <p class="skills-title" style="margin-top:2rem;" data-i18n="skills-title-2">Languages</p>
     <div class="skill-tags">
-      <span class="skill-tag">English (C1)</span>
-      <span class="skill-tag">German (A2)</span>
-      <span class="skill-tag">Telugu · Hindi (Native)</span>
+      <span class="skill-tag" data-i18n="lang-tag-1">English (C1)</span>
+      <span class="skill-tag" data-i18n="lang-tag-2">German (A2)</span>
+      <span class="skill-tag" data-i18n="lang-tag-3">Telugu · Hindi (Native)</span>
     </div>
   </div>
 </section>
 
 <!-- WORK EXPERIENCE -->
 <section class="work" id="work">
-  <p class="section-label">Work Experience</p>
+  <p class="section-label" data-i18n="work-label">Work Experience</p>
 
   <div class="work-grid">
 
     <!-- DLR - featured card -->
     <div class="work-card featured">
-      <p class="work-org-tag">Deutsches Zentrum für Luft- und Raumfahrt (DLR) · Stuttgart, Germany</p>
-      <h2 class="work-role">Student Research Assistant — Internship &amp; Master's Thesis</h2>
-      <p class="work-period">September 2023 – December 2025</p>
+      <p class="work-org-tag" data-i18n="dlr-org">Deutsches Zentrum für Luft- und Raumfahrt (DLR) · Stuttgart, Germany</p>
+      <h2 class="work-role" data-i18n="dlr-role">Student Research Assistant — Internship &amp; Master's Thesis</h2>
+      <p class="work-period" data-i18n="dlr-period">September 2023 – December 2025</p>
       <hr class="work-divider">
       <ul class="work-bullets">
-        <li>Developed a transient 1D AWE single-cell model in Dymola/Modelica incorporating electrochemical, multiphase flow, and thermal phenomena — validated against experimental polarisation curves and gas impurity measurements.</li>
-        <li>Built a dynamic gas crossover and purity model, integrating it into DLR's TEMPEST framework for transient operating scenarios.</li>
-        <li>Designed multi-loop PID control strategies for renewable-driven operation, maintaining safe gas purity limits under fluctuating loads.</li>
-        <li>Supported AWE test-bench experiments and processed data for model calibration and validation.</li>
-        <li>Integrated power electronics conversion losses into system-level efficiency analysis.</li>
+        <li data-i18n="dlr-b1">Developed a transient 1D AWE single-cell model in Dymola/Modelica incorporating electrochemical, multiphase flow, and thermal phenomena — validated against experimental polarisation curves and gas impurity measurements.</li>
+        <li data-i18n="dlr-b2">Built a dynamic gas crossover and purity model, integrating it into DLR's TEMPEST framework for transient operating scenarios.</li>
+        <li data-i18n="dlr-b3">Designed multi-loop PID control strategies for renewable-driven operation, maintaining safe gas purity limits under fluctuating loads.</li>
+        <li data-i18n="dlr-b4">Supported AWE test-bench experiments and processed data for model calibration and validation.</li>
+        <li data-i18n="dlr-b5">Integrated power electronics conversion losses into system-level efficiency analysis.</li>
       </ul>
       <div class="work-meta">
         <div class="work-meta-item">
-          <p class="work-meta-label">Duration</p>
-          <p class="work-meta-val">Sep 2023 – Dec 2025</p>
+          <p class="work-meta-label" data-i18n="dlr-meta-label-1">Duration</p>
+          <p class="work-meta-val" data-i18n="dlr-meta-val-1">Sep 2023 – Dec 2025</p>
         </div>
         <div class="work-meta-item">
-          <p class="work-meta-label">Tools</p>
+          <p class="work-meta-label" data-i18n="dlr-meta-label-2">Tools</p>
           <p class="work-meta-val">Dymola · Modelica · PID</p>
         </div>
         <div class="work-meta-item">
-          <p class="work-meta-label">Domain</p>
-          <p class="work-meta-val">Alkaline Water Electrolysis</p>
+          <p class="work-meta-label" data-i18n="dlr-meta-label-3">Domain</p>
+          <p class="work-meta-val" data-i18n="dlr-meta-val-3">Alkaline Water Electrolysis</p>
         </div>
       </div>
     </div>
 
     <!-- OvGU -->
     <div class="work-card">
-      <p class="work-org-tag">Otto von Guericke University · Magdeburg, Germany</p>
-      <h2 class="work-role">Student Research Assistant (HiWi)</h2>
-      <p class="work-period">June 2023 – August 2023</p>
+      <p class="work-org-tag" data-i18n="ovgu-org">Otto von Guericke University · Magdeburg, Germany</p>
+      <h2 class="work-role" data-i18n="ovgu-role">Student Research Assistant (HiWi)</h2>
+      <p class="work-period" data-i18n="ovgu-period">June 2023 – August 2023</p>
       <hr class="work-divider">
       <ul class="work-bullets">
-        <li>Developed a Python/OpenCV algorithm to track bubbles in fluidised bed experiments with sinusoidal airflow, enhancing particle movement analysis.</li>
-        <li>Assisted in fluidised bed experiment setup with varying inlet pressures; processed datasets for drying process model calibration.</li>
+        <li data-i18n="ovgu-b1">Developed a Python/OpenCV algorithm to track bubbles in fluidised bed experiments with sinusoidal airflow, enhancing particle movement analysis.</li>
+        <li data-i18n="ovgu-b2">Assisted in fluidised bed experiment setup with varying inlet pressures; processed datasets for drying process model calibration.</li>
       </ul>
       <div class="work-meta">
         <div class="work-meta-item">
-          <p class="work-meta-label">Tools</p>
+          <p class="work-meta-label" data-i18n="meta-label-tools">Tools</p>
           <p class="work-meta-val">Python · OpenCV</p>
         </div>
       </div>
@@ -443,10 +456,10 @@
 
     <!-- Placeholder for future role -->
     <div class="work-card" style="border-style: dashed; display:flex; flex-direction:column; align-items:flex-start; justify-content:center; min-height:180px;">
-      <p class="work-org-tag">Next Opportunity</p>
-      <h2 class="work-role" style="color:rgba(245,240,232,0.2);">Your Organisation</h2>
+      <p class="work-org-tag" data-i18n="next-org">Next Opportunity</p>
+      <h2 class="work-role" style="color:rgba(245,240,232,0.2);" data-i18n="next-role">Your Organisation</h2>
       <p class="work-period">2026 → </p>
-      <p style="font-size:0.8rem; color:rgba(245,240,232,0.2); margin-top:0.8rem; font-weight:300;">Open to research, engineering, or simulation roles in green hydrogen & energy systems.</p>
+      <p style="font-size:0.8rem; color:rgba(245,240,232,0.2); margin-top:0.8rem; font-weight:300;" data-i18n="next-desc">Open to research, engineering, or simulation roles in green hydrogen &amp; energy systems.</p>
     </div>
 
   </div>
@@ -455,8 +468,8 @@
 <!-- PROJECTS -->
 <section class="projects" id="projects">
   <div class="projects-header">
-    <p class="section-label" style="margin-bottom:0;">Research Projects</p>
-    <a href="mailto:vaddesasikanth@gmail.com" class="view-more">Get In Touch ↗</a>
+    <p class="section-label" style="margin-bottom:0;" data-i18n="proj-label">Research Projects</p>
+    <a href="mailto:vaddesasikanth@gmail.com" class="view-more" data-i18n="proj-cta">Get In Touch ↗</a>
   </div>
 
   <div class="projects-grid">
@@ -469,14 +482,14 @@
         </div>
       </div>
       <div class="proj-body">
-        <p class="proj-type">Numerical Simulation</p>
-        <h3 class="proj-name">Natural Convection — OpenFOAM</h3>
-        <p class="proj-desc">Simulated natural convection around rectangular heating elements using buoyantPimpleFoam. Included mesh sensitivity analysis and characterised thermal performance across laminar flow regimes.</p>
+        <p class="proj-type" data-i18n="proj1-type">Numerical Simulation</p>
+        <h3 class="proj-name" data-i18n="proj1-name">Natural Convection — OpenFOAM</h3>
+        <p class="proj-desc" data-i18n="proj1-desc">Simulated natural convection around rectangular heating elements using buoyantPimpleFoam. Included mesh sensitivity analysis and characterised thermal performance across laminar flow regimes.</p>
         <div class="proj-tags">
           <span class="proj-tag">OpenFOAM</span>
           <span class="proj-tag">buoyantPimpleFoam</span>
-          <span class="proj-tag">Heat Transfer</span>
-          <span class="proj-tag">Mesh Sensitivity</span>
+          <span class="proj-tag" data-i18n="tag-heat">Heat Transfer</span>
+          <span class="proj-tag" data-i18n="tag-mesh">Mesh Sensitivity</span>
         </div>
       </div>
     </div>
@@ -489,13 +502,13 @@
         </div>
       </div>
       <div class="proj-body">
-        <p class="proj-type">Aerodynamic Simulation</p>
-        <h3 class="proj-name">Arc de Triomphe — Airflow CFD</h3>
-        <p class="proj-desc">Simulated airflow around the Arc de Triomphe using computational fluid dynamics to evaluate flow behaviour and aerodynamic forces on a complex architectural structure.</p>
+        <p class="proj-type" data-i18n="proj2-type">Aerodynamic Simulation</p>
+        <h3 class="proj-name" data-i18n="proj2-name">Arc de Triomphe — Airflow CFD</h3>
+        <p class="proj-desc" data-i18n="proj2-desc">Simulated airflow around the Arc de Triomphe using computational fluid dynamics to evaluate flow behaviour and aerodynamic forces on a complex architectural structure.</p>
         <div class="proj-tags">
           <span class="proj-tag">CFD</span>
-          <span class="proj-tag">Aerodynamics</span>
-          <span class="proj-tag">Flow Analysis</span>
+          <span class="proj-tag" data-i18n="tag-aero">Aerodynamics</span>
+          <span class="proj-tag" data-i18n="tag-flow">Flow Analysis</span>
         </div>
       </div>
     </div>
@@ -508,13 +521,13 @@
         </div>
       </div>
       <div class="proj-body">
-        <p class="proj-type">Process Control</p>
-        <h3 class="proj-name">Multivariable PID Controller Design</h3>
-        <p class="proj-desc">Designed and tuned PID controllers in MATLAB/Simulink using Ziegler–Nichols, Cohen–Coon, and IMC methods. Evaluated performance via step response metrics and integral error criteria.</p>
+        <p class="proj-type" data-i18n="proj3-type">Process Control</p>
+        <h3 class="proj-name" data-i18n="proj3-name">Multivariable PID Controller Design</h3>
+        <p class="proj-desc" data-i18n="proj3-desc">Designed and tuned PID controllers in MATLAB/Simulink using Ziegler–Nichols, Cohen–Coon, and IMC methods. Evaluated performance via step response metrics and integral error criteria.</p>
         <div class="proj-tags">
           <span class="proj-tag">MATLAB</span>
           <span class="proj-tag">Simulink</span>
-          <span class="proj-tag">PID Tuning</span>
+          <span class="proj-tag" data-i18n="tag-pid">PID Tuning</span>
           <span class="proj-tag">IMC</span>
         </div>
       </div>
@@ -528,15 +541,15 @@
         </div>
       </div>
       <div class="proj-body">
-        <p class="proj-type">Master's Thesis</p>
-        <h3 class="proj-name">Transient AWE Electrolyzer Modelling</h3>
-        <p class="proj-desc">Developed and validated a transient 1D single-cell alkaline water electrolyzer model in Dymola/Modelica for two-phase electrolyte validation — the centrepiece of two years at DLR.</p>
+        <p class="proj-type" data-i18n="proj4-type">Master's Thesis</p>
+        <h3 class="proj-name" data-i18n="proj4-name">Transient AWE Electrolyzer Modelling</h3>
+        <p class="proj-desc" data-i18n="proj4-desc">Developed and validated a transient 1D single-cell alkaline water electrolyzer model in Dymola/Modelica for two-phase electrolyte validation — the centrepiece of two years at DLR.</p>
         <div class="proj-tags">
           <span class="proj-tag">Dymola</span>
           <span class="proj-tag">Modelica</span>
           <span class="proj-tag">TEMPEST</span>
           <span class="proj-tag">AWE</span>
-          <span class="proj-tag">Electrolysis</span>
+          <span class="proj-tag" data-i18n="tag-electrolysis">Electrolysis</span>
         </div>
       </div>
     </div>
@@ -546,20 +559,20 @@
 
 <!-- EDUCATION -->
 <section class="education" id="education">
-  <p class="section-label">Education</p>
+  <p class="section-label" data-i18n="edu-label">Education</p>
   <div class="edu-grid">
     <div class="edu-card">
-      <p class="edu-school">Otto von Guericke University</p>
-      <h3 class="edu-degree">M.Sc. Chemical and Energy Engineering</h3>
-      <p class="edu-location">Magdeburg, Germany</p>
-      <p class="edu-focus">Focus areas: Computational Fluid Dynamics (CFD), Process Control &amp; Systems Engineering, Machine Learning in Chemical Engineering, Multiphase Flows, Advanced Heat &amp; Mass Transfer.</p>
-      <p class="edu-focus" style="margin-top:0.7rem; font-style:italic; color:#b07a40;">Thesis: Transient Modelling of an Alkaline Electrolyzer for validating a Two-Phase Electrolyte Model</p>
+      <p class="edu-school" data-i18n="edu1-school">Otto von Guericke University</p>
+      <h3 class="edu-degree" data-i18n="edu1-degree">M.Sc. Chemical and Energy Engineering</h3>
+      <p class="edu-location" data-i18n="edu1-location">Magdeburg, Germany</p>
+      <p class="edu-focus" data-i18n-html="edu1-focus">Focus areas: Computational Fluid Dynamics (CFD), Process Control &amp; Systems Engineering, Machine Learning in Chemical Engineering, Multiphase Flows, Advanced Heat &amp; Mass Transfer.</p>
+      <p class="edu-focus" style="margin-top:0.7rem; font-style:italic; color:#b07a40;" data-i18n="edu1-thesis">Thesis: Transient Modelling of an Alkaline Electrolyzer for validating a Two-Phase Electrolyte Model</p>
     </div>
     <div class="edu-card">
-      <p class="edu-school">GMR Institute of Technology</p>
-      <h3 class="edu-degree">B.Tech. Mechanical Engineering</h3>
-      <p class="edu-location">Rajam, India</p>
-      <p class="edu-focus">Focus areas: Thermodynamics &amp; Heat Transfer, Fluid Mechanics &amp; Hydraulic Machines, Finite Element Methods, Power Plant Engineering &amp; Energy Systems.</p>
+      <p class="edu-school" data-i18n="edu2-school">GMR Institute of Technology</p>
+      <h3 class="edu-degree" data-i18n="edu2-degree">B.Tech. Mechanical Engineering</h3>
+      <p class="edu-location" data-i18n="edu2-location">Rajam, India</p>
+      <p class="edu-focus" data-i18n-html="edu2-focus">Focus areas: Thermodynamics &amp; Heat Transfer, Fluid Mechanics &amp; Hydraulic Machines, Finite Element Methods, Power Plant Engineering &amp; Energy Systems.</p>
     </div>
   </div>
 </section>
@@ -567,8 +580,8 @@
 <!-- CTA FOOTER -->
 <section class="cta-footer" id="contact">
   <div>
-    <h2 class="cta-headline">Let's Start A<br><span>Project</span><br>Together?</h2>
-    <p class="cta-sub">Based in Stuttgart — open to research, engineering, and simulation roles in green hydrogen, electrochemical systems, and energy technologies.</p>
+    <h2 class="cta-headline" data-i18n-html="cta-headline">Let's Start A<br><span>Project</span><br>Together?</h2>
+    <p class="cta-sub" data-i18n="cta-sub">Based in Stuttgart — open to research, engineering, and simulation roles in green hydrogen, electrochemical systems, and energy technologies.</p>
     <div class="cta-links">
       <a href="mailto:vaddesasikanth@gmail.com" class="cta-link-row">
         <span class="cta-link-icon">
@@ -603,9 +616,222 @@
   <div class="footer-links">
     <a href="https://github.com/sasikanth-vadde" target="_blank">GitHub</a>
     <a href="https://linkedin.com/in/sasikanth-vadde" target="_blank">LinkedIn</a>
-    <a href="mailto:vaddesasikanth@gmail.com">Email</a>
+    <a href="mailto:vaddesasikanth@gmail.com" data-i18n="footer-email">Email</a>
   </div>
 </footer>
 
+<script>
+const translations = {
+  en: {
+    'nav-about': 'About',
+    'nav-experience': 'Experience',
+    'nav-projects': 'Projects',
+    'nav-education': 'Education',
+    'nav-cta': 'Contact Me',
+
+    'quote-text': 'We should stop acting as if our goal is to author extremely elegant theories, and instead embrace complexity and make use of the best ally we have: the unreasonable effectiveness of data."',
+    'quote-author': '— Peter Norvig',
+
+    'hero-available': 'Open to opportunities',
+    'hero-status': '● Available for New Roles',
+    'hero-title-sm': 'M.Sc. Chemical &',
+    'hero-title-lg': 'Energy<br><span class="hero-title-accent">Engineer</span>',
+    'hero-h1': 'Hi I Am<br><span>Sasi Kanth</span> Vadde',
+    'hero-sub': 'Electrochemical Systems · Dynamic Simulation · Alkaline Water Electrolysis',
+
+    'about-label': 'About Me',
+    'about-text': 'I\'m a <strong>research engineer</strong> based in Stuttgart, Germany — specialising in <strong>physics-based dynamic modelling</strong> of alkaline water electrolyzers. With two years at the Deutsches Zentrum für Luft- und Raumfahrt (DLR), I translate detailed cell-level physics into reduced-order models compatible with dynamic plant simulation, validated against real experimental data.',
+    'stat-label-1': 'Years at DLR',
+    'stat-label-2': 'Specialisation',
+    'stat-label-3': 'Degree Level',
+    'skills-title-1': 'Core Competencies',
+    'skills-title-2': 'Languages',
+    'skill-electrochemical': 'Electrochemical Modelling',
+    'skill-pid': 'PID Control',
+    'lang-tag-1': 'English (C1)',
+    'lang-tag-2': 'German (A2)',
+    'lang-tag-3': 'Telugu · Hindi (Native)',
+
+    'work-label': 'Work Experience',
+    'dlr-org': 'Deutsches Zentrum für Luft- und Raumfahrt (DLR) · Stuttgart, Germany',
+    'dlr-role': 'Student Research Assistant — Internship & Master\'s Thesis',
+    'dlr-period': 'September 2023 – December 2025',
+    'dlr-b1': 'Developed a transient 1D AWE single-cell model in Dymola/Modelica incorporating electrochemical, multiphase flow, and thermal phenomena — validated against experimental polarisation curves and gas impurity measurements.',
+    'dlr-b2': 'Built a dynamic gas crossover and purity model, integrating it into DLR\'s TEMPEST framework for transient operating scenarios.',
+    'dlr-b3': 'Designed multi-loop PID control strategies for renewable-driven operation, maintaining safe gas purity limits under fluctuating loads.',
+    'dlr-b4': 'Supported AWE test-bench experiments and processed data for model calibration and validation.',
+    'dlr-b5': 'Integrated power electronics conversion losses into system-level efficiency analysis.',
+    'dlr-meta-label-1': 'Duration',
+    'dlr-meta-val-1': 'Sep 2023 – Dec 2025',
+    'dlr-meta-label-2': 'Tools',
+    'dlr-meta-label-3': 'Domain',
+    'dlr-meta-val-3': 'Alkaline Water Electrolysis',
+    'ovgu-org': 'Otto von Guericke University · Magdeburg, Germany',
+    'ovgu-role': 'Student Research Assistant (HiWi)',
+    'ovgu-period': 'June 2023 – August 2023',
+    'ovgu-b1': 'Developed a Python/OpenCV algorithm to track bubbles in fluidised bed experiments with sinusoidal airflow, enhancing particle movement analysis.',
+    'ovgu-b2': 'Assisted in fluidised bed experiment setup with varying inlet pressures; processed datasets for drying process model calibration.',
+    'meta-label-tools': 'Tools',
+    'next-org': 'Next Opportunity',
+    'next-role': 'Your Organisation',
+    'next-desc': 'Open to research, engineering, or simulation roles in green hydrogen & energy systems.',
+
+    'proj-label': 'Research Projects',
+    'proj-cta': 'Get In Touch ↗',
+    'proj1-type': 'Numerical Simulation',
+    'proj1-name': 'Natural Convection — OpenFOAM',
+    'proj1-desc': 'Simulated natural convection around rectangular heating elements using buoyantPimpleFoam. Included mesh sensitivity analysis and characterised thermal performance across laminar flow regimes.',
+    'proj2-type': 'Aerodynamic Simulation',
+    'proj2-name': 'Arc de Triomphe — Airflow CFD',
+    'proj2-desc': 'Simulated airflow around the Arc de Triomphe using computational fluid dynamics to evaluate flow behaviour and aerodynamic forces on a complex architectural structure.',
+    'proj3-type': 'Process Control',
+    'proj3-name': 'Multivariable PID Controller Design',
+    'proj3-desc': 'Designed and tuned PID controllers in MATLAB/Simulink using Ziegler–Nichols, Cohen–Coon, and IMC methods. Evaluated performance via step response metrics and integral error criteria.',
+    'proj4-type': 'Master\'s Thesis',
+    'proj4-name': 'Transient AWE Electrolyzer Modelling',
+    'proj4-desc': 'Developed and validated a transient 1D single-cell alkaline water electrolyzer model in Dymola/Modelica for two-phase electrolyte validation — the centrepiece of two years at DLR.',
+    'tag-heat': 'Heat Transfer',
+    'tag-mesh': 'Mesh Sensitivity',
+    'tag-aero': 'Aerodynamics',
+    'tag-flow': 'Flow Analysis',
+    'tag-pid': 'PID Tuning',
+    'tag-electrolysis': 'Electrolysis',
+
+    'edu-label': 'Education',
+    'edu1-school': 'Otto von Guericke University',
+    'edu1-degree': 'M.Sc. Chemical and Energy Engineering',
+    'edu1-location': 'Magdeburg, Germany',
+    'edu1-focus': 'Focus areas: Computational Fluid Dynamics (CFD), Process Control &amp; Systems Engineering, Machine Learning in Chemical Engineering, Multiphase Flows, Advanced Heat &amp; Mass Transfer.',
+    'edu1-thesis': 'Thesis: Transient Modelling of an Alkaline Electrolyzer for validating a Two-Phase Electrolyte Model',
+    'edu2-school': 'GMR Institute of Technology',
+    'edu2-degree': 'B.Tech. Mechanical Engineering',
+    'edu2-location': 'Rajam, India',
+    'edu2-focus': 'Focus areas: Thermodynamics &amp; Heat Transfer, Fluid Mechanics &amp; Hydraulic Machines, Finite Element Methods, Power Plant Engineering &amp; Energy Systems.',
+
+    'cta-headline': 'Let\'s Start A<br><span>Project</span><br>Together?',
+    'cta-sub': 'Based in Stuttgart — open to research, engineering, and simulation roles in green hydrogen, electrochemical systems, and energy technologies.',
+    'footer-email': 'Email',
+  },
+
+  de: {
+    'nav-about': 'Über mich',
+    'nav-experience': 'Erfahrung',
+    'nav-projects': 'Projekte',
+    'nav-education': 'Bildung',
+    'nav-cta': 'Kontakt',
+
+    'quote-text': 'Wir sollten aufhören, so zu tun, als wäre unser Ziel die Entwicklung äußerst eleganter Theorien – stattdessen sollten wir Komplexität akzeptieren und unseren besten Verbündeten nutzen: die unvernünftige Wirksamkeit der Daten."',
+    'quote-author': '— Peter Norvig',
+
+    'hero-available': 'Offen für Möglichkeiten',
+    'hero-status': '● Verfügbar für neue Stellen',
+    'hero-title-sm': 'M.Sc. Chemie- &',
+    'hero-title-lg': 'Energie<br><span class="hero-title-accent">Ingenieur</span>',
+    'hero-h1': 'Hallo, ich bin<br><span>Sasi Kanth</span> Vadde',
+    'hero-sub': 'Elektrochemische Systeme · Dynamische Simulation · Alkalische Wasserelektrolyse',
+
+    'about-label': 'Über mich',
+    'about-text': 'Ich bin ein <strong>Forschungsingenieur</strong> aus Stuttgart, Deutschland – spezialisiert auf die <strong>physikbasierte dynamische Modellierung</strong> alkalischer Wasserelektrolyseure. Mit zwei Jahren am Deutschen Zentrum für Luft- und Raumfahrt (DLR) übersetze ich detaillierte Zellphysik in reduzierte Modelle für die dynamische Anlagensimulation, validiert an realen experimentellen Daten.',
+    'stat-label-1': 'Jahre bei DLR',
+    'stat-label-2': 'Spezialisierung',
+    'stat-label-3': 'Abschluss',
+    'skills-title-1': 'Kernkompetenzen',
+    'skills-title-2': 'Sprachen',
+    'skill-electrochemical': 'Elektrochemische Modellierung',
+    'skill-pid': 'PID-Regelung',
+    'lang-tag-1': 'Englisch (C1)',
+    'lang-tag-2': 'Deutsch (B1)',
+    'lang-tag-3': 'Telugu · Hindi (Muttersprache)',
+
+    'work-label': 'Berufserfahrung',
+    'dlr-org': 'Deutsches Zentrum für Luft- und Raumfahrt (DLR) · Stuttgart, Deutschland',
+    'dlr-role': 'Studentische Hilfskraft — Praktikum & Masterarbeit',
+    'dlr-period': 'September 2023 – Dezember 2025',
+    'dlr-b1': 'Entwicklung eines transienten 1D AWE-Einzelzellmodells in Dymola/Modelica mit elektrochemischen, Mehrphasenströmungs- und thermischen Phänomenen – validiert anhand experimenteller Polarisationskurven und Gasverunreinigungsmessungen.',
+    'dlr-b2': 'Aufbau eines dynamischen Gasdurchdringungsmodells und Integration in das TEMPEST-Framework des DLR für transiente Betriebsszenarien.',
+    'dlr-b3': 'Entwurf mehrschleifiger PID-Regelstrategien für den erneuerbaren Betrieb zur Einhaltung sicherer Gasreinheitsgrenzen bei schwankenden Lasten.',
+    'dlr-b4': 'Unterstützung von AWE-Prüfstandsexperimenten und Datenverarbeitung für Modellkalibrierung und -validierung.',
+    'dlr-b5': 'Integration von Leistungselektronik-Umwandlungsverlusten in die systemweite Effizienzanalyse.',
+    'dlr-meta-label-1': 'Zeitraum',
+    'dlr-meta-val-1': 'Sep. 2023 – Dez. 2025',
+    'dlr-meta-label-2': 'Werkzeuge',
+    'dlr-meta-label-3': 'Fachbereich',
+    'dlr-meta-val-3': 'Alkalische Wasserelektrolyse',
+    'ovgu-org': 'Otto-von-Guericke-Universität · Magdeburg, Deutschland',
+    'ovgu-role': 'Studentische Hilfskraft (HiWi)',
+    'ovgu-period': 'Juni 2023 – August 2023',
+    'ovgu-b1': 'Entwicklung eines Python/OpenCV-Algorithmus zur Blasenverfolgung in Wirbelschichtexperimenten mit sinusförmiger Luftströmung zur Verbesserung der Partikelbewegungsanalyse.',
+    'ovgu-b2': 'Unterstützung beim Aufbau von Wirbelschichtexperimenten mit variierenden Einlassdrücken; Verarbeitung von Datensätzen zur Kalibrierung des Trocknungsprozessmodells.',
+    'meta-label-tools': 'Werkzeuge',
+    'next-org': 'Nächste Möglichkeit',
+    'next-role': 'Ihr Unternehmen',
+    'next-desc': 'Offen für Forschungs-, Ingenieur- oder Simulationsrollen in grünem Wasserstoff & Energiesystemen.',
+
+    'proj-label': 'Forschungsprojekte',
+    'proj-cta': 'Kontakt aufnehmen ↗',
+    'proj1-type': 'Numerische Simulation',
+    'proj1-name': 'Naturkonvektion — OpenFOAM',
+    'proj1-desc': 'Simulation der natürlichen Konvektion um rechteckige Heizelemente mittels buoyantPimpleFoam. Einschließlich Netzempfindlichkeitsanalyse und Charakterisierung der thermischen Leistung in laminaren Strömungsbereichen.',
+    'proj2-type': 'Aerodynamische Simulation',
+    'proj2-name': 'Arc de Triomphe — Luftströmungs-CFD',
+    'proj2-desc': 'Simulation der Luftströmung um den Arc de Triomphe mittels numerischer Strömungsmechanik zur Bewertung des Strömungsverhaltens und der aerodynamischen Kräfte auf eine komplexe architektonische Struktur.',
+    'proj3-type': 'Prozessregelung',
+    'proj3-name': 'Mehrgrößen-PID-Reglerauslegung',
+    'proj3-desc': 'Auslegung und Abstimmung von PID-Reglern in MATLAB/Simulink nach Ziegler–Nichols-, Cohen–Coon- und IMC-Methoden. Leistungsbewertung anhand von Sprungantwortmetriken und integralen Fehlerkriterien.',
+    'proj4-type': 'Masterarbeit',
+    'proj4-name': 'Transiente AWE-Elektrolysemodellierung',
+    'proj4-desc': 'Entwicklung und Validierung eines transienten 1D-Einzelzellmodells für den alkalischen Wasserelektrolyseur in Dymola/Modelica zur Zweiphasen-Elektrolytvalidierung – das Herzstück von zwei Jahren am DLR.',
+    'tag-heat': 'Wärmeübertragung',
+    'tag-mesh': 'Netzempfindlichkeit',
+    'tag-aero': 'Aerodynamik',
+    'tag-flow': 'Strömungsanalyse',
+    'tag-pid': 'PID-Abstimmung',
+    'tag-electrolysis': 'Elektrolyse',
+
+    'edu-label': 'Bildung',
+    'edu1-school': 'Otto-von-Guericke-Universität',
+    'edu1-degree': 'M.Sc. Chemie- und Energieingenieurwesen',
+    'edu1-location': 'Magdeburg, Deutschland',
+    'edu1-focus': 'Schwerpunkte: Numerische Strömungsmechanik (CFD), Prozessregelung &amp; Systemtechnik, Maschinelles Lernen in der Verfahrenstechnik, Mehrphasenströmungen, Wärme- &amp; Stoffübertragung.',
+    'edu1-thesis': 'Masterarbeit: Transiente Modellierung eines alkalischen Elektrolyseurs zur Validierung eines Zweiphasen-Elektrolytmodells',
+    'edu2-school': 'GMR Institut für Technologie',
+    'edu2-degree': 'B.Tech. Maschinenbau',
+    'edu2-location': 'Rajam, Indien',
+    'edu2-focus': 'Schwerpunkte: Thermodynamik &amp; Wärmeübertragung, Strömungsmechanik &amp; Hydraulische Maschinen, Finite-Elemente-Methoden, Kraftwerkstechnik &amp; Energiesysteme.',
+
+    'cta-headline': 'Starten wir ein<br><span>Projekt</span><br>zusammen?',
+    'cta-sub': 'Ansässig in Stuttgart – offen für Forschungs-, Ingenieur- und Simulationsrollen in grünem Wasserstoff, elektrochemischen Systemen und Energietechnologien.',
+    'footer-email': 'E-Mail',
+  }
+};
+
+let currentLang = 'en';
+
+function setLang(lang) {
+  currentLang = lang;
+  const t = translations[lang];
+
+  // Update html lang attribute
+  document.documentElement.lang = lang;
+
+  // Text nodes
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) el.textContent = t[key];
+  });
+
+  // HTML nodes (elements with inline markup)
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.getAttribute('data-i18n-html');
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+
+  // Toggle button states
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.getElementById('btn-de').classList.toggle('active', lang === 'de');
+}
+</script>
+
 </body>
 </html>
+ENDOFFILE
