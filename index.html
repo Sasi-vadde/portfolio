@@ -6,6 +6,14 @@
   <title>Sasikanth Vadde — Simulation & Process Engineer</title>
   <meta content="Portfolio of Sasikanth Vadde, Simulation Engineer specializing in CFD, Multiphysics, and Hydrogen Systems" name="description">
 
+  <!-- Open Graph / link previews -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Sasikanth Vadde — Simulation Engineer">
+  <meta property="og:description" content="Simulation Engineer at DLR Stuttgart — CFD, multiphysics modelling, and hydrogen / electrochemical systems.">
+  <meta property="og:url" content="https://sasi-vadde.github.io/portfolio/">
+  <meta property="og:image" content="https://sasi-vadde.github.io/portfolio/assets/img/me2.png">
+  <meta name="twitter:card" content="summary">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -88,6 +96,42 @@
     }
 
     #header .typed { color: #d4a843 !important; }
+
+    .hero-availability {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      margin-top: 14px;
+      font-family: var(--ff-mono) !important;
+      font-size: 0.72rem;
+      letter-spacing: 1px;
+      color: rgba(255,255,255,0.7) !important;
+    }
+    .hero-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #4ade80;
+      box-shadow: 0 0 0 3px rgba(74,222,128,0.25);
+      flex-shrink: 0;
+    }
+    .hero-cv-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      border: 1px solid var(--gold);
+      border-radius: 3px;
+      color: var(--gold) !important;
+      text-decoration: none;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: all 0.2s;
+    }
+    .hero-cv-btn:hover {
+      background: var(--gold);
+      color: var(--navy) !important;
+    }
 
     /* navbar */
     #navbar a {
@@ -768,6 +812,11 @@
   <div class="container">
     <h1><a href="index.html">Sasikanth Vadde</a></h1>
     <h2>Simulation Engineer &mdash; <span class="typed" data-typed-items="CFD · OpenFOAM · STAR-CCM+,Multiphysics · Dymola · Modelica,Hydrogen Systems · Electrolyzer CFD,DEM · Fluidized Bed · MFiX"></span></h2>
+
+    <p class="hero-availability">
+      <span class="hero-dot"></span>Open to Simulation / Process Engineering roles &middot; Stuttgart, Germany
+      <a href="Vadde_CV.pdf" download class="hero-cv-btn"><i class="bi bi-download"></i> Download CV</a>
+    </p>
 
     <nav id="navbar" class="navbar">
       <ul>
