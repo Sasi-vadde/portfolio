@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0ZYSKMET75"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0ZYSKMET75');
+</script>
+<title>Currently Learning — Sasi Kanth Vadde</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --dark: #1e1f1a;
+    --dark2: #2a2b24;
+    --cream: #f5f0e8;
+    --cream2: #ece5d6;
+    --orange: #e07b39;
+    --orange2: #c96a28;
+    --text: #1e1f1a;
+    --muted: #6b6855;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.1rem 3rem;
+    background: var(--dark);
+  }
+  .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1rem; color: var(--cream); letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; }
+  .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+  .nav-links a { color: rgba(245,240,232,0.6); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; font-family: 'Syne', sans-serif; font-weight: 600; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--cream); }
+  .nav-links a.active { color: var(--orange); }
+  .nav-cta { background: var(--orange); color: #fff; padding: 0.55rem 1.3rem; border-radius: 2px; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; }
+  .nav-cta:hover { background: var(--orange2); }
+
+  /* LANGUAGE TOGGLE */
+  .lang-toggle {
+    display: flex; align-items: center; gap: 0.3rem; margin-left: 1.2rem;
+    border: 1px solid rgba(245,240,232,0.12); border-radius: 2px; padding: 0.25rem 0.4rem;
+  }
+  .lang-btn {
+    background: none; border: none; cursor: pointer;
+    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.68rem;
+    letter-spacing: 0.12em; color: rgba(245,240,232,0.35);
+    padding: 0.15rem 0.3rem; border-radius: 2px;
+    transition: color 0.2s, background 0.2s;
+  }
+  .lang-btn:hover { color: var(--cream); }
+  .lang-btn.active { color: var(--orange); background: rgba(224,123,57,0.1); }
+  .lang-sep { color: rgba(245,240,232,0.15); font-size: 0.65rem; font-family: 'Syne', sans-serif; }
+
+  /* PAGE HEADER */
+  .page-header {
+    background: var(--dark);
+    padding: 5.5rem 3rem 4rem;
+    margin-top: 56px;
+    position: relative; overflow: hidden;
+    border-bottom: 1px solid rgba(224,123,57,0.2);
+  }
+  .page-header::before {
+    content: 'NOW';
+    position: absolute; top: -1rem; right: 2rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16rem; line-height: 1;
+    color: rgba(224,123,57,0.04);
+    pointer-events: none; user-select: none;
+    letter-spacing: 0.02em;
+  }
+  .page-header-inner { max-width: 860px; position: relative; z-index: 1; }
+  .page-eyebrow { font-family: 'Syne', sans-serif; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--orange); font-weight: 700; margin-bottom: 1rem; }
+  .page-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    line-height: 0.9; color: var(--cream);
+    letter-spacing: 0.01em;
+    margin-bottom: 1.5rem;
+  }
+  .page-title span { color: var(--orange); }
+  .page-desc { font-size: 0.95rem; color: rgba(245,240,232,0.45); line-height: 1.75; font-weight: 300; max-width: 520px; }
+
+  /* STATUS PULSE */
+  .status-pill {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: rgba(224,123,57,0.1); border: 1px solid rgba(224,123,57,0.25);
+    border-radius: 100px; padding: 0.35rem 0.9rem;
+    font-family: 'Syne', sans-serif; font-size: 0.65rem; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--orange); font-weight: 700;
+    margin-bottom: 1.5rem;
+  }
+  .pulse {
+    width: 7px; height: 7px; background: var(--orange); border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.75); }
+  }
+
+  /* LEARNING TRACKS */
+  .tracks-section {
+    padding: 5.5rem 3rem;
+    background: var(--cream);
+  }
+  .tracks-label { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 2.2rem; text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 0.5rem; }
+  .tracks-sub { font-size: 0.85rem; color: var(--muted); font-weight: 300; margin-bottom: 3rem; }
+
+  .tracks-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+
+  .track-card {
+    background: #fff; border: 1px solid rgba(30,31,26,0.1);
+    border-radius: 4px; padding: 2rem;
+    position: relative; overflow: hidden;
+    transition: border-color 0.25s, box-shadow 0.25s;
+  }
+  .track-card:hover { border-color: rgba(224,123,57,0.35); box-shadow: 0 4px 24px rgba(30,31,26,0.06); }
+  .track-card::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+    background: var(--orange); transform: scaleX(0); transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  .track-card:hover::after { transform: scaleX(1); }
+
+  .track-card.featured {
+    grid-column: 1 / -1;
+    display: grid; grid-template-columns: 1fr 1.2fr; gap: 2.5rem; align-items: start;
+  }
+  .track-card.featured::after { display: none; }
+  .track-card.featured { border-left: 3px solid var(--orange); padding-left: 1.8rem; }
+
+  .track-status {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-family: 'Syne', sans-serif; font-size: 0.6rem; letter-spacing: 0.15em;
+    text-transform: uppercase; font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  .track-status.active { color: var(--orange); }
+  .track-status.active .dot { width: 6px; height: 6px; background: var(--orange); border-radius: 50%; animation: pulse 2s infinite; }
+
+  .track-domain { font-family: 'Syne', sans-serif; font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); font-weight: 700; margin-bottom: 0.5rem; }
+  .track-name { font-family: 'DM Serif Display', serif; font-size: 1.6rem; color: var(--text); margin-bottom: 0.8rem; line-height: 1.2; }
+  .track-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.7; font-weight: 300; }
+
+  .track-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.2rem; }
+  .track-tag { font-family: 'Syne', sans-serif; font-size: 0.6rem; letter-spacing: 0.06em; padding: 0.25rem 0.6rem; border: 1px solid rgba(30,31,26,0.15); border-radius: 2px; color: var(--muted); font-weight: 600; }
+  .track-tag.highlight { background: var(--dark); color: var(--cream); border-color: var(--dark); }
+
+  .track-why {
+    margin-top: 1.4rem; padding-top: 1.2rem;
+    border-top: 1px solid rgba(30,31,26,0.08);
+  }
+  .track-why-label { font-family: 'Syne', sans-serif; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--orange); font-weight: 700; margin-bottom: 0.4rem; }
+  .track-why-text { font-size: 0.8rem; color: var(--muted); line-height: 1.6; font-weight: 300; font-style: italic; }
+
+  /* RADAR SECTION */
+  .radar-section {
+    background: var(--dark2);
+    padding: 5rem 3rem;
+  }
+  .radar-section .tracks-label { color: var(--cream); }
+  .radar-section .tracks-sub { color: rgba(245,240,232,0.35); }
+  .radar-list { display: flex; flex-direction: column; gap: 0; margin-top: 2rem; border: 1px solid rgba(245,240,232,0.08); border-radius: 4px; overflow: hidden; }
+  .radar-item {
+    display: grid; grid-template-columns: 2.5rem 1fr auto;
+    align-items: center; gap: 1.2rem;
+    padding: 1.1rem 1.5rem;
+    border-bottom: 1px solid rgba(245,240,232,0.06);
+    transition: background 0.2s;
+  }
+  .radar-item:last-child { border-bottom: none; }
+  .radar-item:hover { background: rgba(245,240,232,0.03); }
+  .radar-num { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; color: rgba(224,123,57,0.3); line-height: 1; }
+  .radar-name { font-family: 'Syne', sans-serif; font-size: 0.82rem; font-weight: 700; color: rgba(245,240,232,0.7); letter-spacing: 0.04em; }
+  .radar-note { font-size: 0.75rem; color: rgba(245,240,232,0.3); font-weight: 300; margin-top: 0.15rem; }
+  .radar-badge { font-family: 'Syne', sans-serif; font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 2px; background: rgba(245,240,232,0.05); color: rgba(245,240,232,0.3); border: 1px solid rgba(245,240,232,0.08); white-space: nowrap; }
+
+  /* FOOTER BAR */
+  footer {
+    background: #131310;
+    padding: 1.4rem 3rem;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-name { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(245,240,232,0.4); }
+  .footer-links { display: flex; gap: 2rem; }
+  .footer-links a { font-family: 'Syne', sans-serif; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(245,240,232,0.3); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--orange); }
+
+
+  /* CFD DEEP DIVE */
+  .cfd-section {
+    background: var(--dark);
+    padding: 5.5rem 3rem;
+    border-top: 1px solid rgba(224,123,57,0.2);
+    position: relative; overflow: hidden;
+  }
+  .cfd-section::before {
+    content: 'Nu'; position: absolute; top: 1rem; right: 2.5rem;
+    font-family: 'Bebas Neue', sans-serif; font-size: 15rem; line-height: 1;
+    color: rgba(224,123,57,0.035); pointer-events: none; user-select: none;
+  }
+  .cfd-inner { position: relative; z-index: 1; max-width: 1180px; }
+  .cfd-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.2rem, 5vw, 3.6rem); line-height: 0.95;
+    color: var(--cream); letter-spacing: 0.01em; margin-bottom: 1.1rem; max-width: 20ch;
+  }
+  .cfd-title span { color: var(--orange); }
+  .cfd-lede { font-size: 0.95rem; line-height: 1.8; font-weight: 300; color: rgba(245,240,232,0.5); max-width: 74ch; }
+
+  .cfd-stats {
+    display: grid; grid-template-columns: repeat(6, 1fr); gap: 1px;
+    background: rgba(245,240,232,0.09);
+    border: 1px solid rgba(245,240,232,0.09); border-radius: 4px;
+    margin: 2.8rem 0 3.2rem; overflow: hidden;
+  }
+  .cfd-stat { background: var(--dark); padding: 1.1rem 1.1rem 1rem; }
+  .cfd-stat-sym { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 0.8rem; color: var(--orange); margin-bottom: 0.3rem; }
+  .cfd-stat-val { font-family: 'Bebas Neue', sans-serif; font-size: 1.9rem; line-height: 1; color: var(--cream); letter-spacing: 0.02em; }
+  .cfd-stat-note { font-size: 0.68rem; line-height: 1.45; color: rgba(245,240,232,0.42); font-weight: 300; margin-top: 0.4rem; }
+
+  .cfd-body { display: grid; grid-template-columns: 1.25fr 1fr; gap: 3rem; align-items: start; }
+  .cfd-block { margin-bottom: 2.2rem; }
+  .cfd-block:last-child { margin-bottom: 0; }
+  .cfd-block-head { display: flex; align-items: baseline; gap: 0.7rem; margin-bottom: 0.6rem; }
+  .cfd-block-num { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; color: rgba(224,123,57,0.5); line-height: 1; }
+  .cfd-block-name { font-family: 'Syne', sans-serif; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream); }
+  .cfd-block p { font-size: 0.86rem; line-height: 1.85; font-weight: 300; color: rgba(245,240,232,0.5); }
+  .cfd-block p + p { margin-top: 0.8rem; }
+  .cfd-block em { color: rgba(245,240,232,0.72); font-style: normal; }
+  .cfd-block b { color: var(--cream); font-weight: 500; }
+
+  .cfd-card {
+    background: var(--dark2); border: 1px solid rgba(245,240,232,0.09);
+    border-left: 3px solid var(--orange); border-radius: 4px;
+    padding: 1.5rem 1.6rem; margin-bottom: 1.4rem;
+  }
+  .cfd-card-label { font-family: 'Syne', sans-serif; font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--orange); font-weight: 700; margin-bottom: 0.9rem; }
+  .cfd-card p { font-size: 0.79rem; line-height: 1.75; font-weight: 300; color: rgba(245,240,232,0.45); }
+  .cfd-card p + p { margin-top: 0.7rem; }
+  .cfd-card b { color: var(--cream); font-weight: 500; }
+
+  .cfd-table-wrap { overflow-x: auto; }
+  table.cfd-table { border-collapse: collapse; width: 100%; font-size: 0.74rem; }
+  table.cfd-table th {
+    font-family: 'Syne', sans-serif; font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase;
+    font-weight: 700; color: rgba(245,240,232,0.35); text-align: right;
+    padding: 0 0 0.55rem; border-bottom: 1px solid rgba(245,240,232,0.12);
+  }
+  table.cfd-table th:first-child, table.cfd-table td:first-child { text-align: left; }
+  table.cfd-table td {
+    padding: 0.5rem 0; text-align: right; font-weight: 300;
+    color: rgba(245,240,232,0.6); border-bottom: 1px solid rgba(245,240,232,0.05);
+    font-variant-numeric: tabular-nums;
+  }
+  table.cfd-table tr:last-child td { border-bottom: none; }
+  table.cfd-table td.hi { color: var(--orange); }
+  .cfd-table-note { font-size: 0.7rem; line-height: 1.6; color: rgba(245,240,232,0.3); font-weight: 300; margin-top: 0.9rem; }
+
+  .cfd-open { margin-top: 3.2rem; }
+  .cfd-open-label { font-family: 'Syne', sans-serif; font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--orange); font-weight: 700; margin-bottom: 1.2rem; }
+  .cfd-open-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(245,240,232,0.08); border: 1px solid rgba(245,240,232,0.08); border-radius: 4px; overflow: hidden; }
+  .cfd-open-item { background: var(--dark); padding: 1.1rem 1.3rem; }
+  .cfd-open-name { font-family: 'Syne', sans-serif; font-size: 0.74rem; font-weight: 700; color: rgba(245,240,232,0.75); letter-spacing: 0.04em; margin-bottom: 0.3rem; }
+  .cfd-open-note { font-size: 0.76rem; line-height: 1.65; color: rgba(245,240,232,0.35); font-weight: 300; }
+
+  .cfd-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 2.4rem; }
+  .cfd-tag { font-family: 'Syne', sans-serif; font-size: 0.6rem; letter-spacing: 0.06em; padding: 0.28rem 0.65rem; border: 1px solid rgba(245,240,232,0.14); border-radius: 2px; color: rgba(245,240,232,0.45); font-weight: 600; }
+  .cfd-tag.highlight { border-color: rgba(224,123,57,0.45); color: var(--orange); }
+
+  .cfd-takeaway {
+    margin-top: 2.4rem; padding: 1.4rem 1.6rem;
+    border: 1px dashed rgba(224,123,57,0.3); border-radius: 4px;
+    background: rgba(224,123,57,0.04);
+  }
+  .cfd-takeaway p { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1rem; line-height: 1.7; color: rgba(245,240,232,0.7); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .page-header { padding: 4rem 1.5rem 3rem; }
+    .tracks-section, .radar-section, .cfd-section { padding: 4rem 1.5rem; }
+    .cfd-stats { grid-template-columns: repeat(2, 1fr); }
+    .cfd-body { grid-template-columns: 1fr; gap: 2rem; }
+    .cfd-open-grid { grid-template-columns: 1fr; }
+    .cfd-section::before { display: none; }
+    .tracks-grid { grid-template-columns: 1fr; }
+    .track-card.featured { grid-column: 1; grid-template-columns: 1fr; gap: 0; }
+    footer { padding: 1.4rem 1.5rem; flex-direction: column; gap: 1rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">SASI</a>
+  <ul class="nav-links">
+    <li><a href="index.html#about" data-i18n="nav-about">About</a></li>
+    <li><a href="index.html#work" data-i18n="nav-experience">Experience</a></li>
+    <li><a href="index.html#projects" data-i18n="nav-projects">Projects</a></li>
+    <li><a href="index.html#education" data-i18n="nav-education">Education</a></li>
+    <li><a href="learning.html" class="active" data-i18n="nav-learning">Learning</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:1rem;">
+    <a href="mailto:vaddesasikanth@gmail.com" class="nav-cta" data-i18n="nav-cta">Contact Me</a>
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" id="btn-de" onclick="setLang('de')">DE</button>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="status-pill"><span class="pulse"></span><span data-i18n="header-status">Actively Learning</span></div>
+    <p class="page-eyebrow" data-i18n="header-eyebrow">What I'm working on right now</p>
+    <h1 class="page-title" data-i18n-html="page-title">Currently<br><span>Learning</span></h1>
+    <p class="page-desc" data-i18n="page-desc">A living record of the tools, methods, and domains I'm actively exploring — not a finished skills list, but an honest snapshot of where my head is right now.</p>
+  </div>
+</div>
+
+<!-- ACTIVE TRACKS -->
+<section class="tracks-section">
+  <p class="tracks-label" data-i18n="tracks-label">Active Tracks</p>
+  <p class="tracks-sub" data-i18n="tracks-sub">Three threads running in parallel — all connecting back to energy systems and industrial engineering.</p>
+
+  <div class="tracks-grid">
+
+    <!-- TwinCAT — featured -->
+    <div class="track-card featured">
+      <div>
+        <div class="track-status active"><span class="dot"></span><span data-i18n="status-active">In Progress</span></div>
+        <p class="track-domain" data-i18n="track1-domain">Industrial Automation</p>
+        <h2 class="track-name" data-i18n="track1-name">TwinCAT 3</h2>
+        <p class="track-desc" data-i18n="track1-desc">Exploring Beckhoff TwinCAT 3 for real-time PLC programming using IEC 61131-3 structured text. The goal is to bridge the gap between simulation-level control logic (as designed in Modelica/MATLAB) and actual deployment on industrial hardware — understanding how PID strategies translate to real automation systems in electrolysis and energy plant contexts.</p>
+        <div class="track-tags">
+          <span class="track-tag highlight">TwinCAT 3</span>
+          <span class="track-tag">IEC 61131-3</span>
+          <span class="track-tag">PLC</span>
+          <span class="track-tag">Structured Text</span>
+          <span class="track-tag">Beckhoff</span>
+          <span class="track-tag" data-i18n="tag-automation">Real-Time Control</span>
+        </div>
+      </div>
+      <div>
+        <div class="track-why">
+          <p class="track-why-label" data-i18n="why-label">Why this</p>
+          <p class="track-why-text" data-i18n="track1-why">My thesis work focused on modelling and control at the simulation level. TwinCAT lets me understand how those control strategies actually get implemented and deployed on real plant hardware — a crucial step for roles in industrial energy systems.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- LCA -->
+    <div class="track-card">
+      <div class="track-status active"><span class="dot"></span><span data-i18n="status-active">In Progress</span></div>
+      <p class="track-domain" data-i18n="track2-domain">Sustainability Analysis</p>
+      <h2 class="track-name" data-i18n="track2-name">Life Cycle Assessment</h2>
+      <p class="track-desc" data-i18n="track2-desc">Learning LCA methodology to evaluate the cradle-to-grave environmental footprint of hydrogen production pathways — from electrolysis to storage and distribution. Covering functional units, system boundaries, and impact categories.</p>
+      <div class="track-tags">
+        <span class="track-tag highlight">LCA</span>
+        <span class="track-tag">Green Hydrogen</span>
+        <span class="track-tag" data-i18n="tag-lca-env">Environmental Impact</span>
+        <span class="track-tag">ISO 14040/44</span>
+        <span class="track-tag">openLCA</span>
+      </div>
+      <div class="track-why">
+        <p class="track-why-label" data-i18n="why-label">Why this</p>
+        <p class="track-why-text" data-i18n="track2-why">Green hydrogen is only as "green" as its full production chain. LCA adds a sustainability lens to the technical modelling work — increasingly required in both research and industry roles.</p>
+      </div>
+    </div>
+
+    <!-- ML + LLMs for Battery -->
+    <div class="track-card">
+      <div class="track-status active"><span class="dot"></span><span data-i18n="status-active">In Progress</span></div>
+      <p class="track-domain" data-i18n="track3-domain">Applied Machine Learning</p>
+      <h2 class="track-name" data-i18n="track3-name">ML &amp; LLMs for Battery Systems</h2>
+      <p class="track-desc" data-i18n="track3-desc">Exploring how machine learning — and more recently large language models — are being applied in the battery and electrochemical space: state-of-health estimation, degradation prediction, data-driven parameter identification, and using LLMs to mine insights from scientific literature and experimental datasets.</p>
+      <div class="track-tags">
+        <span class="track-tag highlight">Python</span>
+        <span class="track-tag">Machine Learning</span>
+        <span class="track-tag">LLMs</span>
+        <span class="track-tag" data-i18n="tag-battery">Battery Systems</span>
+        <span class="track-tag">SoH Estimation</span>
+        <span class="track-tag">PyTorch</span>
+      </div>
+      <div class="track-why">
+        <p class="track-why-label" data-i18n="why-label">Why this</p>
+        <p class="track-why-text" data-i18n="track3-why">Data-driven methods are increasingly complementing physics-based models in electrochemical systems. Understanding how ML fits into this space broadens my toolkit well beyond pure simulation.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CFD DEEP DIVE -->
+<section class="cfd-section" id="cfd">
+ <div class="cfd-inner">
+
+  <p class="page-eyebrow">Deep dive &middot; Computational Fluid Dynamics</p>
+  <h2 class="cfd-title">Mixed convection in an <span>electrolyser</span> end-plate cooling channel</h2>
+  <p class="cfd-lede">An alkaline electrolyser end plate is cooled by a serpentine channel milled into its face. Sizing that circuit needs one number &mdash; the convective heat transfer coefficient between the wall and a 30&nbsp;wt%&nbsp;KOH stream. There is no textbook correlation for it, because the flow sits in a regime where forced convection alone does not set the answer.</p>
+
+  <div class="cfd-stats">
+    <div class="cfd-stat">
+      <p class="cfd-stat-sym">Re</p><p class="cfd-stat-val">136</p>
+      <p class="cfd-stat-note">Deeply laminar. No transition, no turbulence model.</p>
+    </div>
+    <div class="cfd-stat">
+      <p class="cfd-stat-sym">Pr</p><p class="cfd-stat-val">5.83</p>
+      <p class="cfd-stat-note">Thermal layer sits well inside the hydrodynamic one.</p>
+    </div>
+    <div class="cfd-stat">
+      <p class="cfd-stat-sym">Ri = Gr/Re&sup2;</p><p class="cfd-stat-val">2.87</p>
+      <p class="cfd-stat-note">Buoyancy is not a correction here &mdash; it leads.</p>
+    </div>
+    <div class="cfd-stat">
+      <p class="cfd-stat-sym">De</p><p class="cfd-stat-val">56</p>
+      <p class="cfd-stat-note">At the 180&deg; bends. Above the Dean-vortex threshold.</p>
+    </div>
+    <div class="cfd-stat">
+      <p class="cfd-stat-sym">L/D<sub>h</sub></p><p class="cfd-stat-val">317</p>
+      <p class="cfd-stat-note">4.23&nbsp;m of channel at D<sub>h</sub>&nbsp;=&nbsp;13.3&nbsp;mm.</p>
+    </div>
+    <div class="cfd-stat">
+      <p class="cfd-stat-sym">NTU</p><p class="cfd-stat-val">15</p>
+      <p class="cfd-stat-note">Why the outlet carries no usable signal at all.</p>
+    </div>
+  </div>
+
+  <div class="cfd-body">
+   <div class="cfd-prose">
+
+    <div class="cfd-block">
+      <div class="cfd-block-head"><span class="cfd-block-num">01</span><span class="cfd-block-name">The configuration</span></div>
+      <p>A rectangular channel, 20&nbsp;&times;&nbsp;10&nbsp;mm (D<sub>h</sub>&nbsp;=&nbsp;13.33&nbsp;mm), swept along a serpentine centreline of 4.23&nbsp;m &mdash; six straight passes joined by five 180&deg; bends. Working fluid is 30&nbsp;wt%&nbsp;KOH at 343&nbsp;K flowing at 110&nbsp;ml/min, giving a mean axial velocity of just 9.2&nbsp;mm/s. The walls are held isothermal, 3.15&nbsp;K below the inlet.</p>
+      <p>That last choice is deliberate. Stripping out the conjugate solid, the electrochemical source term and any two-phase behaviour leaves a clean constant-wall-temperature problem, so whatever shows up in the Nusselt number is convection and nothing else. Fluid properties come from the literature rather than defaults: density and thermal expansion from Gilliam et&nbsp;al., heat capacity from Roux et&nbsp;al., viscosity benchmarked against Habibi and Li.</p>
+    </div>
+
+    <div class="cfd-block">
+      <div class="cfd-block-head"><span class="cfd-block-num">02</span><span class="cfd-block-name">The regime is the whole story</span></div>
+      <p>At Re&nbsp;=&nbsp;136 the flow is laminar by a wide margin, and at Pr&nbsp;=&nbsp;5.83 momentum diffuses roughly six times faster than heat. Read those two alone and this looks like a Graetz problem with a known answer.</p>
+      <p>The number that changes the picture is the Richardson number, <em>Gr/Re&sup2;&nbsp;=&nbsp;2.87</em>. With a cold wall, a slow viscous stream and a 13&nbsp;mm length scale, the density-driven cross-plane circulation has a velocity scale <b>comparable to the axial one</b>. Buoyancy is not a correction to this flow; it is the leading transport mechanism. The dimensionless analysis predicts that before a solver is ever launched &mdash; and the solution confirms it quantitatively.</p>
+    </div>
+
+    <div class="cfd-block">
+      <div class="cfd-block-head"><span class="cfd-block-num">03</span><span class="cfd-block-name">Numerical model</span></div>
+      <p>Steady incompressible Navier&ndash;Stokes under the Boussinesq approximation (<b>buoyantBoussinesqSimpleFoam</b>, OpenFOAM&nbsp;v2606): constant density except in the body-force term, &beta;&nbsp;=&nbsp;5.84&times;10<sup>&minus;4</sup>&nbsp;K<sup>&minus;1</sup>, valid at &Delta;T&nbsp;=&nbsp;3&nbsp;K. The fully compressible buoyant solver was tried first and is ill-conditioned here, because the hydrostatic pressure scale swamps the dynamic one.</p>
+      <p>The mesh is fully structured hexahedral, generated by a parametric script that sweeps the constant cross-section along the centreline: <b>48&nbsp;&times;&nbsp;32 cells per cross-section</b>, graded to all four walls with a 216&nbsp;&micro;m first cell, 395,520 cells total. Maximum non-orthogonality 3.9&deg;, maximum skewness 0.31 &mdash; near-orthogonal everywhere, which matters when the quantity of interest is a wall temperature gradient. Convection is second-order (linearUpwind), Laplacians corrected, and the run converged to a temperature residual of 2.5&times;10<sup>&minus;7</sup>.</p>
+    </div>
+
+    <div class="cfd-block">
+      <div class="cfd-block-head"><span class="cfd-block-num">04</span><span class="cfd-block-name">Why the obvious method fails</span></div>
+      <p>The textbook route to <em>h</em> is a global energy balance: take <em>&#7745;c<sub>p</sub></em>(T<sub>out</sub>&nbsp;&minus;&nbsp;T<sub>in</sub>) over the wetted area with an LMTD driving difference. It collapses here, and the collapse is physical rather than numerical.</p>
+      <p>With NTU&nbsp;=&nbsp;<em>hPL/&#7745;c<sub>p</sub></em>&nbsp;&asymp;&nbsp;15, the fluid equilibrates with the wall long before it reaches the outlet: the converged outlet bulk temperature is 340.000&nbsp;K, equal to the wall temperature to written precision. Numerator and denominator both go to zero and the ratio is noise over noise.</p>
+      <p>The usable signal therefore lives only in the thermal entrance region. Its length is 0.05&nbsp;Re&nbsp;Pr&nbsp;D<sub>h</sub>&nbsp;&asymp;&nbsp;<b>0.53&nbsp;m &mdash; almost exactly one straight pass</b>. That is the entire measurable window inside a 4.23&nbsp;m channel, and recognising it was the turning point of the project.</p>
+    </div>
+
+    <div class="cfd-block">
+      <div class="cfd-block-head"><span class="cfd-block-num">05</span><span class="cfd-block-name">Two extractions that could have disagreed</span></div>
+      <p><b>(a) Local wall gradient.</b> At five stations through the first pass, T<sub>b</sub> is the streamwise-velocity-weighted cross-sectional mean and q&Prime; is <em>k|&part;T/&part;n|</em> integrated along the wetted perimeter &mdash; trapezoidal, perimeter-weighted, and using only points lying exactly on the wall. A fixed distance tolerance instead of an exact wall test is mesh-dependent under grading and manufactures a convincing but entirely artificial grid convergence; that bug cost a full study before it was found.</p>
+      <p><b>(b) Axial decay.</b> For constant <em>h</em>, &theta;&nbsp;=&nbsp;(T<sub>b</sub>&nbsp;&minus;&nbsp;T<sub>w</sub>)/(T<sub>in</sub>&nbsp;&minus;&nbsp;T<sub>w</sub>) must decay exponentially in <em>x</em>. Fitting ln&nbsp;&theta; against <em>x</em> gives a slope of &minus;3.512&nbsp;m<sup>&minus;1</sup> at R&sup2;&nbsp;=&nbsp;0.9995, so <em>h</em>&nbsp;=&nbsp;&#7745;c<sub>p</sub>(&minus;d&thinsp;ln&thinsp;&theta;/dx)/P&nbsp;=&nbsp;433&nbsp;W/m&sup2;K, i.e. <b>Nu&nbsp;=&nbsp;9.18</b>.</p>
+      <p>The two routes share no post-processing path &mdash; one is a local differential quantity, the other an integral one &mdash; and they agree to 6%. They are also sensitive to different inputs, which makes the agreement worth more than it first looks: see the closure check opposite.</p>
+    </div>
+
+    <div class="cfd-block">
+      <div class="cfd-block-head"><span class="cfd-block-num">06</span><span class="cfd-block-name">Where the enhancement comes from</span></div>
+      <p>Fully developed laminar flow in a 2:1 rectangular duct with isothermal walls gives <em>Nu<sub>T</sub>&nbsp;=&nbsp;3.391</em>. The simulation returns 2.7&ndash;3.2 times that value, and the cross-plane velocity field says exactly why.</p>
+      <p>At x&nbsp;=&nbsp;66&nbsp;mm the peak secondary velocity &mdash; the component normal to the channel axis &mdash; reaches <b>31% of the bulk axial velocity</b>. By x&nbsp;=&nbsp;531&nbsp;mm it has decayed to 10%, and the local Nusselt number decays in lockstep with it, 10.78&nbsp;&rarr;&nbsp;8.53. The enhancement is transverse advection sweeping near-wall fluid into the core, not a conduction effect and not a numerical one. The buoyancy scaling anticipated it; the velocity field proves it.</p>
+    </div>
+
+   </div>
+
+   <aside class="cfd-side">
+
+    <div class="cfd-card">
+      <p class="cfd-card-label">Result &mdash; Nu(x) through the first pass</p>
+      <div class="cfd-table-wrap">
+      <table class="cfd-table">
+        <tr><th>Station</th><th>x [mm]</th><th>T<sub>b</sub>&minus;T<sub>w</sub> [K]</th><th>Nu</th><th>|u<sub>sec</sub>|/&#x16B;</th></tr>
+        <tr><td>00</td><td>66</td><td>2.208</td><td class="hi">10.78</td><td>31%</td></tr>
+        <tr><td>01</td><td>161</td><td>1.633</td><td class="hi">10.44</td><td>20%</td></tr>
+        <tr><td>02</td><td>273</td><td>1.100</td><td class="hi">9.96</td><td>16%</td></tr>
+        <tr><td>03</td><td>397</td><td>0.700</td><td class="hi">9.23</td><td>13%</td></tr>
+        <tr><td>04</td><td>531</td><td>0.436</td><td class="hi">8.53</td><td>10%</td></tr>
+      </table>
+      </div>
+      <p class="cfd-table-note">Local wall-gradient route. Nu falls monotonically as the thermal layer develops and the buoyant secondary flow weakens &mdash; the two columns on the right track each other, which is the mechanism in one picture.</p>
+    </div>
+
+    <div class="cfd-card">
+      <p class="cfd-card-label">Cross-check &mdash; the two routes</p>
+      <p><b>Wall-gradient route:</b> Nu = 8.53&ndash;10.78, station mean 9.79.<br><b>Axial-decay route:</b> Nu = 9.18, R&sup2; = 0.9995.<br><b>Fully developed reference:</b> Nu<sub>T</sub> = 3.391.</p>
+      <p>The residual 6% is a definition difference, not a disagreement: the first is an arithmetic mean over five unevenly spaced stations of a quantity that is still falling, the second an integral fit over the whole pass.</p>
+    </div>
+
+    <div class="cfd-card">
+      <p class="cfd-card-label">Closure check on the property set</p>
+      <p>Route (a) reduces to Nu&nbsp;=&nbsp;D<sub>h</sub>|&part;T/&part;n|/&Delta;T, in which the thermal conductivity <b>cancels entirely</b> &mdash; it measures the shape of the temperature field alone. Route (b) carries &rho;c<sub>p</sub>/k explicitly.</p>
+      <p>Their agreement is therefore also a test of the properties. And independently: &rho;c<sub>p</sub>/k assembled from three separate literature sources recovers the solver's own thermal diffusivity &nu;/Pr to <b>1.3%</b>. An earlier version of this case carried a &nu;&ndash;Pr inconsistency worth 44% excess thermal diffusivity, which invalidated a whole convergence study before it was caught.</p>
+    </div>
+
+    <div class="cfd-card">
+      <p class="cfd-card-label">Decisions worth recording</p>
+      <p>The supplied CAD was solid-plate geometry rather than the fluid volume, with 60 non-manifold edges from a stray body. Rather than repair it, the channel was rebuilt as a parametric swept hex mesh &mdash; which also made the geometry a set of variables rather than a file.</p>
+      <p>Three separate post-processing bugs were found and fixed before any Nusselt number was trusted: sampling planes cutting every pass of the serpentine at once, the mesh-dependent wall tolerance above, and stale <em>postProcessing</em> data mixing results across runs.</p>
+    </div>
+
+   </aside>
+  </div>
+
+  <div class="cfd-open">
+    <p class="cfd-open-label">Open questions &mdash; what I would ask myself next</p>
+    <div class="cfd-open-grid">
+      <div class="cfd-open-item">
+        <p class="cfd-open-name">Grid convergence</p>
+        <p class="cfd-open-note">One mesh so far. The quality metrics are good, but they are not a refinement study &mdash; a three-level GCI with a computed observed order is the next piece of work, and until it exists the Nusselt number has no error bar.</p>
+      </div>
+      <div class="cfd-open-item">
+        <p class="cfd-open-name">Bend physics</p>
+        <p class="cfd-open-note">De = Re&radic;(D<sub>h</sub>/2R) &asymp; 56 at the 180&deg; turns, above the threshold for Dean vortices. Every station reported here sits in the straight pass, so bend-enhanced mixing is deliberately excluded rather than accounted for.</p>
+      </div>
+      <div class="cfd-open-item">
+        <p class="cfd-open-name">Gravity orientation</p>
+        <p class="cfd-open-note">g is imposed in-plane, across the 20&nbsp;mm channel width, which assumes the plate hangs vertically. A horizontal installation turns a side-heated problem into a stably or unstably stratified one and changes the buoyant contribution qualitatively.</p>
+      </div>
+      <div class="cfd-open-item">
+        <p class="cfd-open-name">The reference value</p>
+        <p class="cfd-open-note">An external Nu &asymp; 6 exists for this duty and is not yet reconciled. The leading hypothesis is an averaging definition that includes the thermally saturated downstream region, rather than a difference in physics &mdash; but that remains a hypothesis.</p>
+      </div>
+      <div class="cfd-open-item">
+        <p class="cfd-open-name">Representative vs. measured geometry</p>
+        <p class="cfd-open-note">The current layout is a representative serpentine (6 &times; 600&nbsp;mm passes, 80&nbsp;mm pitch). Substituting the measured plate circuit shortens the passes without moving the regime &mdash; but the entrance-region window scales with it, so the sampling stations move too.</p>
+      </div>
+      <div class="cfd-open-item">
+        <p class="cfd-open-name">Modelling scope</p>
+        <p class="cfd-open-note">Constant properties, Boussinesq, single phase, no conjugate conduction in the nickel plate. Each is defensible at &Delta;T = 3&nbsp;K. None is free, and the conjugate coupling is the first one I would relax.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cfd-takeaway">
+    <p>&ldquo;The hard part was never running the solver. It was realising that the quantity I wanted had already been destroyed by the time the flow reached the outlet &mdash; and then finding two ways to measure it that were free to disagree with each other.&rdquo;</p>
+  </div>
+
+  <div class="cfd-tags">
+    <span class="cfd-tag highlight">OpenFOAM v2606</span>
+    <span class="cfd-tag highlight">buoyantBoussinesqSimpleFoam</span>
+    <span class="cfd-tag">Mixed convection</span>
+    <span class="cfd-tag">Boussinesq approximation</span>
+    <span class="cfd-tag">Structured hex meshing</span>
+    <span class="cfd-tag">Nusselt extraction</span>
+    <span class="cfd-tag">Thermal entrance region</span>
+    <span class="cfd-tag">Alkaline electrolysis</span>
+    <span class="cfd-tag">Python</span>
+    <span class="cfd-tag">ParaView</span>
+  </div>
+
+ </div>
+</section>
+
+<!-- ON THE RADAR -->
+<section class="radar-section">
+  <p class="tracks-label" data-i18n="radar-label">On the Radar</p>
+  <p class="tracks-sub" data-i18n="radar-sub">Topics I plan to pick up next — no timeline, just a queue.</p>
+  <div class="radar-list">
+    <div class="radar-item">
+      <span class="radar-num">01</span>
+      <div>
+        <p class="radar-name" data-i18n="radar1-name">Digital Twin Frameworks</p>
+        <p class="radar-note" data-i18n="radar1-note">Connecting real-time plant data with physics-based simulation models</p>
+      </div>
+      <span class="radar-badge" data-i18n="badge-queued">Queued</span>
+    </div>
+    <div class="radar-item">
+      <span class="radar-num">02</span>
+      <div>
+        <p class="radar-name" data-i18n="radar2-name">Hydrogen Safety &amp; Regulations</p>
+        <p class="radar-note" data-i18n="radar2-note">EU RED II, ATEX directives, and safety standards for electrolyzer installations</p>
+      </div>
+      <span class="radar-badge" data-i18n="badge-queued">Queued</span>
+    </div>
+    <div class="radar-item">
+      <span class="radar-num">03</span>
+      <div>
+        <p class="radar-name" data-i18n="radar3-name">German (B1 → B2)</p>
+        <p class="radar-note" data-i18n="radar3-note">Continuing language learning — critical for working in German industry</p>
+      </div>
+      <span class="radar-badge" data-i18n="badge-ongoing">Ongoing</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-name">Sasi Kanth Vadde</span>
+  <div class="footer-links">
+    <a href="index.html">Portfolio</a>
+    <a href="https://github.com/sasikanth-vadde" target="_blank">GitHub</a>
+    <a href="https://linkedin.com/in/sasikanth-vadde" target="_blank">LinkedIn</a>
+    <a href="mailto:vaddesasikanth@gmail.com" data-i18n="footer-email">Email</a>
+  </div>
+</footer>
+
+<script>
+const translations = {
+  en: {
+    'nav-about': 'About',
+    'nav-experience': 'Experience',
+    'nav-projects': 'Projects',
+    'nav-education': 'Education',
+    'nav-learning': 'Learning',
+    'nav-cta': 'Contact Me',
+
+    'header-status': 'Actively Learning',
+    'header-eyebrow': 'What I\'m working on right now',
+    'page-title': 'Currently<br><span>Learning</span>',
+    'page-desc': 'A living record of the tools, methods, and domains I\'m actively exploring — not a finished skills list, but an honest snapshot of where my head is right now.',
+
+    'tracks-label': 'Active Tracks',
+    'tracks-sub': 'Three threads running in parallel — all connecting back to energy systems and industrial engineering.',
+    'status-active': 'In Progress',
+    'why-label': 'Why this',
+
+    'track1-domain': 'Industrial Automation',
+    'track1-name': 'TwinCAT 3',
+    'track1-desc': 'Exploring Beckhoff TwinCAT 3 for real-time PLC programming using IEC 61131-3 structured text. The goal is to bridge the gap between simulation-level control logic (as designed in Modelica/MATLAB) and actual deployment on industrial hardware — understanding how PID strategies translate to real automation systems in electrolysis and energy plant contexts.',
+    'track1-why': 'My thesis work focused on modelling and control at the simulation level. TwinCAT lets me understand how those control strategies actually get implemented and deployed on real plant hardware — a crucial step for roles in industrial energy systems.',
+    'tag-automation': 'Real-Time Control',
+
+    'track2-domain': 'Sustainability Analysis',
+    'track2-name': 'Life Cycle Assessment',
+    'track2-desc': 'Learning LCA methodology to evaluate the cradle-to-grave environmental footprint of hydrogen production pathways — from electrolysis to storage and distribution. Covering functional units, system boundaries, and impact categories.',
+    'track2-why': 'Green hydrogen is only as "green" as its full production chain. LCA adds a sustainability lens to the technical modelling work — increasingly required in both research and industry roles.',
+    'tag-lca-env': 'Environmental Impact',
+
+    'track3-domain': 'Applied Machine Learning',
+    'track3-name': 'ML & LLMs for Battery Systems',
+    'track3-desc': 'Exploring how machine learning — and more recently large language models — are being applied in the battery and electrochemical space: state-of-health estimation, degradation prediction, data-driven parameter identification, and using LLMs to mine insights from scientific literature and experimental datasets.',
+    'track3-why': 'Data-driven methods are increasingly complementing physics-based models in electrochemical systems. Understanding how ML fits into this space broadens my toolkit well beyond pure simulation.',
+    'tag-battery': 'Battery Systems',
+
+    'radar-label': 'On the Radar',
+    'radar-sub': 'Topics I plan to pick up next — no timeline, just a queue.',
+    'radar1-name': 'Digital Twin Frameworks',
+    'radar1-note': 'Connecting real-time plant data with physics-based simulation models',
+    'radar2-name': 'Hydrogen Safety & Regulations',
+    'radar2-note': 'EU RED II, ATEX directives, and safety standards for electrolyzer installations',
+    'radar3-name': 'German (B1 → B2)',
+    'radar3-note': 'Continuing language learning — critical for working in German industry',
+    'badge-queued': 'Queued',
+    'badge-ongoing': 'Ongoing',
+
+    'footer-email': 'Email',
+  },
+
+  de: {
+    'nav-about': 'Über mich',
+    'nav-experience': 'Erfahrung',
+    'nav-projects': 'Projekte',
+    'nav-education': 'Bildung',
+    'nav-learning': 'Lernen',
+    'nav-cta': 'Kontakt',
+
+    'header-status': 'Aktiv am Lernen',
+    'header-eyebrow': 'Woran ich gerade arbeite',
+    'page-title': 'Aktuell am<br><span>Lernen</span>',
+    'page-desc': 'Ein lebendiges Protokoll der Werkzeuge, Methoden und Bereiche, die ich aktiv erkunde — keine fertige Kompetenzliste, sondern ein ehrlicher Überblick darüber, womit ich mich gerade beschäftige.',
+
+    'tracks-label': 'Aktive Lernfelder',
+    'tracks-sub': 'Drei parallele Stränge — alle mit Bezug zu Energiesystemen und Industrietechnik.',
+    'status-active': 'In Bearbeitung',
+    'why-label': 'Warum das',
+
+    'track1-domain': 'Industrielle Automatisierung',
+    'track1-name': 'TwinCAT 3',
+    'track1-desc': 'Ich erkunde Beckhoff TwinCAT 3 für die echtzeitfähige SPS-Programmierung mit strukturiertem Text nach IEC 61131-3. Ziel ist es, die Lücke zwischen simulationsbasierter Regelungslogik (wie in Modelica/MATLAB entwickelt) und dem tatsächlichen Einsatz auf industrieller Hardware zu schließen.',
+    'track1-why': 'Meine Arbeit im Bereich Modellierung und Regelung fand bisher auf Simulationsebene statt. TwinCAT hilft mir zu verstehen, wie diese Strategien auf echter Anlagenhardware implementiert werden — ein wichtiger Schritt für Rollen in industriellen Energiesystemen.',
+    'tag-automation': 'Echtzeitregelung',
+
+    'track2-domain': 'Nachhaltigkeitsanalyse',
+    'track2-name': 'Lebenszyklusanalyse',
+    'track2-desc': 'Ich lerne die LCA-Methodik kennen, um den Umwelt-Fußabdruck von Wasserstoffproduktionspfaden von der Wiege bis zur Bahre zu bewerten — von der Elektrolyse über die Speicherung bis zur Verteilung. Themen: funktionelle Einheiten, Systemgrenzen und Wirkungskategorien.',
+    'track2-why': 'Grüner Wasserstoff ist nur so „grün" wie seine gesamte Produktionskette. LCA ergänzt die technische Modellierungsarbeit um eine Nachhaltigkeitsperspektive — zunehmend gefordert in Forschung und Industrie.',
+    'tag-lca-env': 'Umweltauswirkungen',
+
+    'track3-domain': 'Angewandtes maschinelles Lernen',
+    'track3-name': 'ML & LLMs für Batteriesysteme',
+    'track3-desc': 'Ich untersuche, wie maschinelles Lernen und große Sprachmodelle im Batterie- und elektrochemischen Bereich eingesetzt werden: Schätzung des Gesundheitszustands, Degradationsvorhersage, datengetriebene Parameteridentifikation und der Einsatz von LLMs zur Gewinnung von Erkenntnissen aus wissenschaftlicher Literatur.',
+    'track3-why': 'Datengetriebene Methoden ergänzen zunehmend physikbasierte Modelle in elektrochemischen Systemen. Das Verständnis, wie ML in diesen Bereich passt, erweitert mein Werkzeugkasten weit über die reine Simulation hinaus.',
+    'tag-battery': 'Batteriesysteme',
+
+    'radar-label': 'Auf dem Radar',
+    'radar-sub': 'Themen, die ich als nächstes angehen möchte — kein Zeitplan, nur eine Warteschlange.',
+    'radar1-name': 'Digital-Twin-Frameworks',
+    'radar1-note': 'Verknüpfung von Echtzeit-Anlagendaten mit physikbasierten Simulationsmodellen',
+    'radar2-name': 'Wasserstoffsicherheit & Vorschriften',
+    'radar2-note': 'EU RED II, ATEX-Richtlinien und Sicherheitsstandards für Elektrolyseur-Anlagen',
+    'radar3-name': 'Deutsch (B1 → B2)',
+    'radar3-note': 'Sprachlernen fortsetzen — entscheidend für die Arbeit in der deutschen Industrie',
+    'badge-queued': 'Geplant',
+    'badge-ongoing': 'Laufend',
+
+    'footer-email': 'E-Mail',
+  }
+};
+
+let currentLang = 'en';
+
+function setLang(lang) {
+  currentLang = lang;
+  const t = translations[lang];
+  document.documentElement.lang = lang;
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) el.textContent = t[key];
+  });
+
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.getAttribute('data-i18n-html');
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.getElementById('btn-de').classList.toggle('active', lang === 'de');
+}
+</script>
+
+</body>
+</html>
