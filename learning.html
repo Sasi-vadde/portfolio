@@ -282,6 +282,14 @@
   }
   .cfd-takeaway p { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1rem; line-height: 1.7; color: rgba(245,240,232,0.7); }
 
+  .cfd-figs { display: grid; grid-template-columns: 1.06fr 1fr; gap: 1.6rem; margin-top: 3rem; align-items: start; }
+  .cfd-fig { border: 1px solid rgba(245,240,232,0.1); border-radius: 4px; overflow: hidden; background: var(--dark); }
+  .cfd-fig img { display: block; width: 100%; height: auto; }
+  .cfd-fig-cap { padding: 0.95rem 1.2rem 1.1rem; border-top: 1px solid rgba(245,240,232,0.07); }
+  .cfd-fig-num { font-family: 'Syne', sans-serif; font-size: 0.58rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--orange); font-weight: 700; margin-bottom: 0.35rem; }
+  .cfd-fig-cap p { font-size: 0.76rem; line-height: 1.7; color: rgba(245,240,232,0.42); font-weight: 300; }
+  .cfd-fig-cap b { color: rgba(245,240,232,0.75); font-weight: 500; }
+
   /* RESPONSIVE */
   @media (max-width: 768px) {
     nav { padding: 1rem 1.5rem; }
@@ -290,6 +298,7 @@
     .cfd-stats { grid-template-columns: repeat(2, 1fr); }
     .cfd-body { grid-template-columns: 1fr; gap: 2rem; }
     .cfd-open-grid { grid-template-columns: 1fr; }
+    .cfd-figs { grid-template-columns: 1fr; }
     .cfd-section::before { display: none; }
     .tracks-grid { grid-template-columns: 1fr; }
     .track-card.featured { grid-column: 1; grid-template-columns: 1fr; gap: 0; }
@@ -516,6 +525,24 @@
     </div>
 
    </aside>
+  </div>
+
+
+  <div class="cfd-figs">
+    <figure class="cfd-fig">
+      <img src="images/openfoam_secondary_flow.png" alt="Two channel cross-sections at x = 66 mm and x = 531 mm showing temperature contours overlaid with cross-plane velocity vectors; the buoyant circulation is strong upstream and much weaker downstream.">
+      <figcaption class="cfd-fig-cap">
+        <p class="cfd-fig-num">Fig. 1 &mdash; the mechanism</p>
+        <p>Cross-plane velocity over the temperature field at two stations in the first pass, on a common vector scale. Cold dense fluid sinks along both side walls and returns up the core, displacing the hot plume against gravity. <b>By x = 531 mm the circulation has lost two thirds of its strength</b> &mdash; and the Nusselt number falls with it.</p>
+      </figcaption>
+    </figure>
+    <figure class="cfd-fig">
+      <img src="images/openfoam_nusselt_decay.png" alt="Upper panel: local Nusselt number decaying from 10.78 to 8.53 along the first pass, with the axial-decay result of 9.18 and the fully developed reference of 3.391 marked. Lower panel: peak secondary velocity decaying from 31 to 10 percent of the bulk velocity.">
+      <figcaption class="cfd-fig-cap">
+        <p class="cfd-fig-num">Fig. 2 &mdash; the result</p>
+        <p>Local Nu(x) from the wall-gradient route against the single Nu = 9.18 from the axial-decay fit, both far above the fully developed laminar value. <b>The lower panel is the same curve in a different variable</b>: the enhancement is the secondary flow, so the two decay together.</p>
+      </figcaption>
+    </figure>
   </div>
 
   <div class="cfd-open">
