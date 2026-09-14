@@ -219,7 +219,7 @@
     display: grid; grid-template-columns: repeat(6, 1fr); gap: 1px;
     background: rgba(245,240,232,0.09);
     border: 1px solid rgba(245,240,232,0.09); border-radius: 4px;
-    margin: 2.8rem 0 3.2rem; overflow: hidden;
+    margin: 2.2rem 0 3.2rem; overflow: hidden;
   }
   .cfd-stat { background: var(--dark); padding: 1.1rem 1.1rem 1rem; }
   .cfd-stat-sym { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 0.8rem; color: var(--orange); margin-bottom: 0.3rem; }
@@ -282,7 +282,7 @@
   }
   .cfd-takeaway p { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1rem; line-height: 1.7; color: rgba(245,240,232,0.7); }
 
-  .cfd-figs { display: grid; grid-template-columns: 1.06fr 1fr; gap: 1.6rem; margin-top: 3rem; align-items: start; }
+  .cfd-figs { display: grid; grid-template-columns: 1.06fr 1fr; gap: 1.6rem; margin: 2.6rem 0 0; align-items: start; }
   .cfd-fig { border: 1px solid rgba(245,240,232,0.1); border-radius: 4px; overflow: hidden; background: var(--dark); }
   .cfd-fig img { display: block; width: 100%; height: auto; }
   .cfd-fig-cap { padding: 0.95rem 1.2rem 1.1rem; border-top: 1px solid rgba(245,240,232,0.07); }
@@ -419,6 +419,23 @@
   <h2 class="cfd-title">Mixed convection in an <span>electrolyser</span> end-plate cooling channel</h2>
   <p class="cfd-lede">An alkaline electrolyser end plate is cooled by a serpentine channel milled into its face. Sizing that circuit needs one number &mdash; the convective heat transfer coefficient between the wall and a 30&nbsp;wt%&nbsp;KOH stream. There is no textbook correlation for it, because the flow sits in a regime where forced convection alone does not set the answer.</p>
 
+  <div class="cfd-figs">
+    <figure class="cfd-fig">
+      <img src="images/openfoam_secondary_flow.png" alt="Two channel cross-sections at x = 66 mm and x = 531 mm showing temperature contours overlaid with cross-plane velocity vectors; the buoyant circulation is strong upstream and much weaker downstream.">
+      <figcaption class="cfd-fig-cap">
+        <p class="cfd-fig-num">Fig. 1 &mdash; the mechanism</p>
+        <p>Cross-plane velocity over the temperature field at two stations in the first pass, on a common vector scale. Cold dense fluid sinks along both side walls and returns up the core, displacing the hot plume against gravity. <b>By x = 531 mm the circulation has lost two thirds of its strength</b> &mdash; and the Nusselt number falls with it.</p>
+      </figcaption>
+    </figure>
+    <figure class="cfd-fig">
+      <img src="images/openfoam_nusselt_decay.png" alt="Upper panel: local Nusselt number decaying from 10.78 to 8.53 along the first pass, with the axial-decay result of 9.18 and the fully developed reference of 3.391 marked. Lower panel: peak secondary velocity decaying from 31 to 10 percent of the bulk velocity.">
+      <figcaption class="cfd-fig-cap">
+        <p class="cfd-fig-num">Fig. 2 &mdash; the result</p>
+        <p>Local Nu(x) from the wall-gradient route against the single Nu = 9.18 from the axial-decay fit, both far above the fully developed laminar value. <b>The lower panel is the same curve in a different variable</b>: the enhancement is the secondary flow, so the two decay together.</p>
+      </figcaption>
+    </figure>
+  </div>
+
   <div class="cfd-stats">
     <div class="cfd-stat">
       <p class="cfd-stat-sym">Re</p><p class="cfd-stat-val">136</p>
@@ -527,23 +544,6 @@
    </aside>
   </div>
 
-
-  <div class="cfd-figs">
-    <figure class="cfd-fig">
-      <img src="images/openfoam_secondary_flow.png" alt="Two channel cross-sections at x = 66 mm and x = 531 mm showing temperature contours overlaid with cross-plane velocity vectors; the buoyant circulation is strong upstream and much weaker downstream.">
-      <figcaption class="cfd-fig-cap">
-        <p class="cfd-fig-num">Fig. 1 &mdash; the mechanism</p>
-        <p>Cross-plane velocity over the temperature field at two stations in the first pass, on a common vector scale. Cold dense fluid sinks along both side walls and returns up the core, displacing the hot plume against gravity. <b>By x = 531 mm the circulation has lost two thirds of its strength</b> &mdash; and the Nusselt number falls with it.</p>
-      </figcaption>
-    </figure>
-    <figure class="cfd-fig">
-      <img src="images/openfoam_nusselt_decay.png" alt="Upper panel: local Nusselt number decaying from 10.78 to 8.53 along the first pass, with the axial-decay result of 9.18 and the fully developed reference of 3.391 marked. Lower panel: peak secondary velocity decaying from 31 to 10 percent of the bulk velocity.">
-      <figcaption class="cfd-fig-cap">
-        <p class="cfd-fig-num">Fig. 2 &mdash; the result</p>
-        <p>Local Nu(x) from the wall-gradient route against the single Nu = 9.18 from the axial-decay fit, both far above the fully developed laminar value. <b>The lower panel is the same curve in a different variable</b>: the enhancement is the secondary flow, so the two decay together.</p>
-      </figcaption>
-    </figure>
-  </div>
 
   <div class="cfd-open">
     <p class="cfd-open-label">Open questions &mdash; what I would ask myself next</p>
