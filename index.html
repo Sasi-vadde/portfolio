@@ -1,841 +1,578 @@
-cat > /home/claude/index.html << 'ENDOFFILE'
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!--Google Analytics for tracking page views and user interactions-->
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0ZYSKMET75"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-0ZYSKMET75');
+<title>Sasikanth Vadde, Simulation Engineer (Hydrogen, Electrolysis)</title>
+<meta name="description" content="Sasikanth Vadde, simulation engineer in Stuttgart. Transient Dymola/Modelica models of alkaline water electrolysis validated against DLR test-rig data, OpenFOAM thermal CFD and PID control. M.Sc. Chemical and Energy Engineering.">
+<link rel="canonical" href="https://sasi-vadde.github.io/portfolio/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Sasikanth Vadde, Simulation Engineer (Hydrogen, Electrolysis)">
+<meta property="og:description" content="Transient electrolysis models validated against test-rig data, CFD and control for hydrogen and energy systems.">
+<meta property="og:url" content="https://sasi-vadde.github.io/portfolio/">
+<meta property="og:image" content="https://sasi-vadde.github.io/portfolio/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Sasikanth Vadde at his desk with an electrolyzer system model on the monitor">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sasikanth Vadde, Simulation Engineer (Hydrogen, Electrolysis)">
+<meta name="twitter:description" content="Transient electrolysis models validated against test-rig data, CFD and control for hydrogen and energy systems.">
+<meta name="twitter:image" content="https://sasi-vadde.github.io/portfolio/images/og-image.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Sasikanth Vadde",
+  "url": "https://sasi-vadde.github.io/portfolio/",
+  "image": "https://sasi-vadde.github.io/portfolio/images/og-image.jpg",
+  "jobTitle": "Simulation Engineer",
+  "sameAs": ["https://www.linkedin.com/in/sasikanth-vadde", "https://github.com/Sasi-vadde"]
+}
 </script>
-
-<title>Sasi Kanth Vadde — Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<script src="consent.js" defer></script>
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --dark: #1e1f1a;
-    --dark2: #2a2b24;
-    --cream: #f5f0e8;
-    --cream2: #ece5d6;
-    --orange: #e07b39;
-    --orange2: #c96a28;
-    --text: #1e1f1a;
-    --muted: #6b6855;
-  }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
-
-  /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 1.1rem 3rem;
-    background: var(--dark);
-  }
-  .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1rem; color: var(--cream); letter-spacing: 0.12em; text-transform: uppercase; }
-  .nav-links { display: flex; gap: 2.2rem; list-style: none; }
-  .nav-links a { color: rgba(245,240,232,0.6); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; font-family: 'Syne', sans-serif; font-weight: 600; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--cream); }
-  .nav-cta { background: var(--orange); color: #fff; padding: 0.55rem 1.3rem; border-radius: 2px; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; }
-  .nav-cta:hover { background: var(--orange2); }
-
-  /* LANGUAGE TOGGLE */
-  .lang-toggle {
-    display: flex; align-items: center; gap: 0.3rem; margin-left: 1.2rem;
-    border: 1px solid rgba(245,240,232,0.12); border-radius: 2px; padding: 0.25rem 0.4rem;
-  }
-  .lang-btn {
-    background: none; border: none; cursor: pointer;
-    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.68rem;
-    letter-spacing: 0.12em; color: rgba(245,240,232,0.35);
-    padding: 0.15rem 0.3rem; border-radius: 2px;
-    transition: color 0.2s, background 0.2s;
-  }
-  .lang-btn:hover { color: var(--cream); }
-  .lang-btn.active { color: var(--orange); background: rgba(224,123,57,0.1); }
-  .lang-sep { color: rgba(245,240,232,0.15); font-size: 0.65rem; font-family: 'Syne', sans-serif; }
-
-  /* QUOTE BANNER */
-  .quote-banner {
-    background: var(--dark);
-    border-bottom: 1px solid rgba(224,123,57,0.2);
-    padding: 5rem 3rem 4rem;
-    margin-top: 56px;
-    position: relative; overflow: hidden;
-  }
-  .quote-banner::before {
-    content: '\201C';
-    position: absolute; top: -2rem; left: 2rem;
-    font-family: 'DM Serif Display', serif;
-    font-size: 18rem; line-height: 1;
-    color: rgba(224,123,57,0.04);
-    pointer-events: none; user-select: none;
-  }
-  .quote-banner::after {
-    content: '\201D';
-    position: absolute; right: 2rem; bottom: 1.2rem;
-    font-family: 'DM Serif Display', serif;
-    font-size: 7rem; line-height: 1;
-    color: rgba(224,123,57,0.08);
-    pointer-events: none; user-select: none;
-  }
-  .quote-inner {
-    max-width: 860px; margin: 0 auto;
-    position: relative; z-index: 1;
-  }
-  .quote-mark {
-    display: block;
-    font-family: 'DM Serif Display', serif;
-    font-size: 4rem; line-height: 0.6;
-    color: var(--orange); opacity: 0.7;
-    margin-bottom: 1rem;
-  }
-  .quote-text {
-    font-family: 'DM Serif Display', serif;
-    font-style: italic;
-    font-size: clamp(1.15rem, 2.4vw, 1.6rem);
-    line-height: 1.65;
-    color: rgba(245,240,232,0.82);
-    font-weight: 400;
-    letter-spacing: 0.01em;
-    border: none; margin: 0;
-  }
-  .quote-author {
-    display: inline-block;
-    margin: 1.4rem 0 0 auto;
-    font-family: 'Syne', sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--orange);
-    font-weight: 700;
-    font-style: normal;
-  }
+  main { padding-top: var(--nav-h); }
+  .wrap { max-width: 1280px; margin: 0 auto; }
+  .section-label { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(1.5rem, 6vw, 2.2rem); text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 1.5rem; hyphens: auto; overflow-wrap: anywhere; }
 
   /* HERO */
-  .hero {
-    background: var(--dark);
-    min-height: auto;
-    padding-top: 2rem;
-    display: flex; flex-direction: column; justify-content: flex-end;
-    position: relative; overflow: hidden;
-  }
-  .hero::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-    background: radial-gradient(ellipse 60% 50% at 50% 20%, #2e3028 0%, var(--dark) 70%);
-    pointer-events: none;
-  }
-  .hero-top {
-    display: grid; grid-template-columns: auto minmax(auto, 240px) auto;
-    justify-content: center;
-    align-items: flex-end;
-    gap: 1.5rem;
-    padding: 2.4rem 2rem 0;
-    position: relative; z-index: 2; flex: 1;
-  }
-  .hero-left { padding-bottom: 2rem; }
-  .hero-available { font-family: 'Syne', sans-serif; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(245,240,232,0.45); margin-bottom: 0.4rem; }
-  .hero-status { font-family: 'Syne', sans-serif; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--orange); font-weight: 700; }
-
-  .hero-center { display: flex; align-items: flex-end; justify-content: center; }
-  .hero-photo-wrap {
-    width: 240px; height: 320px; overflow: hidden;
-    border-radius: 4px 4px 0 0;
-    border: 1px solid rgba(255,255,255,0.08);
-    flex-shrink: 0;
-  }
-  .hero-photo-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center top; filter: grayscale(15%) contrast(1.05); }
-
-  .hero-right { padding-bottom: 2rem; text-align: right; }
-  .hero-title-sm { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1rem; color: rgba(245,240,232,0.5); letter-spacing: 0.04em; margin-bottom: 0.2rem; }
-  .hero-title-lg { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.15rem; line-height: 1.2; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cream); }
-  .hero-title-accent { color: var(--orange); }
-
-  .hero-name {
-    position: relative; z-index: 2;
-    padding: 1.5rem 3rem 2.5rem;
-    border-top: 1px solid rgba(255,255,255,0.04);
-  }
-  .hero-name h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(3.5rem, 9vw, 8rem);
-    line-height: 0.88; color: var(--cream);
-    letter-spacing: 0.01em;
-  }
-  .hero-name h1 span { color: var(--orange); }
-  .hero-name-sub {
-    font-family: 'Syne', sans-serif; font-size: 0.7rem; letter-spacing: 0.2em;
-    color: rgba(245,240,232,0.35); text-transform: uppercase; margin-top: 0.7rem;
-  }
+  .hero { background: radial-gradient(ellipse 60% 60% at 30% 20%, #2e3028 0%, var(--dark) 70%); padding: 4.5rem 3rem 4rem; }
+  .hero-inner { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 3rem; align-items: center; }
+  .hero-eyebrow { font-family: 'Syne', sans-serif; font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cream-soft); margin-bottom: 0.8rem; }
+  .hero h1 { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: clamp(3.5rem, 9vw, 7.5rem); line-height: 0.9; color: var(--cream); letter-spacing: 0.01em; }
+  .hero h1 span { color: var(--orange); }
+  .hero-role { font-family: 'Syne', sans-serif; font-weight: 700; font-size: clamp(1.1rem, 2.2vw, 1.5rem); line-height: 1.3; color: var(--cream); margin: 1rem 0 1.2rem; }
+  .hero-summary { font-size: 1.05rem; line-height: 1.7; color: var(--cream-soft); max-width: 62ch; font-weight: 300; }
+  .hero-summary strong { color: var(--cream); font-weight: 500; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.8rem; }
+  .hero-target { margin-top: 1.4rem; font-size: 0.95rem; color: var(--orange-on-dark); }
+  .hero-photo { display: block; width: 100%; max-width: 360px; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 4px; border: 1px solid rgba(245,240,232,0.1); justify-self: end; }
 
   /* ABOUT */
-  .about {
-    padding: 5.5rem 3rem;
-    display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: start;
-    background: var(--cream);
-  }
-  .section-label { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 2.2rem; text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 1.5rem; }
-  .about-text { font-size: 1.05rem; line-height: 1.75; color: var(--muted); font-weight: 300; }
-  .about-text strong { color: var(--orange); font-weight: 500; }
-  .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 2.5rem; border: 1px solid rgba(30,31,26,0.12); border-radius: 4px; overflow: hidden; }
-  .stat-item { padding: 1.4rem 1.6rem; border-right: 1px solid rgba(30,31,26,0.12); }
+  .about { padding: 5.5rem 3rem; }
+  .about-inner { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: start; }
+  .about-text { font-size: 1.05rem; line-height: 1.75; color: var(--muted); }
+  .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 2.5rem; border: 1px solid rgba(30,31,26,0.15); border-radius: 4px; }
+  .stat-item { padding: 1.3rem 1.2rem; border-right: 1px solid rgba(30,31,26,0.15); }
   .stat-item:last-child { border-right: none; }
-  .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.8rem; line-height: 1; color: var(--orange); }
-  .stat-label { font-family: 'Syne', sans-serif; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-top: 0.25rem; }
+  .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.6rem; line-height: 1; color: var(--orange-text); }
+  .stat-label { font-family: 'Syne', sans-serif; font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-top: 0.35rem; line-height: 1.4; }
+  .skills-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
+  .skill-tags + .skills-title { margin-top: 2rem; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; list-style: none; }
+  .skill-tag { background: var(--dark); color: var(--cream); font-family: 'Syne', sans-serif; font-size: 0.8rem; letter-spacing: 0.05em; padding: 0.45rem 0.85rem; border-radius: 2px; font-weight: 600; }
+  .skill-tag.highlight { background: var(--orange); color: var(--dark); }
 
-  .skills-grid { margin-top: 0; }
-  .skills-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
-  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-  .skill-tag { background: var(--dark); color: var(--cream); font-family: 'Syne', sans-serif; font-size: 0.7rem; letter-spacing: 0.08em; padding: 0.4rem 0.85rem; border-radius: 2px; font-weight: 600; }
-  .skill-tag.highlight { background: var(--orange); }
-
-  /* WORK EXPERIENCE */
-  .work {
-    background: var(--dark2);
-    padding: 5.5rem 3rem;
-  }
+  /* EXPERIENCE */
+  .work { background: var(--dark2); padding: 5.5rem 3rem; }
   .work .section-label { color: var(--cream); }
-  .work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem; }
-  .work-card {
-    background: rgba(245,240,232,0.04); border: 1px solid rgba(245,240,232,0.08);
-    border-radius: 4px; padding: 2rem;
-    transition: border-color 0.25s, background 0.25s;
-    position: relative; overflow: hidden;
-  }
-  .work-card::before {
-    content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%;
-    background: var(--orange); opacity: 0;
-    transition: opacity 0.25s;
-  }
-  .work-card:hover { border-color: rgba(224,123,57,0.3); background: rgba(224,123,57,0.04); }
-  .work-card:hover::before { opacity: 1; }
+  .work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+  .work-card { background: rgba(245,240,232,0.04); border: 1px solid rgba(245,240,232,0.12); border-radius: 4px; padding: 2rem; }
   .work-card.featured { grid-column: 1 / -1; }
-  .work-org-tag { font-family: 'Syne', sans-serif; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.6rem; font-weight: 700; }
-  .work-role { font-family: 'DM Serif Display', serif; font-size: 1.5rem; color: var(--cream); margin-bottom: 0.3rem; line-height: 1.2; }
-  .work-period { font-family: 'Syne', sans-serif; font-size: 0.68rem; color: rgba(245,240,232,0.35); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1.2rem; }
-  .work-divider { border: none; border-top: 1px solid rgba(245,240,232,0.08); margin: 1rem 0; }
-  .work-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
-  .work-bullets li { font-size: 0.85rem; color: rgba(245,240,232,0.55); line-height: 1.6; padding-left: 1rem; position: relative; font-weight: 300; }
-  .work-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--orange); opacity: 0.6; font-size: 0.75rem; top: 0.1em; }
-  .work-meta { display: flex; gap: 2rem; margin-top: 1.5rem; }
-  .work-meta-item { }
-  .work-meta-label { font-family: 'Syne', sans-serif; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(245,240,232,0.3); margin-bottom: 0.2rem; }
-  .work-meta-val { font-family: 'Syne', sans-serif; font-size: 0.78rem; color: rgba(245,240,232,0.65); font-weight: 600; }
+  .work-org-tag { font-family: 'Syne', sans-serif; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange-on-dark); margin-bottom: 0.6rem; font-weight: 700; line-height: 1.5; }
+  .work-role { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 1.45rem; color: var(--cream); margin-bottom: 0.4rem; line-height: 1.25; }
+  .work-period { font-family: 'Syne', sans-serif; font-size: 0.8rem; color: var(--cream-soft); letter-spacing: 0.08em; margin-bottom: 1.2rem; }
+  .work-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; border-top: 1px solid rgba(245,240,232,0.12); padding-top: 1.2rem; }
+  .work-bullets li { font-size: 0.92rem; color: var(--cream-soft); line-height: 1.65; padding-left: 1.1rem; position: relative; }
+  .work-bullets li::before { content: ''; position: absolute; left: 0; top: 0.65em; width: 6px; height: 6px; background: var(--orange); border-radius: 50%; }
+  .work-bullets strong { color: var(--cream); font-weight: 500; }
+  .featured .work-bullets { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 0.8rem 2.5rem; }
+  .work-meta { display: flex; flex-wrap: wrap; gap: 1rem 2.5rem; margin-top: 1.5rem; }
+  .work-meta-label { font-family: 'Syne', sans-serif; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream-soft); margin-bottom: 0.2rem; }
+  .work-meta-val { font-family: 'Syne', sans-serif; font-size: 0.85rem; color: var(--cream); font-weight: 600; }
 
   /* PROJECTS */
-  .projects {
-    background: var(--cream);
-    padding: 5.5rem 3rem;
-  }
-  .projects-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; }
-  .view-more { font-family: 'Syne', sans-serif; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dark); background: var(--cream2); border: 1px solid rgba(30,31,26,0.15); padding: 0.5rem 0.9rem; border-radius: 2px; text-decoration: none; font-weight: 700; }
-  .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-  .proj-card { border: 1px solid rgba(30,31,26,0.1); border-radius: 4px; overflow: hidden; background: #fff; }
-  .proj-thumb {
-    height: 180px; background: var(--dark2);
-    display: flex; align-items: center; justify-content: center;
-    position: relative; overflow: hidden;
-  }
-  .proj-thumb-text { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; color: rgba(245,240,232,0.07); letter-spacing: 0.04em; }
-  .proj-thumb-icon {
-    position: absolute; bottom: 1rem; right: 1rem;
-    width: 42px; height: 42px; background: var(--orange); border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .proj-thumb-icon svg { width: 16px; height: 16px; fill: none; stroke: #fff; stroke-width: 2; }
+  .projects { padding: 5.5rem 3rem; }
+  .projects-header { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; }
+  .projects-header .section-label { margin-bottom: 0; }
+  .view-more { display: inline-flex; align-items: center; min-height: 44px; font-family: 'Syne', sans-serif; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dark); background: var(--cream2); border: 1px solid rgba(30,31,26,0.2); padding: 0.5rem 1rem; border-radius: 2px; text-decoration: none; font-weight: 700; }
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 1.5rem; }
+  .proj-card { border: 1px solid rgba(30,31,26,0.12); border-radius: 4px; overflow: hidden; background: #fff; }
+  .proj-thumb { height: 180px; background: var(--dark2); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .proj-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .proj-thumb-text { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; color: rgba(245,240,232,0.3); letter-spacing: 0.06em; }
   .proj-body { padding: 1.4rem; }
-  .proj-type { font-family: 'Syne', sans-serif; font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--orange); font-weight: 700; margin-bottom: 0.4rem; }
-  .proj-name { font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: var(--text); margin-bottom: 0.6rem; }
-  .proj-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.6; font-weight: 300; }
-  .proj-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.9rem; }
-  .proj-tag { font-family: 'Syne', sans-serif; font-size: 0.6rem; letter-spacing: 0.06em; padding: 0.25rem 0.55rem; border: 1px solid rgba(30,31,26,0.15); border-radius: 2px; color: var(--muted); font-weight: 600; }
+  .proj-type { font-family: 'Syne', sans-serif; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange-text); font-weight: 700; margin-bottom: 0.5rem; }
+  .proj-name { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 1.3rem; line-height: 1.3; color: var(--text); margin-bottom: 0.6rem; }
+  .proj-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
+  .proj-desc strong { color: var(--text); font-weight: 500; }
+  .proj-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.9rem; list-style: none; }
+  .proj-tag { font-family: 'Syne', sans-serif; font-size: 0.75rem; letter-spacing: 0.04em; padding: 0.25rem 0.55rem; border: 1px solid rgba(30,31,26,0.2); border-radius: 2px; color: var(--muted); font-weight: 600; }
 
   /* EDUCATION */
-  .education {
-    background: var(--cream2);
-    padding: 5rem 3rem;
-  }
-  .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem; }
-  .edu-card { background: var(--cream); border: 1px solid rgba(30,31,26,0.1); border-radius: 4px; padding: 1.8rem; }
-  .edu-degree { font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: var(--text); margin-bottom: 0.4rem; line-height: 1.3; }
-  .edu-school { font-family: 'Syne', sans-serif; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--orange); font-weight: 700; margin-bottom: 0.3rem; }
-  .edu-location { font-family: 'Syne', sans-serif; font-size: 0.68rem; color: var(--muted); margin-bottom: 1rem; }
-  .edu-focus { font-size: 0.82rem; color: var(--muted); line-height: 1.6; font-weight: 300; }
+  .education { background: var(--cream2); padding: 5rem 3rem; }
+  .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+  .edu-card { background: var(--cream); border: 1px solid rgba(30,31,26,0.12); border-radius: 4px; padding: 1.8rem; }
+  .edu-school { font-family: 'Syne', sans-serif; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--orange-text); font-weight: 700; margin-bottom: 0.3rem; }
+  .edu-degree { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 1.25rem; color: var(--text); margin-bottom: 0.4rem; line-height: 1.3; }
+  .edu-meta { font-family: 'Syne', sans-serif; font-size: 0.8rem; color: var(--muted); margin-bottom: 1rem; }
+  .edu-focus { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+  .edu-thesis { margin-top: 0.7rem; font-style: italic; color: var(--orange-text); }
 
-  /* CTA FOOTER */
-  .cta-footer {
-    background: var(--dark);
-    padding: 5.5rem 3rem;
-    display: grid; grid-template-columns: 1.3fr 1fr; gap: 4rem; align-items: center;
-  }
-  .cta-headline { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 6vw, 5.5rem); line-height: 0.9; color: var(--cream); margin-bottom: 1.5rem; letter-spacing: 0.01em; }
+  /* CONTACT */
+  .cta-footer { background: var(--dark); padding: 5.5rem 3rem; }
+  .cta-inner { display: grid; grid-template-columns: 1.3fr 1fr; gap: 4rem; align-items: center; }
+  .cta-headline { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: clamp(3rem, 6vw, 5.5rem); line-height: 0.9; color: var(--cream); margin-bottom: 1.5rem; }
   .cta-headline span { color: var(--orange); }
-  .cta-sub { font-size: 0.9rem; color: rgba(245,240,232,0.4); line-height: 1.7; font-weight: 300; max-width: 400px; margin-bottom: 2rem; }
-  .cta-links { display: flex; flex-direction: column; gap: 0.9rem; }
-  .cta-link-row { display: flex; align-items: center; gap: 0.9rem; color: rgba(245,240,232,0.6); font-family: 'Syne', sans-serif; font-size: 0.85rem; font-weight: 600; text-decoration: none; transition: color 0.2s; }
+  .cta-sub { font-size: 0.95rem; color: var(--cream-soft); line-height: 1.7; max-width: 440px; margin-bottom: 2rem; }
+  .cta-links { display: flex; flex-direction: column; gap: 0.6rem; }
+  .cta-link-row { display: flex; align-items: center; gap: 0.9rem; min-height: 44px; color: var(--cream-soft); font-family: 'Syne', sans-serif; font-size: 0.9rem; font-weight: 600; text-decoration: none; overflow-wrap: anywhere; }
   .cta-link-row:hover { color: var(--cream); }
-  .cta-link-icon { width: 36px; height: 36px; background: rgba(245,240,232,0.06); border: 1px solid rgba(245,240,232,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .cta-link-icon svg { width: 14px; height: 14px; stroke: var(--orange); fill: none; stroke-width: 2; }
-  .cta-right { }
-  .cta-photo-wrap {
-    width: 100%; aspect-ratio: 3/4; max-width: 280px;
-    background: var(--dark2);
-    border-radius: 4px 4px 0 0;
-    overflow: hidden; border: 1px solid rgba(255,255,255,0.05);
-    display: flex; align-items: center; justify-content: center;
-  }
-  .cta-initials { font-family: 'DM Serif Display', serif; font-size: 5rem; color: rgba(245,240,232,0.07); }
+  .cta-link-icon { width: 36px; height: 36px; border: 1px solid rgba(245,240,232,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .cta-link-icon svg { width: 14px; height: 14px; stroke: var(--orange-on-dark); fill: none; stroke-width: 2; }
+  .cta-photo { display: block; width: 100%; max-width: 300px; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 4px; border: 1px solid rgba(245,240,232,0.1); }
 
-  /* FOOTER BAR */
-  footer {
-    background: #131310;
-    padding: 1.4rem 3rem;
-    display: flex; justify-content: space-between; align-items: center;
+  @media (max-width: 860px) {
+    .hero, .about, .work, .projects, .education, .cta-footer { padding: 3.5rem 1rem; }
+    .hero-inner, .about-inner, .cta-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .hero-photo { justify-self: start; max-width: 260px; }
+    .work-card { padding: 1.4rem; }
   }
-  .footer-name { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(245,240,232,0.4); }
-  .footer-links { display: flex; gap: 2rem; }
-  .footer-links a { font-family: 'Syne', sans-serif; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(245,240,232,0.3); text-decoration: none; transition: color 0.2s; }
-  .footer-links a:hover { color: var(--orange); }
+  @media (max-width: 600px) {
+    .stats-row { grid-template-columns: 1fr; }
+    .stat-item { border-right: none; border-bottom: 1px solid rgba(30,31,26,0.15); }
+    .stat-item:last-child { border-bottom: none; }
+  }
 </style>
 </head>
-<body>
+<body id="top">
 
-<!-- NAV -->
-<nav>
-  <span class="nav-logo">SASI</span>
-  <ul class="nav-links">
-    <li><a href="#about" data-i18n="nav-about">About</a></li>
-    <li><a href="#work" data-i18n="nav-experience">Experience</a></li>
-    <li><a href="#projects" data-i18n="nav-projects">Projects</a></li>
-    <li><a href="#education" data-i18n="nav-education">Education</a></li>
-    <li><a href="learning.html" data-i18n="nav-learning">Learning</a></li>
-  </ul>
-  <div style="display:flex;align-items:center;gap:1rem;">
-    <a href="mailto:vaddesasikanth@gmail.com" class="nav-cta" data-i18n="nav-cta">Contact Me</a>
-    <div class="lang-toggle">
-      <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
-      <span class="lang-sep">|</span>
-      <button class="lang-btn" id="btn-de" onclick="setLang('de')">DE</button>
-    </div>
-  </div>
-</nav>
+<a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
 
-<!-- QUOTE BANNER -->
-<div class="quote-banner">
-  <div class="quote-inner">
-    <blockquote class="quote-text" data-i18n="quote-text">We should stop acting as if our goal is to author extremely elegant theories, and instead embrace complexity and make use of the best ally we have: the unreasonable effectiveness of data."</blockquote>
-    <cite class="quote-author" data-i18n="quote-author">— Peter Norvig</cite>
-  </div>
-</div>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-top">
-    <div class="hero-left">
-      <p class="hero-available" data-i18n="hero-available">Open to opportunities</p>
-      <p class="hero-status" data-i18n="hero-status">● Available for New Roles</p>
-    </div>
-
-    <div class="hero-center">
-      <div class="hero-photo-wrap">
-        <img src="images/IMG_6856.png" alt="Profile photo placeholder">
+<header class="site-header">
+  <nav class="nav" aria-label="Main">
+    <a href="#top" class="nav-logo">Sasikanth</a>
+    <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Menu"><span class="nav-toggle-bar"></span></button>
+    <div class="nav-menu" id="nav-menu">
+      <ul class="nav-links">
+        <li><a href="#about" data-i18n="nav-about">About</a></li>
+        <li><a href="#work" data-i18n="nav-experience">Experience</a></li>
+        <li><a href="#projects" data-i18n="nav-projects">Projects</a></li>
+        <li><a href="#education" data-i18n="nav-education">Education</a></li>
+        <li><a href="learning.html" data-i18n="nav-learning">Learning</a></li>
+        <li><a href="#contact" data-i18n="nav-contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="Sasikanth-Vadde-CV.pdf" class="btn btn-primary" data-i18n="cv-download">Download CV (PDF)</a>
+        <div class="lang-toggle" role="group" aria-label="Language / Sprache">
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="true" aria-label="English">EN</button>
+          <span class="lang-sep" aria-hidden="true">|</span>
+          <button type="button" class="lang-btn" data-lang="de" aria-pressed="false" aria-label="Deutsch">DE</button>
+        </div>
       </div>
     </div>
+  </nav>
+</header>
 
-    <div class="hero-right">
-      <p class="hero-title-sm" data-i18n="hero-title-sm">M.Sc. Chemical &amp;</p>
-      <p class="hero-title-lg" data-i18n-html="hero-title-lg">Energy<br><span class="hero-title-accent">Engineer</span></p>
+<main id="main" tabindex="-1">
+
+<!-- HERO -->
+<section class="hero" aria-labelledby="hero-name">
+  <div class="wrap hero-inner">
+    <div>
+      <p class="hero-eyebrow" data-i18n="hero-eyebrow">Stuttgart, Germany</p>
+      <h1 id="hero-name">Sasikanth <span>Vadde</span></h1>
+      <p class="hero-role" data-i18n="hero-role">Simulation Engineer, Alkaline Water Electrolysis</p>
+      <p class="hero-summary" data-i18n="hero-summary">I spent two years at DLR's Institute of Engineering Thermodynamics in Stuttgart and moved from intern to Research Associate. There I built transient <strong>Dymola/Modelica</strong> models of alkaline electrolysis cells and stacks and validated them against test-rig data, with <strong>under 5% deviation</strong> in H<sub>2</sub>-in-O<sub>2</sub> impurity. I also ran <strong>OpenFOAM</strong> thermal studies and designed multi-loop <strong>PID control</strong> for fluctuating renewable load. M.Sc. Chemical and Energy Engineering, grade 1.9.</p>
+      <div class="hero-actions">
+        <a href="Sasikanth-Vadde-CV.pdf" class="btn btn-primary" data-i18n="cv-download">Download CV (PDF)</a>
+        <a href="mailto:vaddesasikanth@gmail.com" class="btn btn-ghost" data-i18n="hero-contact">Get in touch</a>
+      </div>
+      <p class="hero-target" data-i18n="hero-target">Looking for simulation and modelling roles in hydrogen and energy systems in Germany.</p>
     </div>
-  </div>
-
-  <div class="hero-name">
-    <h1 data-i18n-html="hero-h1">Hi I Am<br><span>Sasi Kanth</span> Vadde</h1>
-    <p class="hero-name-sub" data-i18n="hero-sub">Electrochemical Systems · Dynamic Simulation · Alkaline Water Electrolysis</p>
+    <img class="hero-photo" src="images/portrait-hero.jpg" width="570" height="760" alt="Portrait of Sasikanth Vadde at his office desk" data-i18n-alt="alt-hero">
   </div>
 </section>
 
 <!-- ABOUT -->
 <section class="about" id="about">
-  <div>
-    <p class="section-label" data-i18n="about-label">About Me</p>
-    <p class="about-text" data-i18n-html="about-text">I'm a <strong>research engineer</strong> based in Stuttgart, Germany — specialising in <strong>physics-based dynamic modelling</strong> of alkaline water electrolyzers. With two years at the Deutsches Zentrum für Luft- und Raumfahrt (DLR), I translate detailed cell-level physics into reduced-order models compatible with dynamic plant simulation, validated against real experimental data.</p>
-    <div class="stats-row">
-      <div class="stat-item">
-        <div class="stat-num">2+</div>
-        <div class="stat-label" data-i18n="stat-label-1">Years at DLR</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">AWE</div>
-        <div class="stat-label" data-i18n="stat-label-2">Specialisation</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">M.Sc.</div>
-        <div class="stat-label" data-i18n="stat-label-3">Degree Level</div>
+  <div class="wrap about-inner">
+    <div>
+      <h2 class="section-label" data-i18n="about-label">About</h2>
+      <p class="about-text" data-i18n="about-text">I work where electrochemistry meets system simulation. I combine published correlations into one consistent model, test each new equation on its own in Python against a steady-state case, and only then add it to the Dymola model. Validation against measured data comes last, and when it exposes a defect I trace the cause, such as a density correlation that used the wrong composition variable in place of the KOH mole fraction.</p>
+      <div class="stats-row">
+        <div class="stat-item">
+          <div class="stat-num" data-i18n="stat-num-1">&lt;5%</div>
+          <div class="stat-label" data-i18n="stat-label-1">H<sub>2</sub>-in-O<sub>2</sub> deviation from test rig</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">1–20 bar</div>
+          <div class="stat-label" data-i18n="stat-label-2">Crossover model validated</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num" data-i18n="stat-num-3">1.9</div>
+          <div class="stat-label" data-i18n="stat-label-3">M.Sc. grade</div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="skills-grid">
-    <p class="skills-title" data-i18n="skills-title-1">Core Competencies</p>
-    <div class="skill-tags">
-      <span class="skill-tag highlight">Dymola / Modelica</span>
-      <span class="skill-tag">Python</span>
-      <span class="skill-tag">MATLAB / Simulink</span>
-      <span class="skill-tag">OpenFOAM</span>
-      <span class="skill-tag">Git</span>
-      <span class="skill-tag">Fusion 360</span>
-      <span class="skill-tag">OriginLab</span>
-      <span class="skill-tag highlight" data-i18n="skill-electrochemical">Electrochemical Modelling</span>
-      <span class="skill-tag" data-i18n="skill-pid">PID Control</span>
-    </div>
-    <p class="skills-title" style="margin-top:2rem;" data-i18n="skills-title-2">Languages</p>
-    <div class="skill-tags">
-      <span class="skill-tag" data-i18n="lang-tag-1">English (C1)</span>
-      <span class="skill-tag" data-i18n="lang-tag-2">German (A2)</span>
-      <span class="skill-tag" data-i18n="lang-tag-3">Telugu · Hindi (Native)</span>
+    <div>
+      <h3 class="skills-title" data-i18n="skills-title-1">Core skills</h3>
+      <ul class="skill-tags">
+        <li class="skill-tag highlight">Dymola / Modelica</li>
+        <li class="skill-tag highlight" data-i18n="skill-electrochemical">Electrochemical modelling</li>
+        <li class="skill-tag">Python · PyTorch</li>
+        <li class="skill-tag">MATLAB / Simulink</li>
+        <li class="skill-tag">OpenFOAM</li>
+        <li class="skill-tag">STAR-CCM+</li>
+        <li class="skill-tag">Aspen Plus</li>
+        <li class="skill-tag">Git</li>
+        <li class="skill-tag" data-i18n="skill-twophase">Two-phase flow</li>
+        <li class="skill-tag" data-i18n="skill-pid">PID control</li>
+      </ul>
+      <h3 class="skills-title" data-i18n="skills-title-2">Languages</h3>
+      <ul class="skill-tags">
+        <li class="skill-tag" data-i18n="lang-tag-1">German (B1, working toward B2)</li>
+        <li class="skill-tag" data-i18n="lang-tag-2">English (C1/C2)</li>
+        <li class="skill-tag" data-i18n="lang-tag-3">Telugu (native)</li>
+        <li class="skill-tag" data-i18n="lang-tag-4">Hindi (native-level)</li>
+      </ul>
     </div>
   </div>
 </section>
 
-<!-- WORK EXPERIENCE -->
+<!-- EXPERIENCE -->
 <section class="work" id="work">
-  <p class="section-label" data-i18n="work-label">Work Experience</p>
+  <div class="wrap">
+    <h2 class="section-label" data-i18n="work-label">Experience</h2>
+    <div class="work-grid">
 
-  <div class="work-grid">
+      <article class="work-card featured">
+        <p class="work-org-tag" data-i18n="dlr-org">DLR (German Aerospace Center), Institute of Engineering Thermodynamics · Stuttgart</p>
+        <h3 class="work-role" data-i18n="dlr-role">Intern, Working Student, Master's Thesis, Research Associate (Wissenschaftlicher Mitarbeiter)</h3>
+        <p class="work-period">09/2023 – 12/2025</p>
+        <ul class="work-bullets">
+          <li data-i18n="dlr-b1"><strong>Modelling:</strong> to give DLR a digital twin of an AWE cell, I built a transient 1D single-cell model in Dymola/Modelica that couples electrochemical, two-phase and thermal equations from published sources, then extended it into a high-pressure stack model.</li>
+          <li data-i18n="dlr-b2"><strong>Validation:</strong> to cover the low-load regime, where reduced gas dilution is the main safety risk, I validated the gas-purity model against test-rig data at three electrolyte flow rates in mixed and separated circulation. Deviation from measured H<sub>2</sub>-in-O<sub>2</sub> impurity stayed <strong>under 5%</strong>.</li>
+          <li data-i18n="dlr-b3"><strong>Gas crossover:</strong> to improve solubility predictions under pressure, I added a fugacity correction for non-ideal gas behaviour and validated the de Groot supersaturation correlation against literature and DLR test-bench data across <strong>1–20 bar and 60–80 °C</strong>.</li>
+          <li data-i18n="dlr-b4"><strong>Integration:</strong> for plant-level KPI assessment, I built a hybrid gas-crossover model (empirical correlations plus data-driven corrections) and integrated it into TEMPEST, DLR's in-house system-level electrochemical simulation platform.</li>
+          <li data-i18n="dlr-b5"><strong>Power electronics:</strong> to replace a single fixed-efficiency assumption, I rebuilt the converter loss model with literature-based peak-efficiency correlations for <strong>MOSFET (97.1%) and GaNFET (98.8%)</strong> converters, for more realistic system-level efficiency predictions.</li>
+          <li data-i18n="dlr-b6"><strong>Control:</strong> for operation under fluctuating renewable load, I developed multi-loop PID control strategies that keep gas purity within safety limits, driven by synthetic ARMA-based wind and PV load profiles I generated in Python.</li>
+          <li data-i18n="dlr-b7"><strong>Thermal:</strong> to calibrate the Nusselt-number correlations in the thermal stack model, I ran conjugate-heat-transfer CFD in OpenFOAM (chtMultiRegionFoam) of the endplate cooling-channel flow.</li>
+          <li data-i18n="dlr-b8"><strong>Test benches:</strong> contributed to the development and commissioning of two AWE test benches (50 bar and 5 bar), including P&amp;ID, instrumentation and safety checks, and supported the measurements and data analysis used for model calibration.</li>
+        </ul>
+        <div class="work-meta">
+          <div>
+            <p class="work-meta-label" data-i18n="meta-label-tools">Tools</p>
+            <p class="work-meta-val">Dymola / Modelica · Python · OpenFOAM</p>
+          </div>
+          <div>
+            <p class="work-meta-label" data-i18n="meta-label-domain">Domain</p>
+            <p class="work-meta-val" data-i18n="dlr-domain">Alkaline water electrolysis</p>
+          </div>
+        </div>
+      </article>
 
-    <!-- DLR - featured card -->
-    <div class="work-card featured">
-      <p class="work-org-tag" data-i18n="dlr-org">Deutsches Zentrum für Luft- und Raumfahrt (DLR) · Stuttgart, Germany</p>
-      <h2 class="work-role" data-i18n="dlr-role">Student Research Assistant — Internship &amp; Master's Thesis</h2>
-      <p class="work-period" data-i18n="dlr-period">September 2023 – December 2025</p>
-      <hr class="work-divider">
-      <ul class="work-bullets">
-        <li data-i18n="dlr-b1">Developed a transient 1D AWE single-cell model in Dymola/Modelica incorporating electrochemical, multiphase flow, and thermal phenomena — validated against experimental polarisation curves and gas impurity measurements.</li>
-        <li data-i18n="dlr-b2">Built a dynamic gas crossover and purity model, integrating it into DLR's TEMPEST framework for transient operating scenarios.</li>
-        <li data-i18n="dlr-b3">Designed multi-loop PID control strategies for renewable-driven operation, maintaining safe gas purity limits under fluctuating loads.</li>
-        <li data-i18n="dlr-b4">Supported AWE test-bench experiments and processed data for model calibration and validation.</li>
-        <li data-i18n="dlr-b5">Integrated power electronics conversion losses into system-level efficiency analysis.</li>
-      </ul>
-      <div class="work-meta">
-        <div class="work-meta-item">
-          <p class="work-meta-label" data-i18n="dlr-meta-label-1">Duration</p>
-          <p class="work-meta-val" data-i18n="dlr-meta-val-1">Sep 2023 – Dec 2025</p>
+      <article class="work-card">
+        <p class="work-org-tag" data-i18n="ovgu-org">Otto von Guericke University Magdeburg · Chair of Mechanical Process Engineering (Prof. Berend van Wachem)</p>
+        <h3 class="work-role" data-i18n="ovgu-role">Student Research Assistant (HiWi)</h3>
+        <p class="work-period">06/2023 – 08/2023</p>
+        <ul class="work-bullets">
+          <li data-i18n="ovgu-b1">To measure bubble dynamics in a fluidised bed, I built a Python/OpenCV pipeline that detects and tracks bubbles in image data from runs with sinusoidal airflow.</li>
+          <li data-i18n="ovgu-b2">Ran fluidised-bed experiments at varying inlet pressures and analysed the dataset to calibrate a drying-process model.</li>
+        </ul>
+        <div class="work-meta">
+          <div>
+            <p class="work-meta-label" data-i18n="meta-label-tools">Tools</p>
+            <p class="work-meta-val">Python · OpenCV</p>
+          </div>
         </div>
-        <div class="work-meta-item">
-          <p class="work-meta-label" data-i18n="dlr-meta-label-2">Tools</p>
-          <p class="work-meta-val">Dymola · Modelica · PID</p>
-        </div>
-        <div class="work-meta-item">
-          <p class="work-meta-label" data-i18n="dlr-meta-label-3">Domain</p>
-          <p class="work-meta-val" data-i18n="dlr-meta-val-3">Alkaline Water Electrolysis</p>
-        </div>
-      </div>
+      </article>
+
+      <article class="work-card">
+        <p class="work-org-tag" data-i18n="gmr-org">GMR Group · Hyderabad, India</p>
+        <h3 class="work-role">Graduate Engineer Trainee, Junior Engineer</h3>
+        <p class="work-period">2019 – 03/2021</p>
+        <ul class="work-bullets">
+          <li data-i18n="gmr-b1">Rotated across GMR Group sites: Hyderabad airport (GHIAL), Delhi airport and the Bajoli Holi hydropower plant, then under construction.</li>
+          <li data-i18n="gmr-b2">Contributed to HVAC, chiller and fire-system commissioning.</li>
+          <li data-i18n="gmr-b3">Then Junior Engineer in Airside Operations at Hyderabad airport (GHIAL).</li>
+        </ul>
+      </article>
+
+      <article class="work-card">
+        <p class="work-org-tag" data-i18n="hal-org">Hindustan Aeronautics Limited (HAL) · Koraput, India</p>
+        <h3 class="work-role" data-i18n="hal-role">Full-semester internship</h3>
+        <p class="work-period">11/2018 – 04/2019</p>
+        <ul class="work-bullets">
+          <li data-i18n="hal-b1">To assess process stability and dimensional acceptance limits, I analysed manufacturing, inspection and fatigue-testing sequences for AL-31FP (Sukhoi engine) turbine blades using statistical process control (X-bar and S charts).</li>
+        </ul>
+      </article>
+
     </div>
-
-    <!-- OvGU -->
-    <div class="work-card">
-      <p class="work-org-tag" data-i18n="ovgu-org">Otto von Guericke University · Magdeburg, Germany</p>
-      <h2 class="work-role" data-i18n="ovgu-role">Student Research Assistant (HiWi)</h2>
-      <p class="work-period" data-i18n="ovgu-period">June 2023 – August 2023</p>
-      <hr class="work-divider">
-      <ul class="work-bullets">
-        <li data-i18n="ovgu-b1">Developed a Python/OpenCV algorithm to track bubbles in fluidised bed experiments with sinusoidal airflow, enhancing particle movement analysis.</li>
-        <li data-i18n="ovgu-b2">Assisted in fluidised bed experiment setup with varying inlet pressures; processed datasets for drying process model calibration.</li>
-      </ul>
-      <div class="work-meta">
-        <div class="work-meta-item">
-          <p class="work-meta-label" data-i18n="meta-label-tools">Tools</p>
-          <p class="work-meta-val">Python · OpenCV</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Placeholder for future role -->
-    <div class="work-card" style="border-style: dashed; display:flex; flex-direction:column; align-items:flex-start; justify-content:center; min-height:180px;">
-      <p class="work-org-tag" data-i18n="next-org">Next Opportunity</p>
-      <h2 class="work-role" style="color:rgba(245,240,232,0.2);" data-i18n="next-role">Your Organisation</h2>
-      <p class="work-period">2026 → </p>
-      <p style="font-size:0.8rem; color:rgba(245,240,232,0.2); margin-top:0.8rem; font-weight:300;" data-i18n="next-desc">Open to research, engineering, or simulation roles in green hydrogen &amp; energy systems.</p>
-    </div>
-
   </div>
 </section>
 
 <!-- PROJECTS -->
 <section class="projects" id="projects">
-  <div class="projects-header">
-    <p class="section-label" style="margin-bottom:0;" data-i18n="proj-label">Research Projects</p>
-    <a href="mailto:vaddesasikanth@gmail.com" class="view-more" data-i18n="proj-cta">Get In Touch ↗</a>
-  </div>
-
-  <div class="projects-grid">
-
-    <div class="proj-card">
-      <div class="proj-thumb" style="padding:0;">
-        <img src="images/georec.png" alt="Project placeholder" style="width:100%;height:100%;object-fit:cover;display:block;">
-        <div class="proj-thumb-icon">
-          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-        </div>
-      </div>
-      <div class="proj-body">
-        <p class="proj-type" data-i18n="proj1-type">Numerical Simulation</p>
-        <h3 class="proj-name" data-i18n="proj1-name">Natural Convection — OpenFOAM</h3>
-        <p class="proj-desc" data-i18n="proj1-desc">Simulated natural convection around rectangular heating elements using buoyantPimpleFoam. Included mesh sensitivity analysis and characterised thermal performance across laminar flow regimes.</p>
-        <div class="proj-tags">
-          <span class="proj-tag">OpenFOAM</span>
-          <span class="proj-tag">buoyantPimpleFoam</span>
-          <span class="proj-tag" data-i18n="tag-heat">Heat Transfer</span>
-          <span class="proj-tag" data-i18n="tag-mesh">Mesh Sensitivity</span>
-        </div>
-      </div>
+  <div class="wrap">
+    <div class="projects-header">
+      <h2 class="section-label" data-i18n="proj-label">Projects</h2>
+      <a href="mailto:vaddesasikanth@gmail.com" class="view-more" data-i18n="proj-cta">Get in touch ↗</a>
     </div>
 
-    <div class="proj-card">
-      <div class="proj-thumb" style="padding:0;">
-        <img src="images/cellqARC.jpg" alt="Project placeholder" style="width:100%;height:100%;object-fit:cover;display:block;">
-        <div class="proj-thumb-icon">
-          <svg viewBox="0 0 24 24"><path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/><path d="M13 13l6 6"/></svg>
-        </div>
-      </div>
-      <div class="proj-body">
-        <p class="proj-type" data-i18n="proj2-type">Aerodynamic Simulation</p>
-        <h3 class="proj-name" data-i18n="proj2-name">Arc de Triomphe — Airflow CFD</h3>
-        <p class="proj-desc" data-i18n="proj2-desc">Simulated airflow around the Arc de Triomphe using computational fluid dynamics to evaluate flow behaviour and aerodynamic forces on a complex architectural structure.</p>
-        <div class="proj-tags">
-          <span class="proj-tag">CFD</span>
-          <span class="proj-tag" data-i18n="tag-aero">Aerodynamics</span>
-          <span class="proj-tag" data-i18n="tag-flow">Flow Analysis</span>
-        </div>
-      </div>
-    </div>
+    <div class="projects-grid">
 
-    <div class="proj-card">
-      <div class="proj-thumb" style="padding:0;">
-        <img src="images/my_model_image.png" alt="Project placeholder" style="width:100%;height:100%;object-fit:cover;display:block;">
-        <div class="proj-thumb-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+      <article class="proj-card">
+        <div class="proj-thumb"><img src="images/systemTest.png" width="891" height="512" loading="lazy" alt="Dymola diagram of the electrolyzer system model: cell with power electronics, hydrogen and oxygen gas separators, pressure elements, mixer and electrolyte loop" data-i18n-alt="alt-thesis"></div>
+        <div class="proj-body">
+          <p class="proj-type" data-i18n="proj1-type">Master's thesis · MPI Magdeburg &amp; DLR Stuttgart</p>
+          <h3 class="proj-name" data-i18n="proj1-name">Transient Modelling of an Alkaline Water Electrolyzer</h3>
+          <p class="proj-desc" data-i18n="proj1-desc">To validate a two-phase electrolyte model, I built a transient single-cell AWE model in Dymola/Modelica and compared it with DLR test-rig data at three electrolyte flow rates. Predicted H<sub>2</sub>-in-O<sub>2</sub> impurity stayed <strong>within 5%</strong> of the measurements.</p>
+          <ul class="proj-tags"><li class="proj-tag">Dymola</li><li class="proj-tag">Modelica</li><li class="proj-tag">AWE</li><li class="proj-tag" data-i18n="skill-twophase">Two-phase flow</li></ul>
         </div>
-      </div>
-      <div class="proj-body">
-        <p class="proj-type" data-i18n="proj3-type">Process Control</p>
-        <h3 class="proj-name" data-i18n="proj3-name">Multivariable PID Controller Design</h3>
-        <p class="proj-desc" data-i18n="proj3-desc">Designed and tuned PID controllers in MATLAB/Simulink using Ziegler–Nichols, Cohen–Coon, and IMC methods. Evaluated performance via step response metrics and integral error criteria.</p>
-        <div class="proj-tags">
-          <span class="proj-tag">MATLAB</span>
-          <span class="proj-tag">Simulink</span>
-          <span class="proj-tag" data-i18n="tag-pid">PID Tuning</span>
-          <span class="proj-tag">IMC</span>
-        </div>
-      </div>
-    </div>
+      </article>
 
-    <div class="proj-card">
-      <div class="proj-thumb" style="padding:0;">
-        <img src="images/systemTest.png" alt="Project placeholder" style="width:100%;height:100%;object-fit:cover;display:block;">
-        <div class="proj-thumb-icon">
-          <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      <article class="proj-card">
+        <div class="proj-thumb" aria-hidden="true"><span class="proj-thumb-text">ISCC</span></div>
+        <div class="proj-body">
+          <p class="proj-type" data-i18n="proj2-type">Energy systems · Exergoeconomics</p>
+          <h3 class="proj-name" data-i18n="proj2-name">Exergoeconomic Optimisation of a 210 MW ISCC Power Plant</h3>
+          <p class="proj-desc" data-i18n="proj2-desc">To lower the cost of electricity from an integrated solar combined-cycle plant, I applied the Total Revenue Requirement method and optimised five decision variables in iterative runs. Natural gas use fell by <strong>6.2%</strong> and the exergy-based levelised cost of electricity dropped from <strong>93.41 to 90.07 €/MWh</strong>.</p>
+          <ul class="proj-tags"><li class="proj-tag" data-i18n="tag-exergy">Exergy analysis</li><li class="proj-tag" data-i18n="tag-trr">TRR method</li><li class="proj-tag" data-i18n="tag-opt">Optimisation</li></ul>
         </div>
-      </div>
-      <div class="proj-body">
-        <p class="proj-type" data-i18n="proj4-type">Master's Thesis</p>
-        <h3 class="proj-name" data-i18n="proj4-name">Transient AWE Electrolyzer Modelling</h3>
-        <p class="proj-desc" data-i18n="proj4-desc">Developed and validated a transient 1D single-cell alkaline water electrolyzer model in Dymola/Modelica for two-phase electrolyte validation — the centrepiece of two years at DLR.</p>
-        <div class="proj-tags">
-          <span class="proj-tag">Dymola</span>
-          <span class="proj-tag">Modelica</span>
-          <span class="proj-tag">TEMPEST</span>
-          <span class="proj-tag">AWE</span>
-          <span class="proj-tag" data-i18n="tag-electrolysis">Electrolysis</span>
-        </div>
-      </div>
-    </div>
+      </article>
 
+      <article class="proj-card">
+        <div class="proj-thumb" aria-hidden="true"><span class="proj-thumb-text">PINN</span></div>
+        <div class="proj-body">
+          <p class="proj-type" data-i18n="proj3-type">Applied machine learning · since 02/2026</p>
+          <h3 class="proj-name" data-i18n="proj3-name">Physics-Informed Neural Network for Battery State-of-Health</h3>
+          <p class="proj-desc" data-i18n="proj3-desc">To predict ageing of large-format LFP cells that the model has not seen in training, I am building a PINN in PyTorch that couples a shared MLP with learnable cell embeddings to a Single-Particle-Model ageing model. It predicts capacity zero-shot on held-out cells and forecasts the rest of a cell's trajectory from <strong>70% of its history</strong>, evaluated with RMSE, R² and MAPE.</p>
+          <ul class="proj-tags"><li class="proj-tag">PyTorch</li><li class="proj-tag">PINN</li><li class="proj-tag">Single-Particle Model</li></ul>
+        </div>
+      </article>
+
+      <article class="proj-card">
+        <div class="proj-thumb"><img src="images/georec.png" width="1129" height="531" loading="lazy" alt="Simulation domain for the natural-convection case: a cubic domain with two small rectangular heating plates at its centre" data-i18n-alt="alt-convection"></div>
+        <div class="proj-body">
+          <p class="proj-type">CFD · OpenFOAM</p>
+          <h3 class="proj-name" data-i18n="proj4-name">Natural Convection Around Heating Elements</h3>
+          <p class="proj-desc" data-i18n="proj4-desc">To study buoyancy-driven heat transfer, I simulated natural convection around rectangular heating elements with the OpenFOAM solver buoyantPimpleFoam and tested how mesh resolution and boundary conditions change the result.</p>
+          <ul class="proj-tags"><li class="proj-tag">OpenFOAM</li><li class="proj-tag">buoyantPimpleFoam</li><li class="proj-tag" data-i18n="tag-heat">Heat transfer</li><li class="proj-tag" data-i18n="tag-mesh">Mesh study</li></ul>
+        </div>
+      </article>
+
+      <article class="proj-card">
+        <div class="proj-thumb"><img src="images/cellqARC.jpg" width="1330" height="685" loading="lazy" alt="STAR-CCM+ surface mesh of the Arc de Triomphe coloured by cell quality on a scale from 0 to 1" data-i18n-alt="alt-arc"></div>
+        <div class="proj-body">
+          <p class="proj-type">CFD · STAR-CCM+</p>
+          <h3 class="proj-name" data-i18n="proj5-name">Wind Flow Around the Arc de Triomphe</h3>
+          <p class="proj-desc" data-i18n="proj5-desc">To find where wind loads a complex monument, I simulated the flow around the Arc de Triomphe in STAR-CCM+ and mapped aerodynamic loading and stress hotspots on the structure.</p>
+          <ul class="proj-tags"><li class="proj-tag">STAR-CCM+</li><li class="proj-tag" data-i18n="tag-aero">Aerodynamics</li><li class="proj-tag" data-i18n="tag-wind">Wind loading</li></ul>
+        </div>
+      </article>
+
+      <article class="proj-card">
+        <div class="proj-thumb"><img src="images/my_model_image.png" width="1450" height="935" loading="lazy" alt="Simulink block diagram of the Newell–Lee evaporator model with two PID loops, step disturbances on the inputs and output scopes" data-i18n-alt="alt-pid"></div>
+        <div class="proj-body">
+          <p class="proj-type" data-i18n="proj6-type">Process control</p>
+          <h3 class="proj-name" data-i18n="proj6-name">Multivariable Control of an Evaporator</h3>
+          <p class="proj-desc" data-i18n="proj6-desc">To compare tuning rules on a multivariable process, I tuned PID controllers for the Newell–Lee evaporator in MATLAB/Simulink with Ziegler–Nichols, Cohen–Coon and IMC, then compared step responses and integral error.</p>
+          <ul class="proj-tags"><li class="proj-tag">MATLAB</li><li class="proj-tag">Simulink</li><li class="proj-tag" data-i18n="tag-pid">PID tuning</li><li class="proj-tag">IMC</li></ul>
+        </div>
+      </article>
+
+    </div>
   </div>
 </section>
 
 <!-- EDUCATION -->
 <section class="education" id="education">
-  <p class="section-label" data-i18n="edu-label">Education</p>
-  <div class="edu-grid">
-    <div class="edu-card">
-      <p class="edu-school" data-i18n="edu1-school">Otto von Guericke University</p>
-      <h3 class="edu-degree" data-i18n="edu1-degree">M.Sc. Chemical and Energy Engineering</h3>
-      <p class="edu-location" data-i18n="edu1-location">Magdeburg, Germany</p>
-      <p class="edu-focus" data-i18n-html="edu1-focus">Focus areas: Computational Fluid Dynamics (CFD), Process Control &amp; Systems Engineering, Machine Learning in Chemical Engineering, Multiphase Flows, Advanced Heat &amp; Mass Transfer.</p>
-      <p class="edu-focus" style="margin-top:0.7rem; font-style:italic; color:#b07a40;" data-i18n="edu1-thesis">Thesis: Transient Modelling of an Alkaline Electrolyzer for validating a Two-Phase Electrolyte Model</p>
-    </div>
-    <div class="edu-card">
-      <p class="edu-school" data-i18n="edu2-school">GMR Institute of Technology</p>
-      <h3 class="edu-degree" data-i18n="edu2-degree">B.Tech. Mechanical Engineering</h3>
-      <p class="edu-location" data-i18n="edu2-location">Rajam, India</p>
-      <p class="edu-focus" data-i18n-html="edu2-focus">Focus areas: Thermodynamics &amp; Heat Transfer, Fluid Mechanics &amp; Hydraulic Machines, Finite Element Methods, Power Plant Engineering &amp; Energy Systems.</p>
+  <div class="wrap">
+    <h2 class="section-label" data-i18n="edu-label">Education</h2>
+    <div class="edu-grid">
+      <article class="edu-card">
+        <p class="edu-school" data-i18n="edu1-school">Otto von Guericke University Magdeburg</p>
+        <h3 class="edu-degree">M.Sc. Chemical and Energy Engineering</h3>
+        <p class="edu-meta" data-i18n="edu1-meta">04/2021 – 10/2025 · Magdeburg, Germany · Grade 1.9</p>
+        <p class="edu-focus" data-i18n="edu1-focus">Focus: CFD, process control and systems engineering, machine learning in chemical engineering, multiphase flows, heat and mass transfer, mechanical process engineering, life cycle assessment.</p>
+        <p class="edu-focus edu-thesis" data-i18n="edu1-thesis">Thesis: “Transient Modelling of an Alkaline Water Electrolyzer for Validating a Two-Phase Electrolyte Model”, jointly supervised by MPI Magdeburg and DLR Stuttgart.</p>
+      </article>
+      <article class="edu-card">
+        <p class="edu-school">GMR Institute of Technology</p>
+        <h3 class="edu-degree" data-i18n="edu2-degree">B.Tech. Mechanical Engineering</h3>
+        <p class="edu-meta" data-i18n="edu2-meta">07/2015 – 04/2019 · Rajam, India</p>
+        <p class="edu-focus" data-i18n="edu2-focus">Focus: thermodynamics and heat transfer, fluid mechanics and hydraulic machines, finite element methods, power plant engineering and energy systems.</p>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- CTA FOOTER -->
+<!-- CONTACT -->
 <section class="cta-footer" id="contact">
-  <div>
-    <h2 class="cta-headline" data-i18n-html="cta-headline">Let's Start A<br><span>Project</span><br>Together?</h2>
-    <p class="cta-sub" data-i18n="cta-sub">Based in Stuttgart — open to research, engineering, and simulation roles in green hydrogen, electrochemical systems, and energy technologies.</p>
-    <div class="cta-links">
-      <a href="mailto:vaddesasikanth@gmail.com" class="cta-link-row">
-        <span class="cta-link-icon">
-          <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
-        </span>
-        vaddesasikanth@gmail.com
-      </a>
-      <a href="https://github.com/sasikanth-vadde" target="_blank" class="cta-link-row">
-        <span class="cta-link-icon">
-          <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
-        </span>
-        github.com/sasikanth-vadde
-      </a>
-      <a href="https://linkedin.com/in/sasikanth-vadde" target="_blank" class="cta-link-row">
-        <span class="cta-link-icon">
-          <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-        </span>
-        linkedin.com/in/sasikanth-vadde
-      </a>
+  <div class="wrap cta-inner">
+    <div>
+      <h2 class="cta-headline" data-i18n="cta-headline">Let's<br><span>Talk</span></h2>
+      <p class="cta-sub" data-i18n="cta-sub">I'm based in Stuttgart and open to simulation and modelling roles in hydrogen, electrolysis and energy systems. Email reaches me fastest.</p>
+      <div class="cta-links">
+        <a href="mailto:vaddesasikanth@gmail.com" class="cta-link-row">
+          <span class="cta-link-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg></span>
+          vaddesasikanth@gmail.com
+        </a>
+        <a href="https://github.com/Sasi-vadde" target="_blank" rel="noopener noreferrer" class="cta-link-row">
+          <span class="cta-link-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg></span>
+          github.com/Sasi-vadde
+        </a>
+        <a href="https://www.linkedin.com/in/sasikanth-vadde" target="_blank" rel="noopener noreferrer" class="cta-link-row">
+          <span class="cta-link-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span>
+          linkedin.com/in/sasikanth-vadde
+        </a>
+        <a href="Sasikanth-Vadde-CV.pdf" class="cta-link-row">
+          <span class="cta-link-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v12"/><polyline points="7 10 12 15 17 10"/><path d="M4 21h16"/></svg></span>
+          <span data-i18n="cv-download">Download CV (PDF)</span>
+        </a>
+      </div>
     </div>
-  </div>
-  <div class="cta-right">
-    <div class="cta-photo-wrap" style="padding:0;">
-      <img src="images/IMG_0582.png" alt="Profile photo placeholder" style="width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(15%) contrast(1.05);">
-    </div>
+    <img class="cta-photo" src="images/portrait-contact.jpg" width="540" height="720" loading="lazy" alt="Sasikanth Vadde leaning against the Otto von Guericke University sign in Magdeburg" data-i18n-alt="alt-contact">
   </div>
 </section>
 
-<!-- FOOTER -->
+</main>
+
 <footer>
-  <span class="footer-name">Sasi Kanth Vadde</span>
+  <span class="footer-name">Sasikanth Vadde</span>
   <div class="footer-links">
     <a href="learning.html" data-i18n="nav-learning">Learning</a>
-    <a href="https://github.com/sasikanth-vadde" target="_blank">GitHub</a>
-    <a href="https://linkedin.com/in/sasikanth-vadde" target="_blank">LinkedIn</a>
+    <a href="https://github.com/Sasi-vadde" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <a href="https://www.linkedin.com/in/sasikanth-vadde" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     <a href="mailto:vaddesasikanth@gmail.com" data-i18n="footer-email">Email</a>
+    <a href="datenschutz.html" data-i18n="footer-privacy">Privacy</a>
+    <button type="button" data-consent-reset data-i18n="footer-cookies">Cookie settings</button>
   </div>
 </footer>
 
 <script>
-const translations = {
-  en: {
-    'nav-about': 'About',
-    'nav-experience': 'Experience',
-    'nav-projects': 'Projects',
-    'nav-education': 'Education',
-    'nav-learning': 'Learning',
-    'nav-cta': 'Contact Me',
+// German strings; English stays in the HTML and is restored from the DOM.
+const de = {
+  'skip': 'Zum Inhalt springen',
+  'nav-about': 'Über mich',
+  'nav-experience': 'Erfahrung',
+  'nav-projects': 'Projekte',
+  'nav-education': 'Ausbildung',
+  'nav-learning': 'Lernen',
+  'nav-contact': 'Kontakt',
+  'cv-download': 'Lebenslauf herunterladen (PDF)',
 
-    'quote-text': 'We should stop acting as if our goal is to author extremely elegant theories, and instead embrace complexity and make use of the best ally we have: the unreasonable effectiveness of data."',
-    'quote-author': '— Peter Norvig',
+  'hero-eyebrow': 'Stuttgart, Deutschland',
+  'hero-role': 'Simulationsingenieur, alkalische Wasserelektrolyse',
+  'hero-summary': 'Zwei Jahre war ich am DLR-Institut für Technische Thermodynamik in Stuttgart, vom Praktikanten bis zum Wissenschaftlichen Mitarbeiter. Dort habe ich transiente <strong>Dymola/Modelica</strong>-Modelle alkalischer Elektrolysezellen und -stacks aufgebaut und mit Prüfstandsdaten validiert, mit <strong>unter 5 % Abweichung</strong> bei der H<sub>2</sub>-in-O<sub>2</sub>-Verunreinigung. Außerdem habe ich thermische Studien in <strong>OpenFOAM</strong> durchgeführt und mehrschleifige <strong>PID-Regelungen</strong> für schwankende erneuerbare Last entworfen. M.Sc. Chemical and Energy Engineering, Note 1,9.',
+  'hero-contact': 'Kontakt aufnehmen',
+  'hero-target': 'Ich suche Stellen in Simulation und Modellierung für Wasserstoff- und Energiesysteme in Deutschland.',
+  'alt-hero': 'Porträt von Sasikanth Vadde an seinem Schreibtisch im Büro',
 
-    'hero-available': 'Open to opportunities',
-    'hero-status': '● Available for New Roles',
-    'hero-title-sm': 'M.Sc. Chemical &',
-    'hero-title-lg': 'Energy<br><span class="hero-title-accent">Engineer</span>',
-    'hero-h1': 'Hi I Am<br><span>Sasi Kanth</span> Vadde',
-    'hero-sub': 'Electrochemical Systems · Dynamic Simulation · Alkaline Water Electrolysis',
+  'about-label': 'Über mich',
+  'about-text': 'Ich arbeite an der Schnittstelle von Elektrochemie und Systemsimulation. Ich kombiniere veröffentlichte Korrelationen zu einem konsistenten Modell, prüfe jede neue Gleichung zuerst einzeln in Python an einem stationären Fall und übernehme sie erst dann in das Dymola-Modell. Am Ende steht die Validierung mit Messdaten. Deckt sie einen Fehler auf, suche ich die Ursache, etwa eine Dichtekorrelation, die statt des KOH-Molenbruchs die falsche Zusammensetzungsgröße verwendete.',
+  'stat-num-1': '&lt;5 %',
+  'stat-label-1': 'Abweichung H<sub>2</sub> in O<sub>2</sub> zum Prüfstand',
+  'stat-label-2': 'Crossover-Modell validiert',
+  'stat-num-3': '1,9',
+  'stat-label-3': 'M.Sc.-Note',
+  'skills-title-1': 'Kernkompetenzen',
+  'skills-title-2': 'Sprachen',
+  'skill-electrochemical': 'Elektrochemische Modellierung',
+  'skill-twophase': 'Zweiphasenströmung',
+  'skill-pid': 'PID-Regelung',
+  'lang-tag-1': 'Deutsch (B1, auf dem Weg zu B2)',
+  'lang-tag-2': 'Englisch (C1/C2)',
+  'lang-tag-3': 'Telugu (Muttersprache)',
+  'lang-tag-4': 'Hindi (muttersprachliches Niveau)',
 
-    'about-label': 'About Me',
-    'about-text': 'I\'m a <strong>research engineer</strong> based in Stuttgart, Germany — specialising in <strong>physics-based dynamic modelling</strong> of alkaline water electrolyzers. With two years at the Deutsches Zentrum für Luft- und Raumfahrt (DLR), I translate detailed cell-level physics into reduced-order models compatible with dynamic plant simulation, validated against real experimental data.',
-    'stat-label-1': 'Years at DLR',
-    'stat-label-2': 'Specialisation',
-    'stat-label-3': 'Degree Level',
-    'skills-title-1': 'Core Competencies',
-    'skills-title-2': 'Languages',
-    'skill-electrochemical': 'Electrochemical Modelling',
-    'skill-pid': 'PID Control',
-    'lang-tag-1': 'English (C1)',
-    'lang-tag-2': 'German (A2)',
-    'lang-tag-3': 'Telugu · Hindi (Native)',
+  'work-label': 'Berufserfahrung',
+  'dlr-org': 'DLR (Deutsches Zentrum für Luft- und Raumfahrt), Institut für Technische Thermodynamik · Stuttgart',
+  'dlr-role': 'Praktikant, Werkstudent, Masterand, Wissenschaftlicher Mitarbeiter',
+  'dlr-b1': '<strong>Modellierung:</strong> Für einen digitalen Zwilling einer AWE-Zelle habe ich in Dymola/Modelica ein transientes 1D-Einzelzellmodell aufgebaut, das elektrochemische, zweiphasige und thermische Gleichungen aus veröffentlichten Quellen koppelt, und es zu einem Hochdruck-Stackmodell erweitert.',
+  'dlr-b2': '<strong>Validierung:</strong> Für den Teillastbereich, in dem geringere Gasverdünnung das größte Sicherheitsrisiko ist, habe ich das Gasreinheitsmodell mit Prüfstandsdaten bei drei Elektrolytvolumenströmen in gemischter und getrennter Zirkulation validiert. Die Abweichung zur gemessenen H<sub>2</sub>-in-O<sub>2</sub>-Verunreinigung blieb <strong>unter 5 %</strong>.',
+  'dlr-b3': '<strong>Gas-Crossover:</strong> Für bessere Löslichkeitsvorhersagen unter Druck habe ich eine Fugazitätskorrektur für nichtideales Gasverhalten ergänzt und die Übersättigungskorrelation nach de Groot mit Literatur- und DLR-Prüfstandsdaten im Bereich <strong>1–20 bar und 60–80 °C</strong> validiert.',
+  'dlr-b4': '<strong>Integration:</strong> Für die Bewertung von Anlagenkennzahlen habe ich ein hybrides Gas-Crossover-Modell (empirische Korrelationen plus datengetriebene Korrekturen) aufgebaut und in TEMPEST integriert, die hauseigene elektrochemische Systemsimulationsplattform des DLR.',
+  'dlr-b5': '<strong>Leistungselektronik:</strong> Um eine pauschale Wirkungsgradannahme zu ersetzen, habe ich das Umrichter-Verlustmodell mit literaturbasierten Korrelationen für den Spitzenwirkungsgrad von <strong>MOSFET- (97,1 %) und GaNFET-Wandlern (98,8 %)</strong> neu aufgebaut, für realistischere Wirkungsgradvorhersagen auf Systemebene.',
+  'dlr-b6': '<strong>Regelung:</strong> Für den Betrieb bei schwankender erneuerbarer Last habe ich mehrschleifige PID-Regelstrategien entwickelt, die die Gasreinheit innerhalb der Sicherheitsgrenzen halten. Als Eingang dienten synthetische, ARMA-basierte Wind- und PV-Lastprofile, die ich in Python erzeugt habe.',
+  'dlr-b7': '<strong>Thermik:</strong> Zur Kalibrierung der Nusselt-Korrelationen im thermischen Stackmodell habe ich CFD-Simulationen mit konjugierter Wärmeübertragung in OpenFOAM (chtMultiRegionFoam) für die Kühlkanalströmung der Endplatte durchgeführt.',
+  'dlr-b8': '<strong>Prüfstände:</strong> Mitarbeit an Entwicklung und Inbetriebnahme von zwei AWE-Prüfständen (50 bar und 5 bar), einschließlich R&amp;I-Fließbild, Instrumentierung und Sicherheitsprüfungen, sowie Unterstützung bei Messungen und Datenauswertung für die Modellkalibrierung.',
+  'meta-label-tools': 'Werkzeuge',
+  'meta-label-domain': 'Fachgebiet',
+  'dlr-domain': 'Alkalische Wasserelektrolyse',
+  'ovgu-org': 'Otto-von-Guericke-Universität Magdeburg · Lehrstuhl für Mechanische Verfahrenstechnik (Prof. Berend van Wachem)',
+  'ovgu-role': 'Studentische Hilfskraft (HiWi)',
+  'ovgu-b1': 'Um die Blasendynamik in einer Wirbelschicht zu erfassen, habe ich eine Python/OpenCV-Pipeline aufgebaut, die Blasen in Bilddaten aus Versuchen mit sinusförmiger Luftströmung erkennt und verfolgt.',
+  'ovgu-b2': 'Wirbelschichtversuche bei variierenden Einlassdrücken durchgeführt und den Datensatz zur Kalibrierung eines Trocknungsprozessmodells ausgewertet.',
+  'gmr-org': 'GMR Group · Hyderabad, Indien',
+  'gmr-b1': 'Rotation über mehrere Standorte der GMR Group: Flughafen Hyderabad (GHIAL), Flughafen Delhi und das damals im Bau befindliche Wasserkraftwerk Bajoli Holi.',
+  'gmr-b2': 'Mitarbeit an der Inbetriebnahme von HLK-, Kälte- und Brandschutzanlagen.',
+  'gmr-b3': 'Danach Junior Engineer im Bereich Airside Operations am Flughafen Hyderabad (GHIAL).',
+  'hal-org': 'Hindustan Aeronautics Limited (HAL) · Koraput, Indien',
+  'hal-role': 'Praktikum über ein ganzes Semester',
+  'hal-b1': 'Zur Bewertung von Prozessstabilität und Maßtoleranzen habe ich Fertigungs-, Prüf- und Ermüdungstestabläufe für Turbinenschaufeln des AL-31FP (Sukhoi-Triebwerk) mit statistischer Prozesslenkung (X-quer- und S-Karten) analysiert.',
 
-    'work-label': 'Work Experience',
-    'dlr-org': 'Deutsches Zentrum für Luft- und Raumfahrt (DLR) · Stuttgart, Germany',
-    'dlr-role': 'Student Research Assistant — Internship & Master\'s Thesis',
-    'dlr-period': 'September 2023 – December 2025',
-    'dlr-b1': 'Developed a transient 1D AWE single-cell model in Dymola/Modelica incorporating electrochemical, multiphase flow, and thermal phenomena — validated against experimental polarisation curves and gas impurity measurements.',
-    'dlr-b2': 'Built a dynamic gas crossover and purity model, integrating it into DLR\'s TEMPEST framework for transient operating scenarios.',
-    'dlr-b3': 'Designed multi-loop PID control strategies for renewable-driven operation, maintaining safe gas purity limits under fluctuating loads.',
-    'dlr-b4': 'Supported AWE test-bench experiments and processed data for model calibration and validation.',
-    'dlr-b5': 'Integrated power electronics conversion losses into system-level efficiency analysis.',
-    'dlr-meta-label-1': 'Duration',
-    'dlr-meta-val-1': 'Sep 2023 – Dec 2025',
-    'dlr-meta-label-2': 'Tools',
-    'dlr-meta-label-3': 'Domain',
-    'dlr-meta-val-3': 'Alkaline Water Electrolysis',
-    'ovgu-org': 'Otto von Guericke University · Magdeburg, Germany',
-    'ovgu-role': 'Student Research Assistant (HiWi)',
-    'ovgu-period': 'June 2023 – August 2023',
-    'ovgu-b1': 'Developed a Python/OpenCV algorithm to track bubbles in fluidised bed experiments with sinusoidal airflow, enhancing particle movement analysis.',
-    'ovgu-b2': 'Assisted in fluidised bed experiment setup with varying inlet pressures; processed datasets for drying process model calibration.',
-    'meta-label-tools': 'Tools',
-    'next-org': 'Next Opportunity',
-    'next-role': 'Your Organisation',
-    'next-desc': 'Open to research, engineering, or simulation roles in green hydrogen & energy systems.',
+  'proj-label': 'Projekte',
+  'proj-cta': 'Kontakt aufnehmen ↗',
+  'alt-thesis': 'Dymola-Diagramm des Elektrolyseur-Systemmodells: Zelle mit Leistungselektronik, Wasserstoff- und Sauerstoffabscheider, Druckelemente, Mischer und Elektrolytkreislauf',
+  'proj1-type': 'Masterarbeit · MPI Magdeburg &amp; DLR Stuttgart',
+  'proj1-name': 'Transiente Modellierung eines alkalischen Wasserelektrolyseurs',
+  'proj1-desc': 'Um ein Zweiphasen-Elektrolytmodell zu validieren, habe ich ein transientes AWE-Einzelzellmodell in Dymola/Modelica aufgebaut und mit DLR-Prüfstandsdaten bei drei Elektrolytvolumenströmen verglichen. Die berechnete H<sub>2</sub>-in-O<sub>2</sub>-Verunreinigung lag <strong>innerhalb von 5 %</strong> der Messwerte.',
+  'proj2-type': 'Energiesysteme · Exergoökonomie',
+  'proj2-name': 'Exergoökonomische Optimierung eines 210-MW-ISCC-Kraftwerks',
+  'proj2-desc': 'Um die Stromgestehungskosten eines GuD-Kraftwerks mit integrierter Solarthermie (ISCC) zu senken, habe ich die Total-Revenue-Requirement-Methode angewendet und fünf Entscheidungsvariablen iterativ optimiert. Der Erdgasverbrauch sank um <strong>6,2 %</strong>, die exergiebasierten Stromgestehungskosten fielen von <strong>93,41 auf 90,07 €/MWh</strong>.',
+  'tag-exergy': 'Exergieanalyse',
+  'tag-trr': 'TRR-Methode',
+  'tag-opt': 'Optimierung',
+  'proj3-type': 'Angewandtes maschinelles Lernen · seit 02/2026',
+  'proj3-name': 'Physikinformiertes neuronales Netz für den Batterie-Gesundheitszustand',
+  'proj3-desc': 'Um die Alterung großformatiger LFP-Zellen vorherzusagen, die das Modell im Training nicht gesehen hat, entwickle ich in PyTorch ein PINN, das ein gemeinsames MLP mit lernbaren Zell-Embeddings an ein Single-Particle-Alterungsmodell koppelt. Es sagt die Kapazität nicht trainierter Zellen zero-shot voraus und prognostiziert den weiteren Verlauf einer Zelle aus <strong>70 % ihrer Historie</strong>, bewertet mit RMSE, R² und MAPE.',
+  'alt-convection': 'Simulationsgebiet für den Naturkonvektionsfall: ein würfelförmiges Gebiet mit zwei kleinen rechteckigen Heizplatten in der Mitte',
+  'proj4-name': 'Naturkonvektion an Heizelementen',
+  'proj4-desc': 'Um auftriebsgetriebene Wärmeübertragung zu untersuchen, habe ich die Naturkonvektion an rechteckigen Heizelementen mit dem OpenFOAM-Löser buoyantPimpleFoam simuliert und geprüft, wie Netzauflösung und Randbedingungen das Ergebnis verändern.',
+  'tag-heat': 'Wärmeübertragung',
+  'tag-mesh': 'Netzstudie',
+  'alt-arc': 'STAR-CCM+-Oberflächennetz des Arc de Triomphe, eingefärbt nach Zellqualität auf einer Skala von 0 bis 1',
+  'proj5-name': 'Windströmung um den Arc de Triomphe',
+  'proj5-desc': 'Um zu sehen, wo Wind ein komplexes Bauwerk belastet, habe ich die Umströmung des Arc de Triomphe in STAR-CCM+ simuliert und aerodynamische Lasten sowie Spannungsspitzen am Bauwerk ermittelt.',
+  'tag-aero': 'Aerodynamik',
+  'tag-wind': 'Windlast',
+  'alt-pid': 'Simulink-Blockdiagramm des Newell-Lee-Verdampfermodells mit zwei PID-Regelkreisen, Sprungstörungen an den Eingängen und Ausgabe-Scopes',
+  'proj6-type': 'Prozessregelung',
+  'proj6-name': 'Mehrgrößenregelung eines Verdampfers',
+  'proj6-desc': 'Um Einstellregeln an einem Mehrgrößenprozess zu vergleichen, habe ich PID-Regler für den Newell-Lee-Verdampfer in MATLAB/Simulink nach Ziegler-Nichols, Cohen-Coon und IMC eingestellt und Sprungantworten sowie Integralfehler verglichen.',
+  'tag-pid': 'PID-Einstellung',
 
-    'proj-label': 'Research Projects',
-    'proj-cta': 'Get In Touch ↗',
-    'proj1-type': 'Numerical Simulation',
-    'proj1-name': 'Natural Convection — OpenFOAM',
-    'proj1-desc': 'Simulated natural convection around rectangular heating elements using buoyantPimpleFoam. Included mesh sensitivity analysis and characterised thermal performance across laminar flow regimes.',
-    'proj2-type': 'Aerodynamic Simulation',
-    'proj2-name': 'Arc de Triomphe — Airflow CFD',
-    'proj2-desc': 'Simulated airflow around the Arc de Triomphe using computational fluid dynamics to evaluate flow behaviour and aerodynamic forces on a complex architectural structure.',
-    'proj3-type': 'Process Control',
-    'proj3-name': 'Multivariable PID Controller Design',
-    'proj3-desc': 'Designed and tuned PID controllers in MATLAB/Simulink using Ziegler–Nichols, Cohen–Coon, and IMC methods. Evaluated performance via step response metrics and integral error criteria.',
-    'proj4-type': 'Master\'s Thesis',
-    'proj4-name': 'Transient AWE Electrolyzer Modelling',
-    'proj4-desc': 'Developed and validated a transient 1D single-cell alkaline water electrolyzer model in Dymola/Modelica for two-phase electrolyte validation — the centrepiece of two years at DLR.',
-    'tag-heat': 'Heat Transfer',
-    'tag-mesh': 'Mesh Sensitivity',
-    'tag-aero': 'Aerodynamics',
-    'tag-flow': 'Flow Analysis',
-    'tag-pid': 'PID Tuning',
-    'tag-electrolysis': 'Electrolysis',
+  'edu-label': 'Ausbildung',
+  'edu1-school': 'Otto-von-Guericke-Universität Magdeburg',
+  'edu1-meta': '04/2021 – 10/2025 · Magdeburg, Deutschland · Note 1,9',
+  'edu1-focus': 'Schwerpunkte: CFD, Prozessregelung und Systemtechnik, maschinelles Lernen in der Verfahrenstechnik, Mehrphasenströmungen, Wärme- und Stoffübertragung, mechanische Verfahrenstechnik, Ökobilanzierung.',
+  'edu1-thesis': 'Masterarbeit: „Transient Modelling of an Alkaline Water Electrolyzer for Validating a Two-Phase Electrolyte Model“, gemeinsam betreut vom MPI Magdeburg und vom DLR Stuttgart.',
+  'edu2-degree': 'B.Tech. Maschinenbau',
+  'edu2-meta': '07/2015 – 04/2019 · Rajam, Indien',
+  'edu2-focus': 'Schwerpunkte: Thermodynamik und Wärmeübertragung, Strömungsmechanik und hydraulische Maschinen, Finite-Elemente-Methoden, Kraftwerkstechnik und Energiesysteme.',
 
-    'edu-label': 'Education',
-    'edu1-school': 'Otto von Guericke University',
-    'edu1-degree': 'M.Sc. Chemical and Energy Engineering',
-    'edu1-location': 'Magdeburg, Germany',
-    'edu1-focus': 'Focus areas: Computational Fluid Dynamics (CFD), Process Control &amp; Systems Engineering, Machine Learning in Chemical Engineering, Multiphase Flows, Advanced Heat &amp; Mass Transfer.',
-    'edu1-thesis': 'Thesis: Transient Modelling of an Alkaline Electrolyzer for validating a Two-Phase Electrolyte Model',
-    'edu2-school': 'GMR Institute of Technology',
-    'edu2-degree': 'B.Tech. Mechanical Engineering',
-    'edu2-location': 'Rajam, India',
-    'edu2-focus': 'Focus areas: Thermodynamics &amp; Heat Transfer, Fluid Mechanics &amp; Hydraulic Machines, Finite Element Methods, Power Plant Engineering &amp; Energy Systems.',
-
-    'cta-headline': 'Let\'s Start A<br><span>Project</span><br>Together?',
-    'cta-sub': 'Based in Stuttgart — open to research, engineering, and simulation roles in green hydrogen, electrochemical systems, and energy technologies.',
-    'footer-email': 'Email',
-  },
-
-  de: {
-    'nav-about': 'Über mich',
-    'nav-experience': 'Erfahrung',
-    'nav-projects': 'Projekte',
-    'nav-education': 'Bildung',
-    'nav-learning': 'Lernen',
-    'nav-cta': 'Kontakt',
-
-    'quote-text': 'Wir sollten aufhören, so zu tun, als wäre unser Ziel die Entwicklung äußerst eleganter Theorien – stattdessen sollten wir Komplexität akzeptieren und unseren besten Verbündeten nutzen: die unvernünftige Wirksamkeit der Daten."',
-    'quote-author': '— Peter Norvig',
-
-    'hero-available': 'Offen für Möglichkeiten',
-    'hero-status': '● Verfügbar für neue Stellen',
-    'hero-title-sm': 'M.Sc. Chemie- &',
-    'hero-title-lg': 'Energie<br><span class="hero-title-accent">Ingenieur</span>',
-    'hero-h1': 'Hallo, ich bin<br><span>Sasi Kanth</span> Vadde',
-    'hero-sub': 'Elektrochemische Systeme · Dynamische Simulation · Alkalische Wasserelektrolyse',
-
-    'about-label': 'Über mich',
-    'about-text': 'Ich bin ein <strong>Forschungsingenieur</strong> aus Stuttgart, Deutschland – spezialisiert auf die <strong>physikbasierte dynamische Modellierung</strong> alkalischer Wasserelektrolyseure. Mit zwei Jahren am Deutschen Zentrum für Luft- und Raumfahrt (DLR) übersetze ich detaillierte Zellphysik in reduzierte Modelle für die dynamische Anlagensimulation, validiert an realen experimentellen Daten.',
-    'stat-label-1': 'Jahre bei DLR',
-    'stat-label-2': 'Spezialisierung',
-    'stat-label-3': 'Abschluss',
-    'skills-title-1': 'Kernkompetenzen',
-    'skills-title-2': 'Sprachen',
-    'skill-electrochemical': 'Elektrochemische Modellierung',
-    'skill-pid': 'PID-Regelung',
-    'lang-tag-1': 'Englisch (C1)',
-    'lang-tag-2': 'Deutsch (B1)',
-    'lang-tag-3': 'Telugu · Hindi (Muttersprache)',
-
-    'work-label': 'Berufserfahrung',
-    'dlr-org': 'Deutsches Zentrum für Luft- und Raumfahrt (DLR) · Stuttgart, Deutschland',
-    'dlr-role': 'Studentische Hilfskraft — Praktikum & Masterarbeit',
-    'dlr-period': 'September 2023 – Dezember 2025',
-    'dlr-b1': 'Entwicklung eines transienten 1D AWE-Einzelzellmodells in Dymola/Modelica mit elektrochemischen, Mehrphasenströmungs- und thermischen Phänomenen – validiert anhand experimenteller Polarisationskurven und Gasverunreinigungsmessungen.',
-    'dlr-b2': 'Aufbau eines dynamischen Gasdurchdringungsmodells und Integration in das TEMPEST-Framework des DLR für transiente Betriebsszenarien.',
-    'dlr-b3': 'Entwurf mehrschleifiger PID-Regelstrategien für den erneuerbaren Betrieb zur Einhaltung sicherer Gasreinheitsgrenzen bei schwankenden Lasten.',
-    'dlr-b4': 'Unterstützung von AWE-Prüfstandsexperimenten und Datenverarbeitung für Modellkalibrierung und -validierung.',
-    'dlr-b5': 'Integration von Leistungselektronik-Umwandlungsverlusten in die systemweite Effizienzanalyse.',
-    'dlr-meta-label-1': 'Zeitraum',
-    'dlr-meta-val-1': 'Sep. 2023 – Dez. 2025',
-    'dlr-meta-label-2': 'Werkzeuge',
-    'dlr-meta-label-3': 'Fachbereich',
-    'dlr-meta-val-3': 'Alkalische Wasserelektrolyse',
-    'ovgu-org': 'Otto-von-Guericke-Universität · Magdeburg, Deutschland',
-    'ovgu-role': 'Studentische Hilfskraft (HiWi)',
-    'ovgu-period': 'Juni 2023 – August 2023',
-    'ovgu-b1': 'Entwicklung eines Python/OpenCV-Algorithmus zur Blasenverfolgung in Wirbelschichtexperimenten mit sinusförmiger Luftströmung zur Verbesserung der Partikelbewegungsanalyse.',
-    'ovgu-b2': 'Unterstützung beim Aufbau von Wirbelschichtexperimenten mit variierenden Einlassdrücken; Verarbeitung von Datensätzen zur Kalibrierung des Trocknungsprozessmodells.',
-    'meta-label-tools': 'Werkzeuge',
-    'next-org': 'Nächste Möglichkeit',
-    'next-role': 'Ihr Unternehmen',
-    'next-desc': 'Offen für Forschungs-, Ingenieur- oder Simulationsrollen in grünem Wasserstoff & Energiesystemen.',
-
-    'proj-label': 'Forschungsprojekte',
-    'proj-cta': 'Kontakt aufnehmen ↗',
-    'proj1-type': 'Numerische Simulation',
-    'proj1-name': 'Naturkonvektion — OpenFOAM',
-    'proj1-desc': 'Simulation der natürlichen Konvektion um rechteckige Heizelemente mittels buoyantPimpleFoam. Einschließlich Netzempfindlichkeitsanalyse und Charakterisierung der thermischen Leistung in laminaren Strömungsbereichen.',
-    'proj2-type': 'Aerodynamische Simulation',
-    'proj2-name': 'Arc de Triomphe — Luftströmungs-CFD',
-    'proj2-desc': 'Simulation der Luftströmung um den Arc de Triomphe mittels numerischer Strömungsmechanik zur Bewertung des Strömungsverhaltens und der aerodynamischen Kräfte auf eine komplexe architektonische Struktur.',
-    'proj3-type': 'Prozessregelung',
-    'proj3-name': 'Mehrgrößen-PID-Reglerauslegung',
-    'proj3-desc': 'Auslegung und Abstimmung von PID-Reglern in MATLAB/Simulink nach Ziegler–Nichols-, Cohen–Coon- und IMC-Methoden. Leistungsbewertung anhand von Sprungantwortmetriken und integralen Fehlerkriterien.',
-    'proj4-type': 'Masterarbeit',
-    'proj4-name': 'Transiente AWE-Elektrolysemodellierung',
-    'proj4-desc': 'Entwicklung und Validierung eines transienten 1D-Einzelzellmodells für den alkalischen Wasserelektrolyseur in Dymola/Modelica zur Zweiphasen-Elektrolytvalidierung – das Herzstück von zwei Jahren am DLR.',
-    'tag-heat': 'Wärmeübertragung',
-    'tag-mesh': 'Netzempfindlichkeit',
-    'tag-aero': 'Aerodynamik',
-    'tag-flow': 'Strömungsanalyse',
-    'tag-pid': 'PID-Abstimmung',
-    'tag-electrolysis': 'Elektrolyse',
-
-    'edu-label': 'Bildung',
-    'edu1-school': 'Otto-von-Guericke-Universität',
-    'edu1-degree': 'M.Sc. Chemie- und Energieingenieurwesen',
-    'edu1-location': 'Magdeburg, Deutschland',
-    'edu1-focus': 'Schwerpunkte: Numerische Strömungsmechanik (CFD), Prozessregelung &amp; Systemtechnik, Maschinelles Lernen in der Verfahrenstechnik, Mehrphasenströmungen, Wärme- &amp; Stoffübertragung.',
-    'edu1-thesis': 'Masterarbeit: Transiente Modellierung eines alkalischen Elektrolyseurs zur Validierung eines Zweiphasen-Elektrolytmodells',
-    'edu2-school': 'GMR Institut für Technologie',
-    'edu2-degree': 'B.Tech. Maschinenbau',
-    'edu2-location': 'Rajam, Indien',
-    'edu2-focus': 'Schwerpunkte: Thermodynamik &amp; Wärmeübertragung, Strömungsmechanik &amp; Hydraulische Maschinen, Finite-Elemente-Methoden, Kraftwerkstechnik &amp; Energiesysteme.',
-
-    'cta-headline': 'Starten wir ein<br><span>Projekt</span><br>zusammen?',
-    'cta-sub': 'Ansässig in Stuttgart – offen für Forschungs-, Ingenieur- und Simulationsrollen in grünem Wasserstoff, elektrochemischen Systemen und Energietechnologien.',
-    'footer-email': 'E-Mail',
-  }
+  'cta-headline': 'Sprechen<br><span>wir</span>',
+  'cta-sub': 'Ich wohne in Stuttgart und bin offen für Stellen in Simulation und Modellierung rund um Wasserstoff, Elektrolyse und Energiesysteme. Per E-Mail erreichen Sie mich am schnellsten.',
+  'alt-contact': 'Sasikanth Vadde lehnt am Schriftzug der Otto-von-Guericke-Universität in Magdeburg',
+  'footer-email': 'E-Mail',
+  'footer-privacy': 'Datenschutz',
+  'footer-cookies': 'Cookie-Einstellungen'
 };
 
-let currentLang = 'en';
+const textEls = document.querySelectorAll('[data-i18n]');
+const altEls = document.querySelectorAll('[data-i18n-alt]');
+const en = new Map([...textEls].map(el => [el, el.innerHTML]).concat([...altEls].map(el => [el, el.alt])));
 
 function setLang(lang) {
-  currentLang = lang;
-  const t = translations[lang];
-
-  // Update html lang attribute
   document.documentElement.lang = lang;
-
-  // Text nodes
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    if (t[key] !== undefined) el.textContent = t[key];
-  });
-
-  // HTML nodes (elements with inline markup)
-  document.querySelectorAll('[data-i18n-html]').forEach(el => {
-    const key = el.getAttribute('data-i18n-html');
-    if (t[key] !== undefined) el.innerHTML = t[key];
-  });
-
-  // Toggle button states
-  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-  document.getElementById('btn-de').classList.toggle('active', lang === 'de');
+  textEls.forEach(el => { el.innerHTML = lang === 'de' ? (de[el.dataset.i18n] ?? en.get(el)) : en.get(el); });
+  altEls.forEach(el => { el.alt = lang === 'de' ? (de[el.dataset.i18nAlt] ?? en.get(el)) : en.get(el); });
+  document.querySelectorAll('.lang-btn').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
 }
+document.querySelectorAll('.lang-btn').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+
+// Mobile menu
+const nav = document.querySelector('.nav');
+const navToggle = document.querySelector('.nav-toggle');
+function setMenu(open) { nav.classList.toggle('open', open); navToggle.setAttribute('aria-expanded', String(open)); }
+navToggle.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
+document.getElementById('nav-menu').addEventListener('click', e => { if (e.target.closest('a')) setMenu(false); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
 </script>
 
 </body>
 </html>
-ENDOFFILE
