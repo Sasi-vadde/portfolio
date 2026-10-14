@@ -4,19 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Currently Learning | Sasikanth Vadde</title>
-<meta name="description" content="What Sasikanth Vadde is learning now: TwinCAT 3 PLC programming, life cycle assessment and physics-informed machine learning, plus an OpenFOAM CFD deep dive.">
+<meta name="description" content="What Sasikanth Vadde is learning now: an OpenFOAM CFD deep dive and the topics queued next.">
 <link rel="canonical" href="https://sasi-vadde.github.io/portfolio/learning.html">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Currently Learning | Sasikanth Vadde">
-<meta property="og:description" content="TwinCAT 3, life cycle assessment, physics-informed ML and an OpenFOAM CFD deep dive.">
+<meta property="og:description" content="An OpenFOAM CFD deep dive and the topics queued next.">
 <meta property="og:url" content="https://sasi-vadde.github.io/portfolio/learning.html">
 <meta property="og:image" content="https://sasi-vadde.github.io/portfolio/images/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Currently Learning | Sasikanth Vadde">
-<meta name="twitter:description" content="TwinCAT 3, life cycle assessment, physics-informed ML and an OpenFOAM CFD deep dive.">
+<meta name="twitter:description" content="An OpenFOAM CFD deep dive and the topics queued next.">
 <meta name="twitter:image" content="https://sasi-vadde.github.io/portfolio/images/og-image.jpg">
 <link rel="stylesheet" href="site.css">
 <script src="consent.js" defer></script>
@@ -299,80 +299,6 @@
   </div>
 </div>
 
-<!-- ACTIVE TRACKS -->
-<section class="tracks-section">
-  <p class="tracks-label" data-i18n="tracks-label">Active Tracks</p>
-  <p class="tracks-sub" data-i18n="tracks-sub">Three threads, all tied to energy systems and industrial engineering.</p>
-
-  <div class="tracks-grid">
-
-    <!-- TwinCAT — featured -->
-    <div class="track-card featured">
-      <div>
-        <div class="track-status active"><span class="dot"></span><span data-i18n="status-active">In Progress</span></div>
-        <p class="track-domain" data-i18n="track1-domain">Industrial Automation</p>
-        <h2 class="track-name" data-i18n="track1-name">TwinCAT 3</h2>
-        <p class="track-desc" data-i18n="track1-desc">Exploring Beckhoff TwinCAT 3 for real-time PLC programming using IEC 61131-3 structured text. The goal is to bridge the gap between simulation-level control logic (as designed in Modelica/MATLAB) and actual deployment on industrial hardware, and to see how PID strategies translate to real automation systems in electrolysis and energy plants.</p>
-        <div class="track-tags">
-          <span class="track-tag highlight">TwinCAT 3</span>
-          <span class="track-tag">IEC 61131-3</span>
-          <span class="track-tag">PLC</span>
-          <span class="track-tag">Structured Text</span>
-          <span class="track-tag">Beckhoff</span>
-          <span class="track-tag" data-i18n="tag-automation">Real-Time Control</span>
-        </div>
-      </div>
-      <div>
-        <div class="track-why">
-          <p class="track-why-label" data-i18n="why-label">Why this</p>
-          <p class="track-why-text" data-i18n="track1-why">My thesis work focused on modelling and control at the simulation level. TwinCAT shows me how those control strategies get implemented and deployed on real plant hardware, which roles in industrial energy systems expect.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- LCA -->
-    <div class="track-card">
-      <div class="track-status"><span data-i18n="status-done">Project completed</span></div>
-      <p class="track-domain" data-i18n="track2-domain">Sustainability Analysis</p>
-      <h2 class="track-name" data-i18n="track2-name">Life Cycle Assessment</h2>
-      <p class="track-desc" data-i18n="track2-desc">Completed an LCA of lithium-battery recycling in openLCA (ReCiPe midpoint), backed by an Aspen Plus process model of dismantling, leaching and lithium recovery that supplied the mass and energy balances. Next I want to apply the same method to hydrogen production pathways.</p>
-      <div class="track-tags">
-        <span class="track-tag highlight">LCA</span>
-        <span class="track-tag">Battery Recycling</span>
-        <span class="track-tag" data-i18n="tag-lca-env">Environmental Impact</span>
-        <span class="track-tag">ReCiPe</span>
-        <span class="track-tag">openLCA</span>
-        <span class="track-tag">Aspen Plus</span>
-      </div>
-      <div class="track-why">
-        <p class="track-why-label" data-i18n="why-label">Why this</p>
-        <p class="track-why-text" data-i18n="track2-why">Green hydrogen is only as "green" as its full production chain. LCA adds a sustainability lens to the technical modelling work, which research and industry roles now ask for.</p>
-      </div>
-    </div>
-
-    <!-- ML + LLMs for Battery -->
-    <div class="track-card">
-      <div class="track-status active"><span class="dot"></span><span data-i18n="status-active">In Progress</span></div>
-      <p class="track-domain" data-i18n="track3-domain">Applied Machine Learning</p>
-      <h2 class="track-name" data-i18n="track3-name">Physics-Informed ML for Battery State-of-Health</h2>
-      <p class="track-desc" data-i18n="track3-desc">Since 02/2026 I have been building a physics-informed neural network (PINN) in PyTorch that predicts the state-of-health of large-format LFP cells. The model couples a shared MLP with learnable cell embeddings to a Single-Particle-Model ageing model through a differentiable physics pipeline. It predicts capacity zero-shot on held-out cells and forecasts the rest of a cell's trajectory from 70% of its history.</p>
-      <div class="track-tags">
-        <span class="track-tag highlight">Python</span>
-        <span class="track-tag">PINN</span>
-        <span class="track-tag">Single-Particle Model</span>
-        <span class="track-tag" data-i18n="tag-battery">Battery Systems</span>
-        <span class="track-tag">SoH Estimation</span>
-        <span class="track-tag">PyTorch</span>
-      </div>
-      <div class="track-why">
-        <p class="track-why-label" data-i18n="why-label">Why this</p>
-        <p class="track-why-text" data-i18n="track3-why">Data-driven methods now sit alongside physics-based models in electrochemical systems. Combining the two in one model extends my simulation work into machine learning.</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
 <!-- CFD DEEP DIVE -->
 <section class="cfd-section" id="cfd">
  <div class="cfd-inner">
@@ -623,30 +549,6 @@ const translations = {
     'page-title': 'Currently<br><span>Learning</span>',
     'page-desc': 'What I am working on now: the tools and methods I am learning, the projects that use them, and the queue for what comes next.',
 
-    'tracks-label': 'Active Tracks',
-    'tracks-sub': 'Three threads, all tied to energy systems and industrial engineering.',
-    'status-active': 'In Progress',
-    'status-done': 'Project completed',
-    'why-label': 'Why this',
-
-    'track1-domain': 'Industrial Automation',
-    'track1-name': 'TwinCAT 3',
-    'track1-desc': 'Exploring Beckhoff TwinCAT 3 for real-time PLC programming using IEC 61131-3 structured text. The goal is to bridge the gap between simulation-level control logic (as designed in Modelica/MATLAB) and actual deployment on industrial hardware, and to see how PID strategies translate to real automation systems in electrolysis and energy plants.',
-    'track1-why': 'My thesis work focused on modelling and control at the simulation level. TwinCAT shows me how those control strategies get implemented and deployed on real plant hardware, which roles in industrial energy systems expect.',
-    'tag-automation': 'Real-Time Control',
-
-    'track2-domain': 'Sustainability Analysis',
-    'track2-name': 'Life Cycle Assessment',
-    'track2-desc': 'Completed an LCA of lithium-battery recycling in openLCA (ReCiPe midpoint), backed by an Aspen Plus process model of dismantling, leaching and lithium recovery that supplied the mass and energy balances. Next I want to apply the same method to hydrogen production pathways.',
-    'track2-why': 'Green hydrogen is only as "green" as its full production chain. LCA adds a sustainability lens to the technical modelling work, which research and industry roles now ask for.',
-    'tag-lca-env': 'Environmental Impact',
-
-    'track3-domain': 'Applied Machine Learning',
-    'track3-name': 'Physics-Informed ML for Battery State-of-Health',
-    'track3-desc': 'Since 02/2026 I have been building a physics-informed neural network (PINN) in PyTorch that predicts the state-of-health of large-format LFP cells. The model couples a shared MLP with learnable cell embeddings to a Single-Particle-Model ageing model through a differentiable physics pipeline. It predicts capacity zero-shot on held-out cells and forecasts the rest of a cell\'s trajectory from 70% of its history.',
-    'track3-why': 'Data-driven methods now sit alongside physics-based models in electrochemical systems. Combining the two in one model extends my simulation work into machine learning.',
-    'tag-battery': 'Battery Systems',
-
     'radar-label': 'On the Radar',
     'radar-sub': 'Topics I plan to pick up next. No timeline, just a queue.',
     'radar1-name': 'Digital Twin Frameworks',
@@ -677,30 +579,6 @@ const translations = {
     'header-eyebrow': 'Woran ich gerade arbeite',
     'page-title': 'Aktuell am<br><span>Lernen</span>',
     'page-desc': 'Woran ich gerade arbeite: die Werkzeuge und Methoden, die ich lerne, die Projekte, in denen ich sie einsetze, und die Themen, die als Nächstes anstehen.',
-
-    'tracks-label': 'Aktive Lernfelder',
-    'tracks-sub': 'Drei Stränge, alle mit Bezug zu Energiesystemen und Industrietechnik.',
-    'status-active': 'In Bearbeitung',
-    'status-done': 'Projekt abgeschlossen',
-    'why-label': 'Warum das',
-
-    'track1-domain': 'Industrielle Automatisierung',
-    'track1-name': 'TwinCAT 3',
-    'track1-desc': 'Ich erkunde Beckhoff TwinCAT 3 für die echtzeitfähige SPS-Programmierung mit strukturiertem Text nach IEC 61131-3. Ziel ist es, die Lücke zwischen simulationsbasierter Regelungslogik (wie in Modelica/MATLAB entwickelt) und dem tatsächlichen Einsatz auf industrieller Hardware zu schließen.',
-    'track1-why': 'Meine Arbeit im Bereich Modellierung und Regelung fand bisher auf Simulationsebene statt. TwinCAT zeigt mir, wie diese Strategien auf echter Anlagenhardware implementiert und eingesetzt werden. Genau das erwarten Rollen in industriellen Energiesystemen.',
-    'tag-automation': 'Echtzeitregelung',
-
-    'track2-domain': 'Nachhaltigkeitsanalyse',
-    'track2-name': 'Lebenszyklusanalyse',
-    'track2-desc': 'Abgeschlossene Ökobilanz (LCA) des Lithium-Batterie-Recyclings in openLCA (ReCiPe Midpoint), gestützt auf ein Aspen-Plus-Prozessmodell für Demontage, Laugung und Lithiumrückgewinnung, das die Massen- und Energiebilanzen lieferte. Als Nächstes möchte ich dieselbe Methode auf Wasserstoffproduktionspfade anwenden.',
-    'track2-why': 'Grüner Wasserstoff ist nur so „grün" wie seine gesamte Produktionskette. LCA ergänzt die technische Modellierungsarbeit um eine Nachhaltigkeitsperspektive, die Forschung und Industrie heute verlangen.',
-    'tag-lca-env': 'Umweltauswirkungen',
-
-    'track3-domain': 'Angewandtes maschinelles Lernen',
-    'track3-name': 'Physikinformiertes ML für den Batterie-Gesundheitszustand',
-    'track3-desc': 'Seit 02/2026 entwickle ich in PyTorch ein physikinformiertes neuronales Netz (PINN), das den Gesundheitszustand großformatiger LFP-Zellen vorhersagt. Das Modell koppelt ein gemeinsames MLP mit lernbaren Zell-Embeddings über eine differenzierbare Physik-Pipeline an ein Single-Particle-Alterungsmodell. Es sagt die Kapazität für nicht trainierte Zellen zero-shot voraus und prognostiziert den weiteren Verlauf einer Zelle aus 70 % ihrer Historie.',
-    'track3-why': 'Datengetriebene Methoden ergänzen physikbasierte Modelle in elektrochemischen Systemen. Beide in einem Modell zu verbinden, erweitert meine Simulationsarbeit um maschinelles Lernen.',
-    'tag-battery': 'Batteriesysteme',
 
     'radar-label': 'Auf dem Radar',
     'radar-sub': 'Themen, die ich als Nächstes angehen möchte. Kein Zeitplan, nur eine Warteschlange.',
