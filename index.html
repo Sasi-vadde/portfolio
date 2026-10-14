@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sasikanth Vadde, Simulation Engineer (Hydrogen, Electrolysis)</title>
-<meta name="description" content="Sasikanth Vadde, simulation engineer in Stuttgart. Transient Dymola/Modelica models of alkaline water electrolysis validated against DLR test-rig data, OpenFOAM thermal CFD and PID control. M.Sc. Chemical and Energy Engineering.">
+<meta name="description" content="Sasikanth Vadde, simulation engineer in Stuttgart. Transient Dymola/Modelica models of alkaline water electrolysis, OpenFOAM thermal CFD and PID control. M.Sc. Chemical and Energy Engineering.">
 <link rel="canonical" href="https://sasi-vadde.github.io/portfolio/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Sasikanth Vadde, Simulation Engineer (Hydrogen, Electrolysis)">
-<meta property="og:description" content="Transient electrolysis models validated against test-rig data, CFD and control for hydrogen and energy systems.">
+<meta property="og:description" content="Transient electrolysis modelling, CFD and control for hydrogen and energy systems.">
 <meta property="og:url" content="https://sasi-vadde.github.io/portfolio/">
 <meta property="og:image" content="https://sasi-vadde.github.io/portfolio/images/og-image.jpg">
 <meta property="og:image:width" content="1200">
@@ -17,7 +17,7 @@
 <meta property="og:image:alt" content="Sasikanth Vadde at his desk with an electrolyzer system model on the monitor">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Sasikanth Vadde, Simulation Engineer (Hydrogen, Electrolysis)">
-<meta name="twitter:description" content="Transient electrolysis models validated against test-rig data, CFD and control for hydrogen and energy systems.">
+<meta name="twitter:description" content="Transient electrolysis modelling, CFD and control for hydrogen and energy systems.">
 <meta name="twitter:image" content="https://sasi-vadde.github.io/portfolio/images/og-image.jpg">
 <script type="application/ld+json">
 {
@@ -175,7 +175,7 @@
       <p class="hero-eyebrow" data-i18n="hero-eyebrow">Stuttgart, Germany</p>
       <h1 id="hero-name">Sasikanth <span>Vadde</span></h1>
       <p class="hero-role" data-i18n="hero-role">Simulation Engineer, Alkaline Water Electrolysis</p>
-      <p class="hero-summary" data-i18n="hero-summary">I spent two years at DLR's Institute of Engineering Thermodynamics in Stuttgart and moved from intern to Research Associate. There I built transient <strong>Dymola/Modelica</strong> models of alkaline electrolysis cells and stacks and validated them against test-rig data, with <strong>under 5% deviation</strong> in H<sub>2</sub>-in-O<sub>2</sub> impurity. I also ran <strong>OpenFOAM</strong> thermal studies and designed multi-loop <strong>PID control</strong> for fluctuating renewable load. M.Sc. Chemical and Energy Engineering, grade 1.9.</p>
+      <p class="hero-summary" data-i18n="hero-summary">I spent two years at DLR's Institute of Engineering Thermodynamics in Stuttgart and moved from intern to Research Associate. There I built transient <strong>Dymola/Modelica</strong> models of alkaline electrolysis cells and stacks, with a focus on gas purity (H<sub>2</sub>-in-O<sub>2</sub> impurity), and validated them against test-bench measurements. I also ran <strong>OpenFOAM</strong> thermal studies and designed multi-loop <strong>PID control</strong> for fluctuating renewable load. M.Sc. Chemical and Energy Engineering, grade 1.9.</p>
       <div class="hero-actions">
         <a href="Sasikanth-Vadde-CV.pdf" class="btn btn-primary" data-i18n="cv-download">Download CV (PDF)</a>
         <a href="mailto:vaddesasikanth@gmail.com" class="btn btn-ghost" data-i18n="hero-contact">Get in touch</a>
@@ -194,12 +194,12 @@
       <p class="about-text" data-i18n="about-text">I work where electrochemistry meets system simulation. I combine published correlations into one consistent model, test each new equation on its own in Python against a steady-state case, and only then add it to the Dymola model. Validation against measured data comes last, and when it exposes a defect I trace the cause, such as a density correlation that used the wrong composition variable in place of the KOH mole fraction.</p>
       <div class="stats-row">
         <div class="stat-item">
-          <div class="stat-num" data-i18n="stat-num-1">&lt;5%</div>
-          <div class="stat-label" data-i18n="stat-label-1">H<sub>2</sub>-in-O<sub>2</sub> deviation from test rig</div>
+          <div class="stat-num" data-i18n="stat-num-1">2 yrs</div>
+          <div class="stat-label" data-i18n="stat-label-1">Electrolysis research at DLR</div>
         </div>
         <div class="stat-item">
-          <div class="stat-num">1–20 bar</div>
-          <div class="stat-label" data-i18n="stat-label-2">Crossover model validated</div>
+          <div class="stat-num">B1</div>
+          <div class="stat-label" data-i18n="stat-label-2">German, working toward B2</div>
         </div>
         <div class="stat-item">
           <div class="stat-num" data-i18n="stat-num-3">1.9</div>
@@ -240,17 +240,17 @@
 
       <article class="work-card featured">
         <p class="work-org-tag" data-i18n="dlr-org">DLR (German Aerospace Center), Institute of Engineering Thermodynamics · Stuttgart</p>
-        <h3 class="work-role" data-i18n="dlr-role">Intern, Working Student, Master's Thesis, Research Associate (Wissenschaftlicher Mitarbeiter)</h3>
-        <p class="work-period">09/2023 – 12/2025</p>
+        <h3 class="work-role" data-i18n="dlr-role">Intern, Master's Thesis, Working Student, Research Associate (Wissenschaftlicher Mitarbeiter)</h3>
+        <p class="work-period">10/2023 – 12/2025</p>
         <ul class="work-bullets">
           <li data-i18n="dlr-b1"><strong>Modelling:</strong> to give DLR a digital twin of an AWE cell, I built a transient 1D single-cell model in Dymola/Modelica that couples electrochemical, two-phase and thermal equations from published sources, then extended it into a high-pressure stack model.</li>
-          <li data-i18n="dlr-b2"><strong>Validation:</strong> to cover the low-load regime, where reduced gas dilution is the main safety risk, I validated the gas-purity model against test-rig data at three electrolyte flow rates in mixed and separated circulation. Deviation from measured H<sub>2</sub>-in-O<sub>2</sub> impurity stayed <strong>under 5%</strong>.</li>
-          <li data-i18n="dlr-b3"><strong>Gas crossover:</strong> to improve solubility predictions under pressure, I added a fugacity correction for non-ideal gas behaviour and validated the de Groot supersaturation correlation against literature and DLR test-bench data across <strong>1–20 bar and 60–80 °C</strong>.</li>
+          <li data-i18n="dlr-b2"><strong>Gas purity:</strong> to cover the low-load regime, where reduced gas dilution is the main safety risk, I modelled H<sub>2</sub>-in-O<sub>2</sub> impurity for mixed and separated electrolyte circulation and validated the model against test-bench measurements.</li>
+          <li data-i18n="dlr-b3"><strong>Gas crossover:</strong> to improve solubility predictions under pressure, I added a fugacity correction for non-ideal gas behaviour and implemented the de Groot supersaturation correlation, checked against literature data.</li>
           <li data-i18n="dlr-b4"><strong>Integration:</strong> for plant-level KPI assessment, I built a hybrid gas-crossover model (empirical correlations plus data-driven corrections) and integrated it into TEMPEST, DLR's in-house system-level electrochemical simulation platform.</li>
-          <li data-i18n="dlr-b5"><strong>Power electronics:</strong> to replace a single fixed-efficiency assumption, I rebuilt the converter loss model with literature-based peak-efficiency correlations for <strong>MOSFET (97.1%) and GaNFET (98.8%)</strong> converters, for more realistic system-level efficiency predictions.</li>
+          <li data-i18n="dlr-b5"><strong>Power electronics:</strong> to replace a single fixed-efficiency assumption, I rebuilt the converter loss model with literature-based peak-efficiency correlations for MOSFET and GaNFET converters, for more realistic system-level efficiency predictions.</li>
           <li data-i18n="dlr-b6"><strong>Control:</strong> for operation under fluctuating renewable load, I developed multi-loop PID control strategies that keep gas purity within safety limits, driven by synthetic ARMA-based wind and PV load profiles I generated in Python.</li>
           <li data-i18n="dlr-b7"><strong>Thermal:</strong> to calibrate the Nusselt-number correlations in the thermal stack model, I ran conjugate-heat-transfer CFD in OpenFOAM (chtMultiRegionFoam) of the endplate cooling-channel flow.</li>
-          <li data-i18n="dlr-b8"><strong>Test benches:</strong> contributed to the development and commissioning of two AWE test benches (50 bar and 5 bar), including P&amp;ID, instrumentation and safety checks, and supported the measurements and data analysis used for model calibration.</li>
+          <li data-i18n="dlr-b8"><strong>Test benches:</strong> supported the team on two AWE test benches: helped with P&amp;ID diagrams and equipment setup, analysed experiments and helped with evaluation scripts.</li>
         </ul>
         <div class="work-meta">
           <div>
@@ -282,12 +282,11 @@
 
       <article class="work-card">
         <p class="work-org-tag" data-i18n="gmr-org">GMR Group · Hyderabad, India</p>
-        <h3 class="work-role">Graduate Engineer Trainee, Junior Engineer</h3>
-        <p class="work-period">2019 – 03/2021</p>
+        <h3 class="work-role" data-i18n="gmr-role">Graduate Engineer Trainee – Enforcement Officer, Airside Operations</h3>
+        <p class="work-period">07/2019 – 03/2021</p>
         <ul class="work-bullets">
-          <li data-i18n="gmr-b1">Rotated across GMR Group sites: Hyderabad airport (GHIAL), Delhi airport and the Bajoli Holi hydropower plant, then under construction.</li>
-          <li data-i18n="gmr-b2">Contributed to HVAC, chiller and fire-system commissioning.</li>
-          <li data-i18n="gmr-b3">Then Junior Engineer in Airside Operations at Hyderabad airport (GHIAL).</li>
+          <li data-i18n="gmr-b1">Cross-functional training across GMR Group businesses, including a site visit to the Bajoli Holi hydropower project, then under construction.</li>
+          <li data-i18n="gmr-b3">Then Enforcement Officer in Airside Operations at Hyderabad airport (GHIAL), with multiple “Golden Card” awards for emergency handling.</li>
         </ul>
       </article>
 
@@ -315,34 +314,16 @@
     <div class="projects-grid">
 
       <article class="proj-card">
-        <div class="proj-thumb"><img src="images/systemTest.png" width="891" height="512" loading="lazy" alt="Dymola diagram of the electrolyzer system model: cell with power electronics, hydrogen and oxygen gas separators, pressure elements, mixer and electrolyte loop" data-i18n-alt="alt-thesis"></div>
+        <div class="proj-thumb" aria-hidden="true"><span class="proj-thumb-text">AWE</span></div>
         <div class="proj-body">
           <p class="proj-type" data-i18n="proj1-type">Master's thesis · MPI Magdeburg &amp; DLR Stuttgart</p>
           <h3 class="proj-name" data-i18n="proj1-name">Transient Modelling of an Alkaline Water Electrolyzer</h3>
-          <p class="proj-desc" data-i18n="proj1-desc">To validate a two-phase electrolyte model, I built a transient single-cell AWE model in Dymola/Modelica and compared it with DLR test-rig data at three electrolyte flow rates. Predicted H<sub>2</sub>-in-O<sub>2</sub> impurity stayed <strong>within 5%</strong> of the measurements.</p>
+          <p class="proj-desc" data-i18n="proj1-desc">To test a two-phase electrolyte model, I built a transient single-cell AWE model in Dymola/Modelica that couples electrochemistry, two-phase flow and gas crossover, and validated its gas-purity predictions against test-bench measurements.</p>
           <ul class="proj-tags"><li class="proj-tag">Dymola</li><li class="proj-tag">Modelica</li><li class="proj-tag">AWE</li><li class="proj-tag" data-i18n="skill-twophase">Two-phase flow</li></ul>
         </div>
       </article>
 
-      <article class="proj-card">
-        <div class="proj-thumb" aria-hidden="true"><span class="proj-thumb-text">ISCC</span></div>
-        <div class="proj-body">
-          <p class="proj-type" data-i18n="proj2-type">Energy systems · Exergoeconomics</p>
-          <h3 class="proj-name" data-i18n="proj2-name">Exergoeconomic Optimisation of a 210 MW ISCC Power Plant</h3>
-          <p class="proj-desc" data-i18n="proj2-desc">To lower the cost of electricity from an integrated solar combined-cycle plant, I applied the Total Revenue Requirement method and optimised five decision variables in iterative runs. Natural gas use fell by <strong>6.2%</strong> and the exergy-based levelised cost of electricity dropped from <strong>93.41 to 90.07 €/MWh</strong>.</p>
-          <ul class="proj-tags"><li class="proj-tag" data-i18n="tag-exergy">Exergy analysis</li><li class="proj-tag" data-i18n="tag-trr">TRR method</li><li class="proj-tag" data-i18n="tag-opt">Optimisation</li></ul>
-        </div>
-      </article>
 
-      <article class="proj-card">
-        <div class="proj-thumb" aria-hidden="true"><span class="proj-thumb-text">PINN</span></div>
-        <div class="proj-body">
-          <p class="proj-type" data-i18n="proj3-type">Applied machine learning · since 02/2026</p>
-          <h3 class="proj-name" data-i18n="proj3-name">Physics-Informed Neural Network for Battery State-of-Health</h3>
-          <p class="proj-desc" data-i18n="proj3-desc">To predict ageing of large-format LFP cells that the model has not seen in training, I am building a PINN in PyTorch that couples a shared MLP with learnable cell embeddings to a Single-Particle-Model ageing model. It predicts capacity zero-shot on held-out cells and forecasts the rest of a cell's trajectory from <strong>70% of its history</strong>, evaluated with RMSE, R² and MAPE.</p>
-          <ul class="proj-tags"><li class="proj-tag">PyTorch</li><li class="proj-tag">PINN</li><li class="proj-tag">Single-Particle Model</li></ul>
-        </div>
-      </article>
 
       <article class="proj-card">
         <div class="proj-thumb"><img src="images/georec.png" width="1129" height="531" loading="lazy" alt="Simulation domain for the natural-convection case: a cubic domain with two small rectangular heating plates at its centre" data-i18n-alt="alt-convection"></div>
@@ -457,16 +438,16 @@ const de = {
 
   'hero-eyebrow': 'Stuttgart, Deutschland',
   'hero-role': 'Simulationsingenieur, alkalische Wasserelektrolyse',
-  'hero-summary': 'Zwei Jahre war ich am DLR-Institut für Technische Thermodynamik in Stuttgart, vom Praktikanten bis zum Wissenschaftlichen Mitarbeiter. Dort habe ich transiente <strong>Dymola/Modelica</strong>-Modelle alkalischer Elektrolysezellen und -stacks aufgebaut und mit Prüfstandsdaten validiert, mit <strong>unter 5 % Abweichung</strong> bei der H<sub>2</sub>-in-O<sub>2</sub>-Verunreinigung. Außerdem habe ich thermische Studien in <strong>OpenFOAM</strong> durchgeführt und mehrschleifige <strong>PID-Regelungen</strong> für schwankende erneuerbare Last entworfen. M.Sc. Chemical and Energy Engineering, Note 1,9.',
+  'hero-summary': 'Zwei Jahre war ich am DLR-Institut für Technische Thermodynamik in Stuttgart, vom Praktikanten bis zum Wissenschaftlichen Mitarbeiter. Dort habe ich transiente <strong>Dymola/Modelica</strong>-Modelle alkalischer Elektrolysezellen und -stacks aufgebaut, mit Schwerpunkt auf der Gasreinheit (H<sub>2</sub>-in-O<sub>2</sub>-Verunreinigung), und sie mit Prüfstandsmessungen validiert. Außerdem habe ich thermische Studien in <strong>OpenFOAM</strong> durchgeführt und mehrschleifige <strong>PID-Regelungen</strong> für schwankende erneuerbare Last entworfen. M.Sc. Chemical and Energy Engineering, Note 1,9.',
   'hero-contact': 'Kontakt aufnehmen',
   'hero-target': 'Ich suche Stellen in Simulation und Modellierung für Wasserstoff- und Energiesysteme in Deutschland.',
   'alt-hero': 'Porträt von Sasikanth Vadde an seinem Schreibtisch im Büro',
 
   'about-label': 'Über mich',
   'about-text': 'Ich arbeite an der Schnittstelle von Elektrochemie und Systemsimulation. Ich kombiniere veröffentlichte Korrelationen zu einem konsistenten Modell, prüfe jede neue Gleichung zuerst einzeln in Python an einem stationären Fall und übernehme sie erst dann in das Dymola-Modell. Am Ende steht die Validierung mit Messdaten. Deckt sie einen Fehler auf, suche ich die Ursache, etwa eine Dichtekorrelation, die statt des KOH-Molenbruchs die falsche Zusammensetzungsgröße verwendete.',
-  'stat-num-1': '&lt;5 %',
-  'stat-label-1': 'Abweichung H<sub>2</sub> in O<sub>2</sub> zum Prüfstand',
-  'stat-label-2': 'Crossover-Modell validiert',
+  'stat-num-1': '2 J.',
+  'stat-label-1': 'Elektrolyseforschung am DLR',
+  'stat-label-2': 'Deutsch, auf dem Weg zu B2',
   'stat-num-3': '1,9',
   'stat-label-3': 'M.Sc.-Note',
   'skills-title-1': 'Kernkompetenzen',
@@ -481,15 +462,15 @@ const de = {
 
   'work-label': 'Berufserfahrung',
   'dlr-org': 'DLR (Deutsches Zentrum für Luft- und Raumfahrt), Institut für Technische Thermodynamik · Stuttgart',
-  'dlr-role': 'Praktikant, Werkstudent, Masterand, Wissenschaftlicher Mitarbeiter',
+  'dlr-role': 'Praktikant, Masterand, Werkstudent, Wissenschaftlicher Mitarbeiter',
   'dlr-b1': '<strong>Modellierung:</strong> Für einen digitalen Zwilling einer AWE-Zelle habe ich in Dymola/Modelica ein transientes 1D-Einzelzellmodell aufgebaut, das elektrochemische, zweiphasige und thermische Gleichungen aus veröffentlichten Quellen koppelt, und es zu einem Hochdruck-Stackmodell erweitert.',
-  'dlr-b2': '<strong>Validierung:</strong> Für den Teillastbereich, in dem geringere Gasverdünnung das größte Sicherheitsrisiko ist, habe ich das Gasreinheitsmodell mit Prüfstandsdaten bei drei Elektrolytvolumenströmen in gemischter und getrennter Zirkulation validiert. Die Abweichung zur gemessenen H<sub>2</sub>-in-O<sub>2</sub>-Verunreinigung blieb <strong>unter 5 %</strong>.',
-  'dlr-b3': '<strong>Gas-Crossover:</strong> Für bessere Löslichkeitsvorhersagen unter Druck habe ich eine Fugazitätskorrektur für nichtideales Gasverhalten ergänzt und die Übersättigungskorrelation nach de Groot mit Literatur- und DLR-Prüfstandsdaten im Bereich <strong>1–20 bar und 60–80 °C</strong> validiert.',
+  'dlr-b2': '<strong>Gasreinheit:</strong> Für den Teillastbereich, in dem geringere Gasverdünnung das größte Sicherheitsrisiko ist, habe ich die H<sub>2</sub>-in-O<sub>2</sub>-Verunreinigung für gemischte und getrennte Elektrolytzirkulation modelliert und das Modell mit Prüfstandsmessungen validiert.',
+  'dlr-b3': '<strong>Gas-Crossover:</strong> Für bessere Löslichkeitsvorhersagen unter Druck habe ich eine Fugazitätskorrektur für nichtideales Gasverhalten ergänzt und die Übersättigungskorrelation nach de Groot implementiert und mit Literaturdaten abgeglichen.',
   'dlr-b4': '<strong>Integration:</strong> Für die Bewertung von Anlagenkennzahlen habe ich ein hybrides Gas-Crossover-Modell (empirische Korrelationen plus datengetriebene Korrekturen) aufgebaut und in TEMPEST integriert, die hauseigene elektrochemische Systemsimulationsplattform des DLR.',
-  'dlr-b5': '<strong>Leistungselektronik:</strong> Um eine pauschale Wirkungsgradannahme zu ersetzen, habe ich das Umrichter-Verlustmodell mit literaturbasierten Korrelationen für den Spitzenwirkungsgrad von <strong>MOSFET- (97,1 %) und GaNFET-Wandlern (98,8 %)</strong> neu aufgebaut, für realistischere Wirkungsgradvorhersagen auf Systemebene.',
+  'dlr-b5': '<strong>Leistungselektronik:</strong> Um eine pauschale Wirkungsgradannahme zu ersetzen, habe ich das Umrichter-Verlustmodell mit literaturbasierten Korrelationen für den Spitzenwirkungsgrad von MOSFET- und GaNFET-Wandlern neu aufgebaut, für realistischere Wirkungsgradvorhersagen auf Systemebene.',
   'dlr-b6': '<strong>Regelung:</strong> Für den Betrieb bei schwankender erneuerbarer Last habe ich mehrschleifige PID-Regelstrategien entwickelt, die die Gasreinheit innerhalb der Sicherheitsgrenzen halten. Als Eingang dienten synthetische, ARMA-basierte Wind- und PV-Lastprofile, die ich in Python erzeugt habe.',
   'dlr-b7': '<strong>Thermik:</strong> Zur Kalibrierung der Nusselt-Korrelationen im thermischen Stackmodell habe ich CFD-Simulationen mit konjugierter Wärmeübertragung in OpenFOAM (chtMultiRegionFoam) für die Kühlkanalströmung der Endplatte durchgeführt.',
-  'dlr-b8': '<strong>Prüfstände:</strong> Mitarbeit an Entwicklung und Inbetriebnahme von zwei AWE-Prüfständen (50 bar und 5 bar), einschließlich R&amp;I-Fließbild, Instrumentierung und Sicherheitsprüfungen, sowie Unterstützung bei Messungen und Datenauswertung für die Modellkalibrierung.',
+  'dlr-b8': '<strong>Prüfstände:</strong> Unterstützung des Teams an zwei AWE-Prüfständen: Mithilfe bei R&amp;I-Fließbildern und beim Aufbau der Geräte, Auswertung von Versuchen und Mithilfe bei Auswerteskripten.',
   'meta-label-tools': 'Werkzeuge',
   'meta-label-domain': 'Fachgebiet',
   'dlr-domain': 'Alkalische Wasserelektrolyse',
@@ -498,28 +479,18 @@ const de = {
   'ovgu-b1': 'Um die Blasendynamik in einer Wirbelschicht zu erfassen, habe ich eine Python/OpenCV-Pipeline aufgebaut, die Blasen in Bilddaten aus Versuchen mit sinusförmiger Luftströmung erkennt und verfolgt.',
   'ovgu-b2': 'Wirbelschichtversuche bei variierenden Einlassdrücken durchgeführt und den Datensatz zur Kalibrierung eines Trocknungsprozessmodells ausgewertet.',
   'gmr-org': 'GMR Group · Hyderabad, Indien',
-  'gmr-b1': 'Rotation über mehrere Standorte der GMR Group: Flughafen Hyderabad (GHIAL), Flughafen Delhi und das damals im Bau befindliche Wasserkraftwerk Bajoli Holi.',
-  'gmr-b2': 'Mitarbeit an der Inbetriebnahme von HLK-, Kälte- und Brandschutzanlagen.',
-  'gmr-b3': 'Danach Junior Engineer im Bereich Airside Operations am Flughafen Hyderabad (GHIAL).',
+  'gmr-role': 'Graduate Engineer Trainee – Enforcement Officer, Airside Operations',
+  'gmr-b1': 'Bereichsübergreifende Ausbildung in mehreren Geschäftsfeldern der GMR Group, unter anderem mit einem Besuch des damals im Bau befindlichen Wasserkraftprojekts Bajoli Holi.',
+  'gmr-b3': 'Danach Enforcement Officer im Bereich Airside Operations am Flughafen Hyderabad (GHIAL), mehrfach mit dem „Golden Card“-Award für den Umgang mit Notfällen ausgezeichnet.',
   'hal-org': 'Hindustan Aeronautics Limited (HAL) · Koraput, Indien',
   'hal-role': 'Praktikum über ein ganzes Semester',
   'hal-b1': 'Zur Bewertung von Prozessstabilität und Maßtoleranzen habe ich Fertigungs-, Prüf- und Ermüdungstestabläufe für Turbinenschaufeln des AL-31FP (Sukhoi-Triebwerk) mit statistischer Prozesslenkung (X-quer- und S-Karten) analysiert.',
 
   'proj-label': 'Projekte',
   'proj-cta': 'Kontakt aufnehmen ↗',
-  'alt-thesis': 'Dymola-Diagramm des Elektrolyseur-Systemmodells: Zelle mit Leistungselektronik, Wasserstoff- und Sauerstoffabscheider, Druckelemente, Mischer und Elektrolytkreislauf',
   'proj1-type': 'Masterarbeit · MPI Magdeburg &amp; DLR Stuttgart',
   'proj1-name': 'Transiente Modellierung eines alkalischen Wasserelektrolyseurs',
-  'proj1-desc': 'Um ein Zweiphasen-Elektrolytmodell zu validieren, habe ich ein transientes AWE-Einzelzellmodell in Dymola/Modelica aufgebaut und mit DLR-Prüfstandsdaten bei drei Elektrolytvolumenströmen verglichen. Die berechnete H<sub>2</sub>-in-O<sub>2</sub>-Verunreinigung lag <strong>innerhalb von 5 %</strong> der Messwerte.',
-  'proj2-type': 'Energiesysteme · Exergoökonomie',
-  'proj2-name': 'Exergoökonomische Optimierung eines 210-MW-ISCC-Kraftwerks',
-  'proj2-desc': 'Um die Stromgestehungskosten eines GuD-Kraftwerks mit integrierter Solarthermie (ISCC) zu senken, habe ich die Total-Revenue-Requirement-Methode angewendet und fünf Entscheidungsvariablen iterativ optimiert. Der Erdgasverbrauch sank um <strong>6,2 %</strong>, die exergiebasierten Stromgestehungskosten fielen von <strong>93,41 auf 90,07 €/MWh</strong>.',
-  'tag-exergy': 'Exergieanalyse',
-  'tag-trr': 'TRR-Methode',
-  'tag-opt': 'Optimierung',
-  'proj3-type': 'Angewandtes maschinelles Lernen · seit 02/2026',
-  'proj3-name': 'Physikinformiertes neuronales Netz für den Batterie-Gesundheitszustand',
-  'proj3-desc': 'Um die Alterung großformatiger LFP-Zellen vorherzusagen, die das Modell im Training nicht gesehen hat, entwickle ich in PyTorch ein PINN, das ein gemeinsames MLP mit lernbaren Zell-Embeddings an ein Single-Particle-Alterungsmodell koppelt. Es sagt die Kapazität nicht trainierter Zellen zero-shot voraus und prognostiziert den weiteren Verlauf einer Zelle aus <strong>70 % ihrer Historie</strong>, bewertet mit RMSE, R² und MAPE.',
+  'proj1-desc': 'Um ein Zweiphasen-Elektrolytmodell zu prüfen, habe ich ein transientes AWE-Einzelzellmodell in Dymola/Modelica aufgebaut, das Elektrochemie, Zweiphasenströmung und Gas-Crossover koppelt, und seine Gasreinheitsvorhersagen mit Prüfstandsmessungen validiert.',
   'alt-convection': 'Simulationsgebiet für den Naturkonvektionsfall: ein würfelförmiges Gebiet mit zwei kleinen rechteckigen Heizplatten in der Mitte',
   'proj4-name': 'Naturkonvektion an Heizelementen',
   'proj4-desc': 'Um auftriebsgetriebene Wärmeübertragung zu untersuchen, habe ich die Naturkonvektion an rechteckigen Heizelementen mit dem OpenFOAM-Löser buoyantPimpleFoam simuliert und geprüft, wie Netzauflösung und Randbedingungen das Ergebnis verändern.',
