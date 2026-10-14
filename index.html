@@ -40,7 +40,8 @@
   /* HERO */
   .hero { background: radial-gradient(ellipse 60% 60% at 30% 20%, #2e3028 0%, var(--dark) 70%); padding: 4.5rem 3rem 4rem; }
   .hero-inner { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 3rem; align-items: center; }
-  .hero-eyebrow { font-family: 'Syne', sans-serif; font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cream-soft); margin-bottom: 0.8rem; }
+  .hero-eyebrow { font-family: 'Syne', sans-serif; font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cream); margin-bottom: 0.8rem; display: inline-flex; align-items: center; gap: 0.5rem; border: 1px solid rgba(245,240,232,0.35); border-radius: 999px; padding: 0.35rem 0.85rem; }
+  .hero-eyebrow::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: #5cc070; flex-shrink: 0; }
   .hero h1 { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: clamp(3.5rem, 9vw, 7.5rem); line-height: 0.9; color: var(--cream); letter-spacing: -0.005em; }
   .hero h1 span { color: var(--orange); }
   .hero-role { font-family: 'Syne', sans-serif; font-weight: 700; font-size: clamp(1.1rem, 2.2vw, 1.5rem); line-height: 1.3; letter-spacing: -0.01em; color: var(--cream); margin: 1rem 0 1.2rem; }
@@ -68,9 +69,10 @@
   /* EXPERIENCE */
   .work { background: var(--dark2); padding: 5.5rem 3rem; }
   .work .section-label { color: var(--cream); }
-  .work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
-  .work-card { background: rgba(245,240,232,0.04); border: 1px solid rgba(245,240,232,0.12); border-radius: 4px; padding: 2rem; }
-  .work-card.featured { grid-column: 1 / -1; }
+  .work-grid { display: grid; gap: 1.5rem; margin-top: 2.5rem; }
+  .work-card { background: rgba(245,240,232,0.04); border: 1px solid rgba(245,240,232,0.12); border-radius: 4px; padding: 2rem; display: grid; grid-template-columns: 5rem 1fr; column-gap: 2rem; align-items: start; }
+  .work-card > * { grid-column: 2; }
+  .work-card > .work-period { grid-column: 1; grid-row: 1 / span 6; margin: 0; padding-top: 0.15rem; line-height: 1.6; }
   .work-org-tag { font-family: 'Syne', sans-serif; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange-on-dark); margin-bottom: 0.6rem; font-weight: 700; line-height: 1.5; }
   .work-role { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 1.45rem; color: var(--cream); margin-bottom: 0.4rem; line-height: 1.25; letter-spacing: -0.01em; }
   .work-period { font-family: 'Syne', sans-serif; font-size: 0.8rem; color: var(--cream-soft); letter-spacing: 0.08em; margin-bottom: 1.2rem; }
@@ -117,6 +119,8 @@
   .cta-headline { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: clamp(3rem, 6vw, 5.5rem); line-height: 0.9; color: var(--cream); margin-bottom: 1.5rem; letter-spacing: -0.005em; }
   .cta-headline span { color: var(--orange); }
   .cta-sub { font-size: 0.95rem; color: var(--cream-soft); line-height: 1.7; max-width: 440px; margin-bottom: 2rem; }
+  .cta-target { font-size: 0.95rem; line-height: 1.6; color: var(--orange-on-dark); max-width: 440px; margin-bottom: 1rem; }
+  .cta-footer .btn { margin-bottom: 1.5rem; }
   .cta-links { display: flex; flex-direction: column; gap: 0.6rem; }
   .cta-link-row { display: flex; align-items: center; gap: 0.9rem; min-height: 44px; color: var(--cream-soft); font-family: 'Syne', sans-serif; font-size: 0.9rem; font-weight: 600; text-decoration: none; overflow-wrap: anywhere; }
   .cta-link-row:hover { color: var(--cream); }
@@ -128,7 +132,8 @@
     .hero, .about, .work, .projects, .education, .cta-footer { padding: 3.5rem 1rem; }
     .hero-inner, .about-inner, .cta-inner { grid-template-columns: 1fr; gap: 2.5rem; }
     .hero-photo { justify-self: start; max-width: 260px; }
-    .work-card { padding: 1.4rem; }
+    .work-card { padding: 1.4rem; display: block; }
+    .work-card > .work-period { margin-bottom: 1.2rem; }
   }
   @media (max-width: 600px) {
     .stats-row { grid-template-columns: 1fr; }
@@ -176,7 +181,7 @@
 <section class="hero" aria-labelledby="hero-name">
   <div class="wrap hero-inner">
     <div>
-      <p class="hero-eyebrow" data-i18n="hero-eyebrow">Stuttgart, Germany</p>
+      <p class="hero-eyebrow" data-i18n="hero-eyebrow">Open to work</p>
       <h1 id="hero-name">Sasikanth <span>Vadde</span></h1>
       <p class="hero-role" data-i18n="hero-role">Simulation, Process &amp; Test Engineer – Electrolysis &amp; Energy Systems</p>
       <p class="hero-summary" data-i18n="hero-summary">I spent two years at DLR's Institute of Engineering Thermodynamics in Stuttgart and moved from intern to Research Associate. There I built transient <strong>Dymola/Modelica</strong> models of alkaline electrolysis cells and stacks, with a focus on gas purity (H<sub>2</sub>-in-O<sub>2</sub> impurity), and validated them against test-bench measurements. I also ran <strong>OpenFOAM</strong> thermal studies and designed multi-loop <strong>PID control</strong> for fluctuating renewable load. M.Sc. Chemical and Energy Engineering, grade 1.9.</p>
@@ -212,18 +217,24 @@
       </div>
     </div>
     <div>
-      <h3 class="skills-title" data-i18n="skills-title-1">Core skills</h3>
+      <h3 class="skills-title" data-i18n="skills-sim">Simulation &amp; CFD</h3>
       <ul class="skill-tags">
         <li class="skill-tag highlight">Dymola / Modelica</li>
         <li class="skill-tag highlight" data-i18n="skill-electrochemical">Electrochemical modelling</li>
-        <li class="skill-tag">Python · PyTorch</li>
-        <li class="skill-tag">MATLAB / Simulink</li>
         <li class="skill-tag">OpenFOAM</li>
         <li class="skill-tag">STAR-CCM+</li>
-        <li class="skill-tag">Aspen Plus</li>
-        <li class="skill-tag">Git</li>
         <li class="skill-tag" data-i18n="skill-twophase">Two-phase flow</li>
+      </ul>
+      <h3 class="skills-title" data-i18n="skills-proc">Process &amp; control</h3>
+      <ul class="skill-tags">
+        <li class="skill-tag">Aspen Plus</li>
+        <li class="skill-tag">MATLAB / Simulink</li>
         <li class="skill-tag" data-i18n="skill-pid">PID control</li>
+      </ul>
+      <h3 class="skills-title" data-i18n="skills-prog">Programming &amp; tools</h3>
+      <ul class="skill-tags">
+        <li class="skill-tag">Python · PyTorch</li>
+        <li class="skill-tag">Git</li>
       </ul>
       <h3 class="skills-title" data-i18n="skills-title-2">Languages</h3>
       <ul class="skill-tags">
@@ -390,7 +401,9 @@
   <div class="wrap cta-inner">
     <div>
       <h2 class="cta-headline" data-i18n="cta-headline">Let's<br><span>Talk</span></h2>
-      <p class="cta-sub" data-i18n="cta-sub">I'm based in Stuttgart and open to simulation, process and test engineering roles in electrolysis and energy systems. Email reaches me fastest.</p>
+      <p class="cta-target" data-i18n="cta-target">Looking for simulation, process or test engineering roles in electrolysis and energy systems. German B1, working toward B2.</p>
+      <p class="cta-sub" data-i18n="cta-sub">I'm based in Stuttgart. Email reaches me fastest.</p>
+      <a href="Sasikanth-Vadde-CV.pdf" class="btn btn-primary" data-i18n="cv-download">Download CV (PDF)</a>
       <div class="cta-links">
         <a href="mailto:vaddesasikanth@gmail.com" class="cta-link-row">
           <span class="cta-link-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg></span>
@@ -440,7 +453,7 @@ const de = {
   'nav-contact': 'Kontakt',
   'cv-download': 'Lebenslauf herunterladen (PDF)',
 
-  'hero-eyebrow': 'Stuttgart, Deutschland',
+  'hero-eyebrow': 'Offen für neue Stellen',
   'hero-role': 'Simulations-, Prozess- &amp; Versuchsingenieur – Elektrolyse &amp; Energiesysteme',
   'hero-summary': 'Zwei Jahre war ich am DLR-Institut für Technische Thermodynamik in Stuttgart, vom Praktikanten bis zum Wissenschaftlichen Mitarbeiter. Dort habe ich transiente <strong>Dymola/Modelica</strong>-Modelle alkalischer Elektrolysezellen und -stacks aufgebaut, mit Schwerpunkt auf der Gasreinheit (H<sub>2</sub>-in-O<sub>2</sub>-Verunreinigung), und sie mit Prüfstandsmessungen validiert. Außerdem habe ich thermische Studien in <strong>OpenFOAM</strong> durchgeführt und mehrschleifige <strong>PID-Regelungen</strong> für schwankende erneuerbare Last entworfen. M.Sc. Chemical and Energy Engineering, Note 1,9.',
   'hero-contact': 'Kontakt aufnehmen',
@@ -454,7 +467,9 @@ const de = {
   'stat-label-2': 'Deutsch, auf dem Weg zu B2',
   'stat-num-3': '1,9',
   'stat-label-3': 'M.Sc.-Note',
-  'skills-title-1': 'Kernkompetenzen',
+  'skills-sim': 'Simulation &amp; CFD',
+  'skills-proc': 'Prozess &amp; Regelung',
+  'skills-prog': 'Programmierung &amp; Werkzeuge',
   'skills-title-2': 'Sprachen',
   'skill-electrochemical': 'Elektrochemische Modellierung',
   'skill-twophase': 'Zweiphasenströmung',
@@ -521,7 +536,8 @@ const de = {
   'edu2-focus': 'Schwerpunkte: Thermodynamik und Wärmeübertragung, Strömungsmechanik und hydraulische Maschinen, Finite-Elemente-Methoden, Kraftwerkstechnik und Energiesysteme.',
 
   'cta-headline': 'Sprechen<br><span>wir</span>',
-  'cta-sub': 'Ich wohne in Stuttgart und bin offen für Stellen in Simulation, Verfahrenstechnik und Versuch rund um Elektrolyse und Energiesysteme. Per E-Mail erreichen Sie mich am schnellsten.',
+  'cta-target': 'Ich suche Stellen in Simulation, Verfahrenstechnik oder Versuch für Elektrolyse und Energiesysteme. Deutsch B1, auf dem Weg zu B2.',
+  'cta-sub': 'Ich wohne in Stuttgart. Per E-Mail erreichen Sie mich am schnellsten.',
   'alt-contact': 'Sasikanth Vadde lehnt am Schriftzug der Otto-von-Guericke-Universität in Magdeburg',
   'footer-email': 'E-Mail',
   'footer-privacy': 'Datenschutz',
